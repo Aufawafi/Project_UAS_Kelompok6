@@ -14,7 +14,7 @@ Website tutorial interaktif untuk mata kuliah Pengantar Pemrograman Web 1
 
 ## 🌐 Live Demo
 
-🔗 **Website URL will be added here after deployment**
+🔗 [Visit Website](https://aufawafi.github.io/Project_UAS_Kelompok6/)
 
 ## 🛠️ Teknologi
 
@@ -50,12 +50,114 @@ Website tutorial interaktif untuk mata kuliah Pengantar Pemrograman Web 1
 1. Clone repository:
 
    ```bash
-   git clone https://github.com/YOUR-USERNAME/webprog6-tutorial.git
+   git clone https://github.com/aufawafi/Project_UAS_Kelompok6.git
    ```
 
 2. Buka `index.html` di browser favorit Anda
 
 3. Atau gunakan Live Server di VS Code
+
+## 👥 Panduan Kolaborasi untuk Tim
+
+Ikuti langkah-langkah ini untuk mulai berkontribusi di project:
+
+### 1️⃣ Setup Awal (Hanya Sekali)
+
+#### a. Install Git
+
+- Download dari [git-scm.com](https://git-scm.com/downloads)
+- Install dengan setting default
+
+#### b. Konfigurasi Git
+
+```bash
+git config --global user.name "Nama Kamu"
+git config --global user.email "email@kamu.com"
+```
+
+#### c. Clone Repository
+
+```bash
+# Clone project
+git clone https://github.com/aufawafi/Project_UAS_Kelompok6.git
+cd Project_UAS_Kelompok6
+```
+
+✅ **Setup selesai!** Sekarang kamu punya copy lengkap project.
+
+---
+
+#### 2️⃣ Workflow Sehari-hari
+
+**SETIAP KALI** mau kerja di project:
+
+##### Step 1: Update Dulu
+
+```bash
+git pull origin main
+```
+
+⚠️ **PENTING:** Selalu pull dulu sebelum mulai coding!
+
+##### Step 2: Buat Perubahan
+
+- Edit file yang perlu diubah
+- Test di browser
+- Pastikan berjalan baik
+
+##### Step 3: Save Changes
+
+```bash
+git add .
+git commit -m "Deskripsi singkat perubahan"
+```
+
+**Contoh commit message:**
+
+- `git commit -m "Update bab3.html: tambah contoh flexbox"`
+- `git commit -m "Fix typo di about.html"`
+
+##### Step 4: Push ke GitHub
+
+```bash
+git pull origin main  # Safety check
+git push origin main
+```
+
+🎉 **Done!** Changes sudah online!
+
+---
+
+#### 3️⃣ Best Practices
+
+✅ **DO:**
+
+- Selalu `git pull` sebelum mulai kerja
+- Test di browser sebelum push
+- Tulis commit message yang jelas
+- Komunikasi dengan team
+
+❌ **DON'T:**
+
+- Push tanpa pull dulu
+- Edit file sama bersamaan
+- Push code yang error
+
+---
+
+#### 4️⃣ Quick Commands
+
+| Command                | Fungsi             |
+| ---------------------- | ------------------ |
+| `git pull origin main` | Get latest changes |
+| `git add .`            | Stage changes      |
+| `git commit -m "msg"`  | Commit changes     |
+| `git push origin main` | Upload ke GitHub   |
+| `git status`           | Lihat status       |
+
+### 🆘 Need Help?
+
+Just Call Me!
 
 ## 📂 Struktur Project
 
