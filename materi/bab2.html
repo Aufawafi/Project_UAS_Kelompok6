@@ -1,0 +1,877 @@
+<!DOCTYPE html>
+<html lang="id">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Bab II - Struktur Dasar & Elemen HTML5</title>
+    <link rel="stylesheet" href="../css/style.css" />
+  </head>
+  <body>
+    <!-- Navbar -->
+    <nav class="navbar">
+      <div class="logo">WebProg<span>6</span></div>
+      <ul class="nav-links">
+        <li><a href="../index.html">Home</a></li>
+        <li><a href="../about.html">Tentang</a></li>
+        <li class="dropdown">
+          <a href="#" class="active">Materi ▾</a>
+          <ul class="dropdown-content">
+            <li><a href="bab1.html">Bab 1: Pendahuluan</a></li>
+            <li><a href="bab2.html">Bab 2: HTML5</a></li>
+            <li><a href="bab3.html">Bab 3: CSS3</a></li>
+            <li><a href="bab4.html">Bab 4: JavaScript</a></li>
+            <li><a href="bab5.html">Bab 5: DOM</a></li>
+            <li><a href="bab6.html">Bab 6: Responsive</a></li>
+            <li><a href="bab7.html">Bab 7: Integrasi</a></li>
+            <li><a href="bab8.html">Bab 8: Proyek</a></li>
+            <li><a href="bab9.html">Bab 9: Tren Web</a></li>
+          </ul>
+        </li>
+        <li><a href="../contact.html">Kontak</a></li>
+      </ul>
+      <div class="hamburger"><span></span><span></span><span></span></div>
+    </nav>
+
+    <div class="container">
+      <div class="row">
+        <!-- Sidebar Navigation -->
+        <aside class="col-left">
+          <h3>Daftar Isi Bab II</h3>
+          <ul>
+            <li><a href="#section21">2.1 Struktur Dasar Dokumen HTML</a></li>
+            <li><a href="#section22">2.2 Elemen dan Tag Penting</a></li>
+            <li><a href="#section23">2.3 Elemen Semantik HTML</a></li>
+            <li><a href="#section24">2.4 Formulir dan Input Modern</a></li>
+            <li>
+              <a href="#section25">2.5 Multimedia (Audio, Video, Canvas)</a>
+            </li>
+          </ul>
+        </aside>
+
+        <!-- Main Content -->
+        <main class="col-right">
+          <h1>BAB II<br />STRUKTUR DASAR & ELEMEN HTML5</h1>
+
+          <hr class="section-divider" />
+
+          <!-- 2.1 Struktur Dasar -->
+          <section class="animate-on-scroll" id="section21">
+            <h3>2.1 Struktur Dasar Dokumen HTML</h3>
+            <p>
+              Struktur dasar dokumen HTML merupakan fondasi utama dalam
+              penyusunan halaman web. Dokumen HTML disusun menggunakan
+              elemen-elemen (tags) yang membentuk kerangka sebuah halaman,
+              sehingga browser dapat menampilkan konten secara terstruktur,
+              rapi, dan sesuai standar. Pada dasarnya, setiap dokumen HTML
+              memiliki beberapa elemen wajib yang harus disertakan, yaitu elemen
+              deklarasi dokumen, bagian kepala (head), dan bagian isi (body).
+              Secara umum, struktur HTML terdiri atas:
+            </p>
+
+            <h4>2.1.1 Deklarasi Dokumen (DOCTYPE)</h4>
+            <p>
+              Bagian paling atas dari dokumen HTML yang berfungsi memberi tahu
+              browser bahwa halaman tersebut menggunakan standar HTML modern.
+            </p>
+            <p><strong>Contoh:</strong></p>
+            <img
+              src="../images/bab 2 html.png"
+              alt="Deklarasi DOCTYPE"
+              class="content-img"
+            />
+            <pre><code>&lt;!DOCTYPE html&gt;</code></pre>
+            <p>
+              Deklarasi ini membantu browser menampilkan halaman dalam mode
+              standar (standards mode) sehingga perilaku elemen HTML mengikuti
+              aturan resmi yang ditetapkan oleh W3C.
+            </p>
+
+            <h4>2.1.2 Elemen &lt;html&gt;</h4>
+            <p>
+              Elemen ini menjadi pembungkus (root element) dari seluruh konten
+              HTML. Semua elemen lain harus berada di dalam tag
+              <code>&lt;html&gt;</code>.
+            </p>
+            <p><strong>Contoh:</strong></p>
+            <img
+              src="../images/bab 2 elemen.png"
+              alt="Elemen HTML"
+              class="content-img"
+            />
+            <pre><code>&lt;html lang="id"&gt;
+  &lt;!-- Konten di sini --&gt;
+&lt;/html&gt;</code></pre>
+            <p>
+              Tag <code>&lt;html&gt;</code> juga sering dilengkapi atribut
+              seperti lang untuk menentukan bahasa utama dokumen.
+            </p>
+
+            <h4>2.1.3 Bagian &lt;head&gt;</h4>
+            <p>
+              Bagian head digunakan untuk menyimpan informasi metadata dari
+              halaman seperti:
+            </p>
+            <ul>
+              <li>Judul halaman (<code>&lt;title&gt;</code>)</li>
+              <li>Referensi stylesheet (CSS)</li>
+              <li>Meta tag deskripsi</li>
+              <li>Charset atau encoding teks</li>
+              <li>Script eksternal</li>
+              <li>Favicon</li>
+            </ul>
+            <p><strong>Contoh:</strong></p>
+            <p>Input:</p>
+            <img
+              src="../images/bab 2 head.png"
+              alt="Bagian Head"
+              class="content-img"
+            />
+            <pre><code>&lt;head&gt;
+  &lt;meta charset="UTF-8"&gt;
+  &lt;title&gt;Judul Halaman&lt;/title&gt;
+  &lt;link rel="stylesheet" href="style.css"&gt;
+&lt;/head&gt;</code></pre>
+            <p>Output:</p>
+            <img
+              src="../images/bab 2 output ss.png"
+              alt="Output Head"
+              class="content-img"
+            />
+
+            <h4>2.1.4 Bagian &lt;body&gt;</h4>
+            <p>
+              Bagian body merupakan tempat ditampilkannya seluruh konten halaman
+              kepada pengguna, seperti:
+            </p>
+            <ul>
+              <li>Teks</li>
+              <li>Gambar</li>
+              <li>Link</li>
+              <li>Formulir</li>
+              <li>Tabel</li>
+              <li>Video</li>
+              <li>Navigasi</li>
+              <li>Elemen layout lainnya</li>
+            </ul>
+            <p><strong>Contoh:</strong></p>
+            <p>Input:</p>
+            <img
+              src="../images/bab 2 body.png"
+              alt="Bagian Body"
+              class="content-img"
+            />
+            <pre><code>&lt;body&gt;
+  &lt;h1&gt;Judul Utama&lt;/h1&gt;
+  &lt;p&gt;Konten halaman website.&lt;/p&gt;
+&lt;/body&gt;</code></pre>
+            <p>Output:</p>
+            <img
+              src="../images/bab 2 output1 ss.png"
+              alt="Output Body"
+              class="content-img"
+            />
+
+            <h4>2.1.5 Struktur Dasar Dokumen HTML Secara Lengkap</h4>
+            <p>Struktur dasar halaman HTML dapat dituliskan sebagai berikut:</p>
+            <img
+              src="../images/bab 2 full.png"
+              alt="Struktur Lengkap"
+              class="content-img"
+            />
+            <pre><code>&lt;!DOCTYPE html&gt;
+&lt;html lang="id"&gt;
+&lt;head&gt;
+    &lt;meta charset="UTF-8"&gt;
+    &lt;title&gt;Dokumen HTML&lt;/title&gt;
+&lt;/head&gt;
+&lt;body&gt;
+    &lt;h1&gt;Halo Dunia&lt;/h1&gt;
+    &lt;p&gt;Struktur lengkap HTML5.&lt;/p&gt;
+&lt;/body&gt;
+&lt;/html&gt;</code></pre>
+            <p>Output:</p>
+            <img
+              src="../images/bab 2 output2 ss.png"
+              alt="Output Lengkap"
+              class="content-img"
+            />
+            <p>
+              Struktur tersebut merupakan kerangka minimal yang harus dimiliki
+              oleh setiap halaman web sehingga dapat tampil secara benar dan
+              mengikuti standar web yang berlaku.
+            </p>
+          </section>
+
+          <hr class="section-divider" />
+
+          <!-- 2.2 Elemen Penting -->
+          <section class="animate-on-scroll" id="section22">
+            <h3>
+              2.2 Elemen dan Tag Penting (Headings, Paragraph, Links, Images)
+            </h3>
+            <p>
+              Dalam penyusunan halaman web, HTML menyediakan berbagai elemen
+              dasar yang berfungsi untuk menampilkan informasi secara
+              terstruktur. Elemen-elemen ini meliputi heading, paragraf, tautan,
+              dan gambar. Penggunaan elemen penting tersebut membantu browser
+              memahami hierarki informasi serta memudahkan pengguna dalam
+              membaca konten.
+            </p>
+
+            <h4>2.2.1 Elemen Heading (Judul)</h4>
+            <p>
+              Heading digunakan untuk memberi struktur hierarkis pada teks. HTML
+              menyediakan enam tingkatan heading, mulai dari
+              <code>&lt;h1&gt;</code> sebagai tingkat paling tinggi hingga
+              <code>&lt;h6&gt;</code> sebagai tingkat paling rendah. Fungsi
+              heading:
+            </p>
+            <ul>
+              <li>Menandai judul dan subjudul halaman</li>
+              <li>Membentuk struktur konten</li>
+              <li>Meningkatkan aksesibilitas</li>
+              <li>Penting untuk SEO (Search Engine Optimization)</li>
+            </ul>
+            <p><strong>Contoh:</strong></p>
+            <img
+              src="../images/bab 2 heading.png"
+              alt="Heading"
+              class="content-img"
+            />
+            <pre><code>&lt;h1&gt;Heading 1&lt;/h1&gt;
+&lt;h2&gt;Heading 2&lt;/h2&gt;
+&lt;h3&gt;Heading 3&lt;/h3&gt;</code></pre>
+
+            <h4>2.2.2 Elemen Paragraf (&lt;p&gt;)</h4>
+            <p>
+              Elemen paragraf adalah elemen dasar untuk menampilkan teks dalam
+              bentuk paragraf. Browser secara otomatis menambahkan jarak
+              (margin) antar paragraf untuk memudahkan pembacaan. Fungsi
+              paragraph adalah Menyajikan informasi dalam bentuk teks dan
+              Memisahkan ide atau kalimat dalam konten.
+            </p>
+            <p><strong>Contoh:</strong></p>
+            <img
+              src="../images/bab 2 pargrf.png"
+              alt="Paragraf"
+              class="content-img"
+            />
+            <pre><code>&lt;p&gt;Ini adalah paragraf pertama.&lt;/p&gt;
+&lt;p&gt;Ini adalah paragraf kedua.&lt;/p&gt;</code></pre>
+
+            <h4>2.2.3 Elemen Tautan (Links) – &lt;a&gt;</h4>
+            <p>
+              Tautan digunakan untuk menghubungkan satu halaman ke halaman lain,
+              baik dalam situs yang sama maupun situs lain di internet. Elemen
+              ini menggunakan atribut href untuk menampung alamat tujuan. Fungsi
+              tautan:
+            </p>
+            <ul>
+              <li>Menghubungkan halaman internal</li>
+              <li>Mengarahkan pengguna ke website eksternal</li>
+              <li>Mengunduh file</li>
+              <li>Menjalankan fungsi tertentu melalui URL</li>
+            </ul>
+            <p><strong>Contoh:</strong></p>
+            <img
+              src="../images/bab 2 links.png"
+              alt="Links"
+              class="content-img"
+            />
+            <pre><code>&lt;a href="https://example.com" target="_blank"&gt;Klik di sini&lt;/a&gt;</code></pre>
+            <p>
+              Untuk membuka tautan di tab baru, dapat digunakan atribut
+              <code>target="_blank"</code>.
+            </p>
+
+            <h4>2.2.4 Elemen Gambar (&lt;img&gt;)</h4>
+            <p>
+              Elemen gambar digunakan untuk menampilkan gambar pada halaman web.
+              Elemen <code>&lt;img&gt;</code> bersifat self-closing, sehingga
+              tidak memiliki tag penutup. Ada atribut penting yaitu:
+            </p>
+            <ul>
+              <li><code>src</code>: lokasi gambar</li>
+              <li>
+                <code>alt</code>: teks alternatif yang muncul jika gambar gagal
+                dimuat
+              </li>
+              <li><code>width/height</code>: ukuran tampilan gambar</li>
+            </ul>
+            <p><strong>Contoh:</strong></p>
+            <img
+              src="../images/bab 2 image.png"
+              alt="Image"
+              class="content-img"
+            />
+            <pre><code>&lt;img src="gambar.jpg" alt="Deskripsi" width="300"&gt;</code></pre>
+            <p>
+              Teks alternatif sangat penting untuk aksesibilitas, terutama bagi
+              pengguna yang menggunakan screen reader.
+            </p>
+
+            <h4>2.2.5 Peran Elemen-elemen Ini Dalam Struktur Dokumen</h4>
+            <p>
+              Elemen heading, paragraf, tautan, dan gambar merupakan komponen
+              fundamental yang membentuk konten utama dalam halaman web. Dengan
+              memanfaatkan elemen-elemen tersebut secara tepat, pengembang
+              dapat:
+            </p>
+            <ul>
+              <li>Menyajikan informasi secara struktural</li>
+              <li>Menghasilkan halaman yang mudah dinavigasi</li>
+              <li>Meningkatkan pengalaman pengguna</li>
+              <li>Meningkatkan kualitas aksesibilitas dan SEO</li>
+            </ul>
+          </section>
+
+          <hr class="section-divider" />
+
+          <!-- 2.3 Semantik -->
+          <section class="animate-on-scroll" id="section23">
+            <h3>
+              2.3 Elemen Semantik HTML (header, nav, article, section, footer)
+            </h3>
+            <p>
+              Elemen semantik HTML merupakan elemen yang memiliki makna khusus
+              sesuai fungsinya dalam struktur dokumen. Berbeda dengan elemen
+              non-semantik seperti <code>&lt;div&gt;</code>, elemen semantik
+              memberikan konteks mengenai isi yang berada di dalamnya. Hal ini
+              membantu browser, developer, serta mesin pencari memahami tujuan
+              dari suatu bagian halaman.
+            </p>
+            <p>Penggunaan elemen semantik ditujukan untuk meningkatkan:</p>
+            <ul>
+              <li>Struktur dokumen</li>
+              <li>Aksesibilitas</li>
+              <li>SEO (Search Engine Optimization)</li>
+              <li>Kemudahan pemeliharaan kode</li>
+            </ul>
+            <p>
+              Elemen-elemen semantik yang paling umum digunakan antara lain:
+              <code>&lt;header&gt;</code>, <code>&lt;nav&gt;</code>,
+              <code>&lt;section&gt;</code>, <code>&lt;article&gt;</code>, dan
+              <code>&lt;footer&gt;</code>.
+            </p>
+
+            <h4>2.3.1 Elemen &lt;header&gt;</h4>
+            <p>
+              Elemen <code>&lt;header&gt;</code> digunakan untuk menampilkan
+              bagian kepala atau pengantar dari suatu halaman atau suatu bagian
+              konten. Fungsi <code>&lt;header&gt;</code>:
+            </p>
+            <ul>
+              <li>Menampilkan judul halaman</li>
+              <li>Menyertakan logo website</li>
+              <li>Menampilkan navigasi utama (opsional)</li>
+              <li>Menampilkan tagline atau pengantar singkat</li>
+            </ul>
+            <p><strong>Contoh:</strong></p>
+            <img
+              src="../images/bab 2 headr.png"
+              alt="Header"
+              class="content-img"
+            />
+            <pre><code>&lt;header&gt;
+  &lt;h1&gt;Logo Website&lt;/h1&gt;
+&lt;/header&gt;</code></pre>
+
+            <h4>2.3.2 Elemen &lt;nav&gt;</h4>
+            <p>
+              Elemen <code>&lt;nav&gt;</code> digunakan untuk menampung kumpulan
+              tautan navigasi yang digunakan untuk berpindah halaman atau bagian
+              tertentu dalam website. Fungsi <code>&lt;nav&gt;</code>:
+            </p>
+            <ul>
+              <li>Menampung menu utama</li>
+              <li>Menyediakan navigasi sidebar</li>
+              <li>Mengelompokkan link navigasi agar lebih terstruktur</li>
+            </ul>
+            <p><strong>Contoh:</strong></p>
+            <img src="../images/bab 2 nav.png" alt="Nav" class="content-img" />
+            <pre><code>&lt;nav&gt;
+  &lt;a href="#"&gt;Menu 1&lt;/a&gt;
+  &lt;a href="#"&gt;Menu 2&lt;/a&gt;
+&lt;/nav&gt;</code></pre>
+
+            <h4>2.3.3 Elemen &lt;section&gt;</h4>
+            <p>
+              Elemen <code>&lt;section&gt;</code> digunakan untuk mengelompokkan
+              konten dalam satu topik tertentu. Biasanya digunakan sebagai
+              pembagian utama dalam suatu halaman. Fungsi
+              <code>&lt;section&gt;</code>:
+            </p>
+            <ul>
+              <li>Mengelompokkan bagian-bagian utama konten</li>
+              <li>Menyusun struktur bab atau topik</li>
+              <li>Menjadi container bagi sub-konten yang berhubungan</li>
+            </ul>
+            <p><strong>Contoh:</strong></p>
+            <img
+              src="../images/bab 2 section.png"
+              alt="Section"
+              class="content-img"
+            />
+            <pre><code>&lt;section&gt;
+  &lt;h2&gt;Judul Seksi&lt;/h2&gt;
+  &lt;p&gt;Konten seksi ini.&lt;/p&gt;
+&lt;/section&gt;</code></pre>
+
+            <h4>2.3.4 Elemen &lt;article&gt;</h4>
+            <p>
+              Elemen <code>&lt;article&gt;</code> digunakan untuk menampung
+              konten mandiri dan berdiri sendiri. Konten yang ada di dalam
+              <code>&lt;article&gt;</code> biasanya bisa dipublikasikan secara
+              terpisah. Contoh konten yang cocok menggunakan
+              <code>&lt;article&gt;</code>:
+            </p>
+            <ul>
+              <li>Berita</li>
+              <li>Postingan blog</li>
+              <li>Forum post</li>
+              <li>Konten mandiri lainnya</li>
+            </ul>
+            <p><strong>Contoh:</strong></p>
+            <img
+              src="../images/bab 2 article.png"
+              alt="Article"
+              class="content-img"
+            />
+            <pre><code>&lt;article&gt;
+  &lt;h2&gt;Judul Artikel&lt;/h2&gt;
+  &lt;p&gt;Isi berita lengkap...&lt;/p&gt;
+&lt;/article&gt;</code></pre>
+
+            <h4>2.3.5 Elemen &lt;footer&gt;</h4>
+            <p>
+              Elemen <code>&lt;footer&gt;</code> digunakan untuk menampilkan
+              bagian kaki dari halaman atau bagian tertentu dalam dokumen.
+              Fungsi <code>&lt;footer&gt;</code>:
+            </p>
+            <ul>
+              <li>Menampilkan copyright</li>
+              <li>Menampilkan informasi kontak</li>
+              <li>Menampilkan link tambahan atau kebijakan</li>
+              <li>
+                Dapat muncul di bawah artikel maupun di bawah seluruh halaman
+              </li>
+            </ul>
+            <p><strong>Contoh:</strong></p>
+            <img
+              src="../images/bab 2 footer.png"
+              alt="Footer"
+              class="content-img"
+            />
+            <pre><code>&lt;footer&gt;
+  &lt;p&gt;&copy; 2025 Hak Cipta&lt;/p&gt;
+&lt;/footer&gt;</code></pre>
+
+            <h4>2.3.6 Peran Elemen Semantik Dalam Aksesibilitas & SEO</h4>
+            <p>
+              Penggunaan elemen semantik memberikan beberapa keuntungan
+              signifikan, antara lain:
+            </p>
+            <ol>
+              <li>
+                <strong>Aksesibilitas</strong><br />Screen reader dapat
+                mengidentifikasi bagian halaman dengan mudah, sehingga pengguna
+                berkebutuhan khusus dapat menavigasi konten lebih efisien.
+              </li>
+              <li>
+                <strong>SEO</strong><br />Mesin pencari seperti Google dapat
+                memahami struktur konten dan menentukan bagian penting suatu
+                halaman.
+              </li>
+              <li>
+                <strong>Maintainability</strong><br />Kode lebih mudah dibaca
+                dan dikelola oleh pengembang.
+              </li>
+              <li>
+                <strong>Struktur Konten yang Lebih Logis</strong
+                ><br />Memudahkan pemetaan konten dalam proyek web modern.
+              </li>
+            </ol>
+          </section>
+
+          <hr class="section-divider" />
+
+          <!-- 2.4 Form -->
+          <section class="animate-on-scroll" id="section24">
+            <h3>2.4 Formulir dan Input Modern</h3>
+            <p>
+              Formulir merupakan bagian penting dalam pengembangan web karena
+              memungkinkan pengguna mengirimkan data ke server. HTML menyediakan
+              berbagai elemen formulir yang dapat digunakan untuk mengumpulkan
+              informasi seperti nama, alamat email, nomor telepon, pilihan,
+              hingga file. Seiring perkembangan teknologi web, elemen formulir
+              mengalami peningkatan yang signifikan sehingga lebih interaktif,
+              informatif, dan mudah digunakan. Formulir modern kini mendukung
+              berbagai tipe input baru, validasi otomatis, serta atribut
+              tambahan yang membantu meningkatkan pengalaman pengguna.
+            </p>
+
+            <h4>2.4.1 Struktur Dasar Formulir (&lt;form&gt;)</h4>
+            <p>
+              Elemen <code>&lt;form&gt;</code> merupakan wadah utama untuk semua
+              elemen input. Form memiliki atribut penting seperti:
+            </p>
+            <ul>
+              <li>action: URL tujuan untuk mengirim data</li>
+              <li>method: metode pengiriman data (GET atau POST)</li>
+              <li>enctype: tipe encoding data (untuk upload file)</li>
+            </ul>
+            <p><strong>Contoh:</strong></p>
+            <img
+              src="../images/bab 2 form.png"
+              alt="Form"
+              class="content-img"
+            />
+            <pre><code>&lt;form action="proses.php" method="POST"&gt;
+  &lt;!-- Input --&gt;
+&lt;/form&gt;</code></pre>
+
+            <h4>2.4.2 Elemen Input Dasar (Classic Inputs)</h4>
+            <p>
+              HTML menyediakan elemen input yang sering digunakan dalam
+              formulir, seperti:
+            </p>
+            <ul>
+              <li><code>&lt;input type="text"&gt;</code> → teks biasa</li>
+              <li><code>&lt;input type="password"&gt;</code> → sandi</li>
+              <li><code>&lt;input type="radio"&gt;</code> → pilihan tunggal</li>
+              <li>
+                <code>&lt;input type="checkbox"&gt;</code> → pilihan jamak
+              </li>
+              <li><code>&lt;textarea&gt;</code> → teks panjang</li>
+              <li><code>&lt;select&gt;</code> → daftar dropdown</li>
+            </ul>
+
+            <h4>2.4.3 Input Modern dalam HTML</h4>
+            <p>
+              HTML modern memperkenalkan berbagai tipe input baru yang membantu
+              meningkatkan akurasi dan kemudahan pengisian data. Contoh:
+            </p>
+
+            <div class="grid-2">
+              <div>
+                <label class="form-label">1. Input Email</label>
+                <img
+                  src="../images/bab 2 input email.png"
+                  alt="Email"
+                  class="content-img"
+                />
+                <pre><code>&lt;input type="email"&gt;</code></pre>
+                <p class="text-muted">
+                  Browser otomatis memeriksa format email.
+                </p>
+              </div>
+              <div>
+                <label class="form-label">2. Input Number</label>
+                <img
+                  src="../images/bab 2 input number.png"
+                  alt="Number"
+                  class="content-img"
+                />
+                <pre><code>&lt;input type="number"&gt;</code></pre>
+                <p class="text-muted">Memungkinkan pembatasan nilai.</p>
+              </div>
+              <div>
+                <label class="form-label">3. Input Date / Time</label>
+                <img
+                  src="../images/bab 2 input date-time.png"
+                  alt="Date"
+                  class="content-img"
+                />
+                <pre><code>&lt;input type="date"&gt;</code></pre>
+                <p class="text-muted">
+                  Memungkinkan pengguna memilih tanggal, waktu.
+                </p>
+              </div>
+              <div>
+                <label class="form-label">4. Input URL</label>
+                <img
+                  src="../images/bab 2 input url.png"
+                  alt="URL"
+                  class="content-img"
+                />
+                <pre><code>&lt;input type="url"&gt;</code></pre>
+                <p class="text-muted">Validasi format URL otomatis.</p>
+              </div>
+              <div>
+                <label class="form-label">5. Input Color</label>
+                <img
+                  src="../images/bab 2 input color.png"
+                  alt="Color"
+                  class="content-img"
+                />
+                <pre><code>&lt;input type="color"&gt;</code></pre>
+                <p class="text-muted">Memunculkan color picker.</p>
+              </div>
+              <div>
+                <label class="form-label">6. Input Range</label>
+                <img
+                  src="../images/bab 2 input range.png"
+                  alt="Range"
+                  class="content-img"
+                />
+                <pre><code>&lt;input type="range"&gt;</code></pre>
+                <p class="text-muted">
+                  Menggunakan slider untuk memilih nilai.
+                </p>
+              </div>
+              <div>
+                <label class="form-label">7. Input File</label>
+                <img
+                  src="../images/bab 2 input file.png"
+                  alt="File"
+                  class="content-img"
+                />
+                <pre><code>&lt;input type="file"&gt;</code></pre>
+                <p class="text-muted">Untuk mengunggah dokumen atau gambar.</p>
+              </div>
+            </div>
+
+            <h4>2.4.4 Atribut Modern Pada Input</h4>
+            <p>
+              HTML modern juga membawa atribut tambahan untuk membuat formulir
+              lebih kuat dan aman.
+            </p>
+
+            <div class="grid-2">
+              <div>
+                <label class="form-label">1. Required</label>
+                <img
+                  src="../images/bab 2 required.png"
+                  alt="Required"
+                  class="content-img"
+                />
+                <p class="text-muted">Memastikan input wajib diisi.</p>
+              </div>
+              <div>
+                <label class="form-label">2. Placeholder</label>
+                <img
+                  src="../images/bab 2 placeholder.png"
+                  alt="Placeholder"
+                  class="content-img"
+                />
+                <p class="text-muted">Teks bantuan dalam kotak input.</p>
+              </div>
+              <div>
+                <label class="form-label">3. Pattern</label>
+                <img
+                  src="../images/bab 2 pattern.png"
+                  alt="Pattern"
+                  class="content-img"
+                />
+                <p class="text-muted">Validasi berdasarkan pola regex.</p>
+              </div>
+              <div>
+                <label class="form-label">4. Autocomplete</label>
+                <img
+                  src="../images/bab 2 autocomplete.png"
+                  alt="Autocomplete"
+                  class="content-img"
+                />
+                <p class="text-muted">
+                  Mengaktifkan atau menonaktifkan fitur isi otomatis.
+                </p>
+              </div>
+              <div>
+                <label class="form-label">5. Readonly dan Disabled</label>
+                <img
+                  src="../images/bab 2 readonly disabled.png"
+                  alt="Readonly"
+                  class="content-img"
+                />
+                <p class="text-muted">
+                  ReadOnly: hanya baca. Disabled: tidak bisa diakses.
+                </p>
+              </div>
+              <div>
+                <label class="form-label">6. Multiple</label>
+                <img
+                  src="../images/bab 2 multiple.png"
+                  alt="Multiple"
+                  class="content-img"
+                />
+                <p class="text-muted">Untuk memilih lebih dari satu file.</p>
+              </div>
+            </div>
+
+            <h4>2.4.5 Elemen Pendukung Formulir</h4>
+            <p>Beberapa elemen penting lainnya antara lain:</p>
+
+            <div class="grid-3">
+              <div>
+                <label class="form-label">1. &lt;label&gt;</label>
+                <img
+                  src="../images/bab 2 label.png"
+                  alt="Label"
+                  class="content-img"
+                />
+                <p class="text-muted">Menjelaskan input.</p>
+              </div>
+              <div>
+                <label class="form-label"
+                  >2. &lt;fieldset&gt; & &lt;legend&gt;</label
+                >
+                <img
+                  src="../images/bab 2 fieldset dan legend.png"
+                  alt="Fieldset"
+                  class="content-img"
+                />
+                <p class="text-muted">Mengelompokkan input.</p>
+              </div>
+              <div>
+                <label class="form-label">3. &lt;button&gt;</label>
+                <img
+                  src="../images/bab 2 Button.png"
+                  alt="Button"
+                  class="content-img"
+                />
+                <p class="text-muted">Tombol untuk aksi.</p>
+              </div>
+            </div>
+
+            <h4>2.4.6 Validasi Formulir Secara Otomatis</h4>
+            <p>HTML modern mendukung built-in validation tanpa JavaScript:</p>
+            <ul>
+              <li>Format email, URL, number</li>
+              <li>Input wajib (required)</li>
+              <li>Batas min–max</li>
+              <li>Pola tertentu (pattern)</li>
+            </ul>
+            <p>
+              Browser akan otomatis menampilkan pesan jika input tidak sesuai.
+            </p>
+
+            <h4>2.4.7 Contoh Formulir Modern Lengkap</h4>
+            <p>Input:</p>
+            <img
+              src="../images/bab 2 form lengkap.png"
+              alt="Full Form"
+              class="content-img"
+            />
+            <p>Output:</p>
+            <img
+              src="../images/bab 2 output3 ss.png"
+              alt="Output Form"
+              class="content-img"
+            />
+          </section>
+
+          <hr class="section-divider" />
+
+          <!-- 2.5 Multimedia -->
+          <section class="animate-on-scroll" id="section25">
+            <h3>2.5 Multimedia (Audio, Video, Canvas)</h3>
+            <p>
+              Multimedia dalam pemrograman web mengacu pada penggunaan
+              elemen-elemen seperti suara, video, dan grafis dinamis untuk
+              memperkaya pengalaman pengguna. HTML5 menyediakan elemen bawaan
+              yang memungkinkan pengembang menampilkan serta mengontrol media
+              tanpa memerlukan plugin tambahan. Tiga elemen multimedia utama
+              dalam HTML5 adalah <code>&lt;audio&gt;</code>,
+              <code>&lt;video&gt;</code>, dan <code>&lt;canvas&gt;</code>,
+              masing-masing memiliki fungsi dan karakteristik teknis tersendiri.
+            </p>
+
+            <h4>2.5.1 Elemen Audio</h4>
+            <p>
+              Elemen <code>&lt;audio&gt;</code> digunakan untuk memutar suara
+              secara langsung pada halaman web. HTML5 menyediakan atribut
+              seperti controls untuk menampilkan tombol play/pause, autoplay
+              untuk memulai otomatis, serta loop untuk memutar berulang. File
+              audio umumnya menggunakan format seperti .mp3, .wav, dan .ogg.
+            </p>
+            <p>
+              Selain itu, JavaScript memungkinkan kontrol lebih lanjut seperti
+              mengatur volume, durasi, dan event audio (misalnya saat audio
+              selesai diputar). Elemen ini banyak digunakan dalam website
+              edukasi, podcast, game berbasis web, serta lingkungan interaktif
+              lainnya.
+            </p>
+            <p><strong>Contoh:</strong></p>
+            <img
+              src="../images/bab 2 audio.png"
+              alt="Audio"
+              class="content-img"
+            />
+            <pre><code>&lt;audio controls&gt;
+  &lt;source src="musik.mp3" type="audio/mpeg"&gt;
+  Browser Anda tidak mendukung audio.
+&lt;/audio&gt;</code></pre>
+
+            <h4>2.5.2 Elemen Video</h4>
+            <p>
+              Elemen <code>&lt;video&gt;</code> berfungsi menampilkan dan
+              memutar video dalam halaman web tanpa perlu plugin eksternal
+              seperti Flash. HTML5 mendukung atribut seperti controls, autoplay,
+              width, height, loop, dan poster (gambar sebelum video diputar).
+            </p>
+            <p>
+              Format umum video antara lain .mp4, webm, dan .ogg. Dengan bantuan
+              JavaScript, pengembang dapat membuat fitur tambahan seperti custom
+              player, pengaturan kecepatan playback, serta integrasi dengan API
+              streaming.
+            </p>
+            <p><strong>Contoh:</strong></p>
+            <img
+              src="../images/bab 2 video.png"
+              alt="Video"
+              class="content-img"
+            />
+            <pre><code>&lt;video width="320" height="240" controls&gt;
+  &lt;source src="video.mp4" type="video/mp4"&gt;
+&lt;/video&gt;</code></pre>
+
+            <h4>2.5.3 Elemen Canvas</h4>
+            <p>
+              Elemen <code>&lt;canvas&gt;</code> memungkinkan pengembang
+              menggambar grafik secara dinamis menggunakan JavaScript. Canvas
+              bekerja dengan sistem gambar berbasis pixel (bitmap) dan mendukung
+              pembuatan bentuk 2D maupun animasi. Elemen ini sangat populer
+              dalam pembuatan grafik data, game 2D, simulasi, efek visual, dan
+              editor gambar berbasis web.
+            </p>
+            <p>
+              Semua gambar dalam canvas tidak bersifat DOM element, melainkan
+              di-render langsung ke area gambar sehingga manipulasi grafis
+              menjadi lebih cepat dan fleksibel.
+            </p>
+            <p><strong>Contoh:</strong></p>
+            <img
+              src="../images/bab 2 canvas dengan js.png"
+              alt="Canvas"
+              class="content-img"
+            />
+            <pre><code>&lt;canvas id="myCanvas" width="200" height="100"&gt;&lt;/canvas&gt;
+&lt;script&gt;
+  var c = document.getElementById("myCanvas");
+  var ctx = c.getContext("2d");
+  ctx.fillStyle = "#FF0000";
+  ctx.fillRect(0, 0, 150, 75);
+&lt;/script&gt;</code></pre>
+            <p><strong>Output:</strong></p>
+            <img
+              src="../images/bab 2 output4 ss.png"
+              alt="Output Canvas"
+              class="content-img"
+            />
+          </section>
+
+          <!-- Navigation Buttons -->
+          <div class="nav-btn-container">
+            <a href="bab1.html" class="nav-btn">&laquo; Bab I</a>
+            <a href="bab3.html" class="nav-btn">Bab III &raquo;</a>
+          </div>
+        </main>
+      </div>
+    </div>
+
+    <footer>
+      <p>&copy; 2025 Kelompok 6 - Universitas Pamulang | Pemrograman Web 1</p>
+    </footer>
+    <script src="../js/script.js"></script>
+  </body>
+</html>
