@@ -464,17 +464,7 @@ code {
   grid-template-columns: repeat(3, 1fr);
   gap: 2rem;
 }
-
-@media (max-width: 1024px) {
-  .grid-3 {
-    grid-template-columns: repeat(2, 1fr);
-  }
-}
-@media (max-width: 640px) {
-  .grid-3 {
-    grid-template-columns: 1fr;
-  }
-}
+/* Responsive breakpoints moved to consolidated @media block below */
 
 /* Cards */
 .card {
@@ -697,6 +687,189 @@ section {
 .highlight-box h4 {
   color: var(--primary);
   margin-bottom: 1rem;
+}
+
+/* ============================================
+   MODERN SHOW/HIDE CODE FEATURE
+   ============================================ */
+
+/* Code Wrapper Container */
+.code-wrapper {
+  margin: 0;
+  border-radius: var(--radius-lg);
+  overflow: hidden;
+}
+
+/* Code Header with Language Label and Toggle Button */
+.code-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+  padding: 0.75rem 1.25rem;
+  border-radius: var(--radius-md) var(--radius-md) 0 0;
+}
+
+.code-lang {
+  color: white;
+  font-weight: 600;
+  font-size: 0.875rem;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+}
+
+/* Modern Toggle Code Button */
+.btn-toggle-code {
+  background: rgba(255, 255, 255, 0.2);
+  color: white;
+  border: 1px solid rgba(255, 255, 255, 0.3);
+  padding: 0.5rem 1.25rem;
+  border-radius: 50px;
+  cursor: pointer;
+  font-weight: 600;
+  font-size: 0.875rem;
+  transition: all 0.3s ease;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+}
+
+.btn-toggle-code:hover {
+  background: rgba(255, 255, 255, 0.3);
+  transform: translateY(-1px);
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+}
+
+.btn-toggle-code:active {
+  transform: translateY(0);
+}
+
+/* Icon Rotation Animation */
+.btn-toggle-code i {
+  transition: transform 0.3s ease;
+  font-size: 1rem;
+}
+
+.btn-toggle-code.active i {
+  transform: rotate(180deg);
+}
+
+/* Code Box with Smooth Animation */
+.code-box {
+  max-height: 0;
+  overflow: hidden;
+  transition: max-height 0.4s cubic-bezier(0.4, 0, 0.2, 1), opacity 0.3s ease,
+    padding 0.3s ease;
+  opacity: 0;
+  padding: 0;
+  background: var(--code-bg);
+  color: var(--code-text);
+  border-radius: 0 0 var(--radius-md) var(--radius-md);
+}
+
+.code-box.show {
+  max-height: 2000px; /* Large enough for most code blocks */
+  opacity: 1;
+  padding: 1.5rem;
+}
+
+.code-box pre {
+  margin: 0;
+  background: transparent;
+  border: none;
+  animation: slideInCode 0.3s ease;
+}
+
+@keyframes slideInCode {
+  from {
+    opacity: 0;
+    transform: translateY(-10px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* ============================================
+   ICON UTILITIES
+   ============================================ */
+
+/* Icon Sizing Classes */
+.icon-lg {
+  font-size: 2.5rem;
+  margin-bottom: 1rem;
+  display: block;
+}
+
+.icon-md {
+  font-size: 1.5rem;
+  margin-right: 0.75rem;
+}
+
+.icon-sm {
+  font-size: 1rem;
+  margin-right: 0.5rem;
+}
+
+/* Homepage Card Icons */
+.homepage-cards .card i {
+  font-size: 2.5rem;
+  background: var(--gradient-primary);
+  -webkit-background-clip: text;
+  background-clip: text;
+  -webkit-text-fill-color: transparent;
+  display: block;
+  margin-bottom: 0.75rem;
+}
+
+/* Section Heading Icons */
+h2 i {
+  margin-right: 0.75rem;
+  color: inherit;
+}
+
+h3 i {
+  margin-right: 0.5rem;
+  color: inherit;
+  font-size: 0.9em;
+}
+
+/* Info Icon for Contact Page */
+.info-icon {
+  font-size: 3rem;
+  color: var(--primary);
+  margin-bottom: 1rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.info-icon i {
+  display: block;
+}
+
+/* Tech Card Icons (About Page) */
+.tech-card i {
+  font-size: 3rem;
+  margin-bottom: 0.5rem;
+  display: block;
+}
+
+.tech-card-html i {
+  color: #e34c26; /* HTML5 Orange */
+}
+
+.tech-card-css i {
+  color: #264de4; /* CSS3 Blue */
+}
+
+.tech-card-js i {
+  color: #f0db4f; /* JavaScript Yellow */
+  background: #323330;
+  padding: 0.25rem;
+  border-radius: 0.25rem;
 }
 
 /* About Page Specific Styles */
@@ -956,15 +1129,19 @@ section {
   display: none;
 }
 
-/* Responsive */
+/* ============================================
+   RESPONSIVE DESIGN - CONSOLIDATED MEDIA QUERIES
+   ============================================ */
+
+/* Tablet & Mobile (< 1024px) */
 @media (max-width: 1024px) {
-  /* Changed from 768px to cover Tablets */
+  /* ===== NAVIGATION ===== */
   .navbar {
     padding: 1rem 1.5rem;
   }
 
   .hamburger {
-    display: flex; /* Show hamburger on mobile/tablet */
+    display: flex;
   }
 
   .nav-links {
@@ -978,9 +1155,15 @@ section {
     display: none;
     box-shadow: var(--shadow-xl);
   }
+
   .nav-links.active {
     display: flex;
     animation: slideDown 0.3s ease;
+  }
+
+  /* ===== GRID LAYOUTS ===== */
+  .grid-3 {
+    grid-template-columns: repeat(2, 1fr); /* 2 columns on tablet */
   }
 
   /* Center all nav items on mobile */
@@ -1196,6 +1379,13 @@ section {
   /* Ensure footer content isn't blocked by scroll button */
   footer {
     padding-bottom: 6rem;
+  }
+
+  /* ===== MOBILE SPECIFIC (< 640px) ===== */
+  @media (max-width: 640px) {
+    .grid-3 {
+      grid-template-columns: 1fr; /* Single column on mobile */
+    }
   }
 }
 

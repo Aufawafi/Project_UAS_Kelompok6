@@ -3,7 +3,11 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Bab II - Struktur Dasar & Elemen HTML5</title>
+    <title>Bab II - STRUKTUR DASAR & ELEMEN HTML5</title>
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css"
+    />
     <link rel="stylesheet" href="../css/style.css" />
   </head>
   <body>
@@ -11,10 +15,10 @@
     <nav class="navbar">
       <div class="logo">WebProg<span>6</span></div>
       <ul class="nav-links">
-        <li><a href="../index.html">Home</a></li>
-        <li><a href="../about.html">Tentang</a></li>
+        <li><a href="../index.html"><i class="fas fa-home"></i> Home</a></li>
+        <li><a href="../about.html"><i class="fas fa-info-circle"></i> Tentang</a></li>
         <li class="dropdown">
-          <a href="#" class="active">Materi ▾</a>
+          <a href="#" class="active"><i class="fas fa-book"></i> Materi ▾</a>
           <ul class="dropdown-content">
             <li><a href="bab1.html">Bab 1: Pendahuluan</a></li>
             <li><a href="bab2.html">Bab 2: HTML5</a></li>
@@ -27,7 +31,7 @@
             <li><a href="bab9.html">Bab 9: Tren Web</a></li>
           </ul>
         </li>
-        <li><a href="../contact.html">Kontak</a></li>
+        <li><a href="../contact.html"><i class="fas fa-envelope"></i> Kontak</a></li>
       </ul>
       <div class="hamburger"><span></span><span></span><span></span></div>
     </nav>
@@ -79,7 +83,15 @@
               alt="Deklarasi DOCTYPE"
               class="content-img"
             />
-            <pre><code>&lt;!DOCTYPE html&gt;</code></pre>
+            <div class="code-wrapper">
+              <div class="code-header">
+                <span class="code-lang">HTML</span>
+                <button class="btn-toggle-code">
+                  <i class="fas fa-eye"></i> Tampilkan Kode
+                </button>
+              </div>
+              <pre class="code-box">&lt;!DOCTYPE html&gt;</pre>
+            </div>
             <p>
               Deklarasi ini membantu browser menampilkan halaman dalam mode
               standar (standards mode) sehingga perilaku elemen HTML mengikuti
@@ -98,9 +110,17 @@
               alt="Elemen HTML"
               class="content-img"
             />
-            <pre><code>&lt;html lang="id"&gt;
+            <div class="code-wrapper">
+              <div class="code-header">
+                <span class="code-lang">HTML</span>
+                <button class="btn-toggle-code">
+                  <i class="fas fa-eye"></i> Tampilkan Kode
+                </button>
+              </div>
+              <pre class="code-box">&lt;html lang="id"&gt;
   &lt;!-- Konten di sini --&gt;
-&lt;/html&gt;</code></pre>
+&lt;/html&gt;</pre>
+            </div>
             <p>
               Tag <code>&lt;html&gt;</code> juga sering dilengkapi atribut
               seperti lang untuk menentukan bahasa utama dokumen.
@@ -126,11 +146,19 @@
               alt="Bagian Head"
               class="content-img"
             />
-            <pre><code>&lt;head&gt;
+              <div class="code-wrapper">
+              <div class="code-header">
+                <span class="code-lang">HTML</span>
+                <button class="btn-toggle-code">
+                  <i class="fas fa-eye"></i> Tampilkan Kode
+                </button>
+              </div>
+              <pre class="code-box">&lt;head&gt;
   &lt;meta charset="UTF-8"&gt;
   &lt;title&gt;Judul Halaman&lt;/title&gt;
   &lt;link rel="stylesheet" href="style.css"&gt;
-&lt;/head&gt;</code></pre>
+&lt;/head&gt;</pre>
+            </div>
             <p>Output:</p>
             <img
               src="../images/bab 2 output ss.png"
@@ -160,10 +188,18 @@
               alt="Bagian Body"
               class="content-img"
             />
-            <pre><code>&lt;body&gt;
+            <div class="code-wrapper">
+              <div class="code-header">
+                <span class="code-lang">HTML</span>
+                <button class="btn-toggle-code">
+                  <i class="fas fa-eye"></i> Tampilkan Kode
+                </button>
+              </div>
+              <pre class="code-box">&lt;body&gt;
   &lt;h1&gt;Judul Utama&lt;/h1&gt;
   &lt;p&gt;Konten halaman website.&lt;/p&gt;
-&lt;/body&gt;</code></pre>
+&lt;/body&gt;</pre>
+            </div>
             <p>Output:</p>
             <img
               src="../images/bab 2 output1 ss.png"
@@ -177,8 +213,15 @@
               src="../images/bab 2 full.png"
               alt="Struktur Lengkap"
               class="content-img"
-            />
-            <pre><code>&lt;!DOCTYPE html&gt;
+            />  
+            <div class="code-wrapper">
+              <div class="code-header">
+                <span class="code-lang">HTML</span>
+                <button class="btn-toggle-code">
+                  <i class="fas fa-eye"></i> Tampilkan Kode
+                </button>
+              </div>
+              <pre class="code-box">&lt;!DOCTYPE html&gt;
 &lt;html lang="id"&gt;
 &lt;head&gt;
     &lt;meta charset="UTF-8"&gt;
@@ -188,7 +231,7 @@
     &lt;h1&gt;Halo Dunia&lt;/h1&gt;
     &lt;p&gt;Struktur lengkap HTML5.&lt;/p&gt;
 &lt;/body&gt;
-&lt;/html&gt;</code></pre>
+&lt;/html&gt;</pre>
             <p>Output:</p>
             <img
               src="../images/bab 2 output2 ss.png"
@@ -238,9 +281,17 @@
               alt="Heading"
               class="content-img"
             />
-            <pre><code>&lt;h1&gt;Heading 1&lt;/h1&gt;
+            <div class="code-wrapper">
+              <div class="code-header">
+                <span class="code-lang">HTML</span>
+                <button class="btn-toggle-code">
+                  <i class="fas fa-eye"></i> Tampilkan Kode
+                </button>
+              </div>
+              <pre class="code-box">&lt;h1&gt;Heading 1&lt;/h1&gt;
 &lt;h2&gt;Heading 2&lt;/h2&gt;
-&lt;h3&gt;Heading 3&lt;/h3&gt;</code></pre>
+&lt;h3&gt;Heading 3&lt;/h3&gt;</pre>
+            </div>
 
             <h4>2.2.2 Elemen Paragraf (&lt;p&gt;)</h4>
             <p>
@@ -256,8 +307,16 @@
               alt="Paragraf"
               class="content-img"
             />
-            <pre><code>&lt;p&gt;Ini adalah paragraf pertama.&lt;/p&gt;
-&lt;p&gt;Ini adalah paragraf kedua.&lt;/p&gt;</code></pre>
+            <div class="code-wrapper">
+              <div class="code-header">
+                <span class="code-lang">HTML</span>
+                <button class="btn-toggle-code">
+                  <i class="fas fa-eye"></i> Tampilkan Kode
+                </button>
+              </div>
+              <pre class="code-box">&lt;p&gt;Ini adalah paragraf pertama.&lt;/p&gt;
+&lt;p&gt;Ini adalah paragraf kedua.&lt;/p&gt;</pre>
+            </div>
 
             <h4>2.2.3 Elemen Tautan (Links) – &lt;a&gt;</h4>
             <p>
@@ -278,7 +337,15 @@
               alt="Links"
               class="content-img"
             />
-            <pre><code>&lt;a href="https://example.com" target="_blank"&gt;Klik di sini&lt;/a&gt;</code></pre>
+            <div class="code-wrapper">
+              <div class="code-header">
+                <span class="code-lang">HTML</span>
+                <button class="btn-toggle-code">
+                  <i class="fas fa-eye"></i> Tampilkan Kode
+                </button>
+              </div>
+              <pre class="code-box">&lt;a href="https://example.com" target="_blank"&gt;Klik di sini&lt;/a&gt;</pre>
+            </div>
             <p>
               Untuk membuka tautan di tab baru, dapat digunakan atribut
               <code>target="_blank"</code>.
@@ -304,7 +371,15 @@
               alt="Image"
               class="content-img"
             />
-            <pre><code>&lt;img src="gambar.jpg" alt="Deskripsi" width="300"&gt;</code></pre>
+            <div class="code-wrapper">
+              <div class="code-header">
+                <span class="code-lang">HTML</span>
+                <button class="btn-toggle-code">
+                  <i class="fas fa-eye"></i> Tampilkan Kode
+                </button>
+              </div>
+              <pre class="code-box">&lt;img src="gambar.jpg" alt="Deskripsi" width="300"&gt;</pre>
+            </div>
             <p>
               Teks alternatif sangat penting untuk aksesibilitas, terutama bagi
               pengguna yang menggunakan screen reader.
@@ -372,9 +447,17 @@
               alt="Header"
               class="content-img"
             />
-            <pre><code>&lt;header&gt;
+            <div class="code-wrapper">
+              <div class="code-header">
+                <span class="code-lang">HTML</span>
+                <button class="btn-toggle-code">
+                  <i class="fas fa-eye"></i> Tampilkan Kode
+                </button>
+              </div>
+              <pre class="code-box">&lt;header&gt;
   &lt;h1&gt;Logo Website&lt;/h1&gt;
-&lt;/header&gt;</code></pre>
+&lt;/header&gt;</pre>
+            </div>
 
             <h4>2.3.2 Elemen &lt;nav&gt;</h4>
             <p>
@@ -389,10 +472,18 @@
             </ul>
             <p><strong>Contoh:</strong></p>
             <img src="../images/bab 2 nav.png" alt="Nav" class="content-img" />
-            <pre><code>&lt;nav&gt;
+            <div class="code-wrapper">
+              <div class="code-header">
+                <span class="code-lang">HTML</span>
+                <button class="btn-toggle-code">
+                  <i class="fas fa-eye"></i> Tampilkan Kode
+                </button>
+              </div>
+              <pre class="code-box">&lt;nav&gt;
   &lt;a href="#"&gt;Menu 1&lt;/a&gt;
   &lt;a href="#"&gt;Menu 2&lt;/a&gt;
-&lt;/nav&gt;</code></pre>
+&lt;/nav&gt;</pre>
+            </div>
 
             <h4>2.3.3 Elemen &lt;section&gt;</h4>
             <p>
@@ -412,10 +503,18 @@
               alt="Section"
               class="content-img"
             />
-            <pre><code>&lt;section&gt;
+            <div class="code-wrapper">
+              <div class="code-header">
+                <span class="code-lang">HTML</span>
+                <button class="btn-toggle-code">
+                  <i class="fas fa-eye"></i> Tampilkan Kode
+                </button>
+              </div>
+              <pre class="code-box">&lt;section&gt;
   &lt;h2&gt;Judul Seksi&lt;/h2&gt;
   &lt;p&gt;Konten seksi ini.&lt;/p&gt;
-&lt;/section&gt;</code></pre>
+&lt;/section&gt;</pre>
+            </div>
 
             <h4>2.3.4 Elemen &lt;article&gt;</h4>
             <p>
@@ -437,10 +536,18 @@
               alt="Article"
               class="content-img"
             />
-            <pre><code>&lt;article&gt;
+            <div class="code-wrapper">
+              <div class="code-header">
+                <span class="code-lang">HTML</span>
+                <button class="btn-toggle-code">
+                  <i class="fas fa-eye"></i> Tampilkan Kode
+                </button>
+              </div>
+              <pre class="code-box">&lt;article&gt;
   &lt;h2&gt;Judul Artikel&lt;/h2&gt;
   &lt;p&gt;Isi berita lengkap...&lt;/p&gt;
-&lt;/article&gt;</code></pre>
+&lt;/article&gt;</pre>
+            </div>
 
             <h4>2.3.5 Elemen &lt;footer&gt;</h4>
             <p>
@@ -462,9 +569,17 @@
               alt="Footer"
               class="content-img"
             />
-            <pre><code>&lt;footer&gt;
+            <div class="code-wrapper">
+              <div class="code-header">
+                <span class="code-lang">HTML</span>
+                <button class="btn-toggle-code">
+                  <i class="fas fa-eye"></i> Tampilkan Kode
+                </button>
+              </div>
+              <pre class="code-box">&lt;footer&gt;
   &lt;p&gt;&copy; 2025 Hak Cipta&lt;/p&gt;
-&lt;/footer&gt;</code></pre>
+&lt;/footer&gt;</pre>
+            </div>
 
             <h4>2.3.6 Peran Elemen Semantik Dalam Aksesibilitas & SEO</h4>
             <p>
@@ -525,10 +640,18 @@
               src="../images/bab 2 form.png"
               alt="Form"
               class="content-img"
-            />
-            <pre><code>&lt;form action="proses.php" method="POST"&gt;
+            />  
+            <div class="code-wrapper">
+              <div class="code-header">
+                <span class="code-lang">HTML</span>
+                <button class="btn-toggle-code">
+                  <i class="fas fa-eye"></i> Tampilkan Kode
+                </button>
+              </div>
+              <pre class="code-box">&lt;form action="proses.php" method="POST"&gt;
   &lt;!-- Input --&gt;
-&lt;/form&gt;</code></pre>
+&lt;/form&gt;</pre>
+            </div>
 
             <h4>2.4.2 Elemen Input Dasar (Classic Inputs)</h4>
             <p>
@@ -560,7 +683,15 @@
                   alt="Email"
                   class="content-img"
                 />
-                <pre><code>&lt;input type="email"&gt;</code></pre>
+                <div class="code-wrapper">
+                  <div class="code-header">
+                    <span class="code-lang">HTML</span>
+                    <button class="btn-toggle-code">
+                      <i class="fas fa-eye"></i> Tampilkan Kode
+                    </button>
+                  </div>
+                  <pre class="code-box">&lt;input type="email"&gt;</pre>
+                </div>
                 <p class="text-muted">
                   Browser otomatis memeriksa format email.
                 </p>
@@ -572,7 +703,15 @@
                   alt="Number"
                   class="content-img"
                 />
-                <pre><code>&lt;input type="number"&gt;</code></pre>
+                <div class="code-wrapper">
+                  <div class="code-header">
+                    <span class="code-lang">HTML</span>
+                    <button class="btn-toggle-code">
+                      <i class="fas fa-eye"></i> Tampilkan Kode
+                    </button>
+                  </div>
+                  <pre class="code-box">&lt;input type="number"&gt;</pre>
+                </div>
                 <p class="text-muted">Memungkinkan pembatasan nilai.</p>
               </div>
               <div>
@@ -582,7 +721,15 @@
                   alt="Date"
                   class="content-img"
                 />
-                <pre><code>&lt;input type="date"&gt;</code></pre>
+                <div class="code-wrapper">
+                  <div class="code-header">
+                    <span class="code-lang">HTML</span>
+                    <button class="btn-toggle-code">
+                      <i class="fas fa-eye"></i> Tampilkan Kode
+                    </button>
+                  </div>
+                  <pre class="code-box">&lt;input type="date"&gt;</pre>
+                </div>
                 <p class="text-muted">
                   Memungkinkan pengguna memilih tanggal, waktu.
                 </p>
@@ -594,7 +741,15 @@
                   alt="URL"
                   class="content-img"
                 />
-                <pre><code>&lt;input type="url"&gt;</code></pre>
+                <div class="code-wrapper">
+                  <div class="code-header">
+                    <span class="code-lang">HTML</span>
+                    <button class="btn-toggle-code">
+                      <i class="fas fa-eye"></i> Tampilkan Kode
+                    </button>
+                  </div>
+                  <pre class="code-box">&lt;input type="url"&gt;</pre>
+                </div>
                 <p class="text-muted">Validasi format URL otomatis.</p>
               </div>
               <div>
@@ -604,7 +759,15 @@
                   alt="Color"
                   class="content-img"
                 />
-                <pre><code>&lt;input type="color"&gt;</code></pre>
+                <div class="code-wrapper">
+                  <div class="code-header">
+                    <span class="code-lang">HTML</span>
+                    <button class="btn-toggle-code">
+                      <i class="fas fa-eye"></i> Tampilkan Kode
+                    </button>
+                  </div>
+                  <pre class="code-box">&lt;input type="color"&gt;</pre>
+                </div>
                 <p class="text-muted">Memunculkan color picker.</p>
               </div>
               <div>
@@ -614,7 +777,15 @@
                   alt="Range"
                   class="content-img"
                 />
-                <pre><code>&lt;input type="range"&gt;</code></pre>
+                <div class="code-wrapper">
+                  <div class="code-header">
+                    <span class="code-lang">HTML</span>
+                    <button class="btn-toggle-code">
+                      <i class="fas fa-eye"></i> Tampilkan Kode
+                    </button>
+                  </div>
+                  <pre class="code-box">&lt;input type="range"&gt;</pre>
+                </div>
                 <p class="text-muted">
                   Menggunakan slider untuk memilih nilai.
                 </p>
@@ -626,7 +797,15 @@
                   alt="File"
                   class="content-img"
                 />
-                <pre><code>&lt;input type="file"&gt;</code></pre>
+                <div class="code-wrapper">
+                  <div class="code-header">
+                    <span class="code-lang">HTML</span>
+                    <button class="btn-toggle-code">
+                      <i class="fas fa-eye"></i> Tampilkan Kode
+                    </button>
+                  </div>
+                  <pre class="code-box">&lt;input type="file"&gt;</pre>
+                </div>
                 <p class="text-muted">Untuk mengunggah dokumen atau gambar.</p>
               </div>
             </div>
@@ -645,6 +824,15 @@
                   alt="Required"
                   class="content-img"
                 />
+                <div class="code-wrapper">
+                  <div class="code-header">
+                    <span class="code-lang">HTML</span>
+                    <button class="btn-toggle-code">
+                      <i class="fas fa-eye"></i> Tampilkan Kode
+                    </button>
+                  </div>
+                  <pre class="code-box">&lt;input type="text" required&gt;</pre>
+                </div>
                 <p class="text-muted">Memastikan input wajib diisi.</p>
               </div>
               <div>
@@ -654,6 +842,15 @@
                   alt="Placeholder"
                   class="content-img"
                 />
+                <div class="code-wrapper">
+                  <div class="code-header">
+                    <span class="code-lang">HTML</span>
+                    <button class="btn-toggle-code">
+                      <i class="fas fa-eye"></i> Tampilkan Kode
+                    </button>
+                  </div>
+                  <pre class="code-box">&lt;input type="text" placeholder="Masukkan nama"&gt;</pre>
+                </div>
                 <p class="text-muted">Teks bantuan dalam kotak input.</p>
               </div>
               <div>
@@ -663,6 +860,15 @@
                   alt="Pattern"
                   class="content-img"
                 />
+                <div class="code-wrapper">
+                  <div class="code-header">
+                    <span class="code-lang">HTML</span>
+                    <button class="btn-toggle-code">
+                      <i class="fas fa-eye"></i> Tampilkan Kode
+                    </button>
+                  </div>
+                  <pre class="code-box">&lt;input type="text" pattern="[a-zA-Z0-9]+"&gt;</pre>
+                </div>
                 <p class="text-muted">Validasi berdasarkan pola regex.</p>
               </div>
               <div>
@@ -672,6 +878,15 @@
                   alt="Autocomplete"
                   class="content-img"
                 />
+                <div class="code-wrapper">
+                  <div class="code-header">
+                    <span class="code-lang">HTML</span>
+                    <button class="btn-toggle-code">
+                      <i class="fas fa-eye"></i> Tampilkan Kode
+                    </button>
+                  </div>
+                  <pre class="code-box">&lt;input type="text" autocomplete="off"&gt;</pre>
+                </div>
                 <p class="text-muted">
                   Mengaktifkan atau menonaktifkan fitur isi otomatis.
                 </p>
@@ -683,6 +898,15 @@
                   alt="Readonly"
                   class="content-img"
                 />
+                <div class="code-wrapper">
+                  <div class="code-header">
+                    <span class="code-lang">HTML</span>
+                    <button class="btn-toggle-code">
+                      <i class="fas fa-eye"></i> Tampilkan Kode
+                    </button>
+                  </div>
+                  <pre class="code-box">&lt;input type="text" readonly&gt;</pre>
+                </div>
                 <p class="text-muted">
                   ReadOnly: hanya baca. Disabled: tidak bisa diakses.
                 </p>
@@ -694,6 +918,15 @@
                   alt="Multiple"
                   class="content-img"
                 />
+                <div class="code-wrapper">
+                  <div class="code-header">
+                    <span class="code-lang">HTML</span>
+                    <button class="btn-toggle-code">
+                      <i class="fas fa-eye"></i> Tampilkan Kode
+                    </button>
+                  </div>
+                  <pre class="code-box">&lt;input type="file" multiple&gt;</pre>
+                </div>
                 <p class="text-muted">Untuk memilih lebih dari satu file.</p>
               </div>
             </div>
@@ -709,6 +942,15 @@
                   alt="Label"
                   class="content-img"
                 />
+                <div class="code-wrapper">
+                  <div class="code-header">
+                    <span class="code-lang">HTML</span>
+                    <button class="btn-toggle-code">
+                      <i class="fas fa-eye"></i> Tampilkan Kode
+                    </button>
+                  </div>
+                  <pre class="code-box">&lt;label for="nama">Nama&lt;/label></pre>
+                </div>
                 <p class="text-muted">Menjelaskan input.</p>
               </div>
               <div>
@@ -720,6 +962,15 @@
                   alt="Fieldset"
                   class="content-img"
                 />
+                <div class="code-wrapper">
+                  <div class="code-header">
+                    <span class="code-lang">HTML</span>
+                    <button class="btn-toggle-code">
+                      <i class="fas fa-eye"></i> Tampilkan Kode
+                    </button>
+                  </div>
+                  <pre class="code-box">&lt;fieldset&gt;&lt;legend&gt;Formulir&lt;/legend&gt;&lt;/fieldset&gt;</pre>
+                </div>
                 <p class="text-muted">Mengelompokkan input.</p>
               </div>
               <div>
@@ -729,6 +980,15 @@
                   alt="Button"
                   class="content-img"
                 />
+                <div class="code-wrapper">
+                  <div class="code-header">
+                    <span class="code-lang">HTML</span>
+                    <button class="btn-toggle-code">
+                      <i class="fas fa-eye"></i> Tampilkan Kode
+                    </button>
+                  </div>
+                  <pre class="code-box">&lt;button type="submit">Kirim&lt;/button></pre>
+                </div>
                 <p class="text-muted">Tombol untuk aksi.</p>
               </div>
             </div>
@@ -752,6 +1012,38 @@
               alt="Full Form"
               class="content-img"
             />
+            <div class="code-wrapper">
+              <div class="code-header">
+                <span class="code-lang">HTML</span>
+                <button class="btn-toggle-code">
+                  <i class="fas fa-eye"></i> Tampilkan Kode
+                </button>
+              </div>
+              <pre class="code-box">
+                &lt;form action="submit.php" method="post"&gt;
+                  &lt;label for="nama">Nama&lt;/label&gt;
+                  &lt;input type="text" name="nama" required&gt;
+                  &lt;label for="email">Email&lt;/label&gt;
+                  &lt;input type="email" name="email" required&gt;
+                  &lt;label for="password">Password&lt;/label&gt;
+                  &lt;input type="password" name="password" required&gt;
+                  &lt;label for="tanggal_lahir">Tanggal Lahir&lt;/label&gt;
+                  &lt;input type="date" name="tanggal_lahir" required&gt;
+                  &lt;label for="alamat">Alamat&lt;/label&gt;
+                  &lt;textarea name="alamat" required&gt;&lt;/textarea&gt;
+                  &lt;label for="hobi">Hobi&lt;/label&gt;
+                  &lt;input type="checkbox" name="hobi" value="olahraga"&gt;
+                  &lt;input type="checkbox" name="hobi" value="makan"&gt;
+                  &lt;input type="checkbox" name="hobi" value="tidur"&gt;
+                  &lt;label for="gender">Jenis Kelamin&lt;/label&gt;
+                  &lt;input type="radio" name="gender" value="laki-laki"&gt;
+                  &lt;input type="radio" name="gender" value="perempuan"&gt;
+                  &lt;label for="file">File&lt;/label&gt;
+                  &lt;input type="file" name="file"&gt;
+                  &lt;button type="submit">Kirim&lt;/button&gt;
+                &lt;/form&gt;
+              </pre>
+            </div>
             <p>Output:</p>
             <img
               src="../images/bab 2 output3 ss.png"
@@ -796,11 +1088,19 @@
               src="../images/bab 2 audio.png"
               alt="Audio"
               class="content-img"
-            />
-            <pre><code>&lt;audio controls&gt;
+            /> 
+            <div class="code-wrapper">
+              <div class="code-header">
+                <span class="code-lang">HTML</span>
+                <button class="btn-toggle-code">
+                  <i class="fas fa-eye"></i> Tampilkan Kode
+                </button>
+              </div>
+              <pre class="code-box">&lt;audio controls&gt;
   &lt;source src="musik.mp3" type="audio/mpeg"&gt;
   Browser Anda tidak mendukung audio.
-&lt;/audio&gt;</code></pre>
+&lt;/audio&gt;</pre>
+            </div>
 
             <h4>2.5.2 Elemen Video</h4>
             <p>
@@ -821,9 +1121,17 @@
               alt="Video"
               class="content-img"
             />
-            <pre><code>&lt;video width="320" height="240" controls&gt;
+            <div class="code-wrapper">
+              <div class="code-header">
+                <span class="code-lang">HTML</span>
+                <button class="btn-toggle-code">
+                  <i class="fas fa-eye"></i> Tampilkan Kode
+                </button>
+              </div>
+              <pre class="code-box">&lt;video width="320" height="240" controls&gt;
   &lt;source src="video.mp4" type="video/mp4"&gt;
-&lt;/video&gt;</code></pre>
+&lt;/video&gt;</pre>
+            </div>  
 
             <h4>2.5.3 Elemen Canvas</h4>
             <p>
@@ -845,13 +1153,21 @@
               alt="Canvas"
               class="content-img"
             />
-            <pre><code>&lt;canvas id="myCanvas" width="200" height="100"&gt;&lt;/canvas&gt;
+            <div class="code-wrapper">
+              <div class="code-header">
+                <span class="code-lang">HTML</span>
+                <button class="btn-toggle-code">
+                  <i class="fas fa-eye"></i> Tampilkan Kode
+                </button>
+              </div>
+              <pre class="code-box">&lt;canvas id="myCanvas" width="200" height="100"&gt;&lt;/canvas&gt;
 &lt;script&gt;
   var c = document.getElementById("myCanvas");
   var ctx = c.getContext("2d");
   ctx.fillStyle = "#FF0000";
   ctx.fillRect(0, 0, 150, 75);
-&lt;/script&gt;</code></pre>
+&lt;/script&gt;</code>
+            </div>
             <p><strong>Output:</strong></p>
             <img
               src="../images/bab 2 output4 ss.png"
@@ -875,3 +1191,4 @@
     <script src="../js/script.js"></script>
   </body>
 </html>
+

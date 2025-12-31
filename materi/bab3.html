@@ -3,17 +3,26 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Bab III - Pengenalan Dasar CSS3</title>
+    <title>Bab III - PENGENALAN DASAR CSS3</title>
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css"
+    />
     <link rel="stylesheet" href="../css/style.css" />
   </head>
   <body>
+    <!-- Navbar -->
     <nav class="navbar">
       <div class="logo">WebProg<span>6</span></div>
       <ul class="nav-links">
-        <li><a href="../index.html">Home</a></li>
-        <li><a href="../about.html">Tentang</a></li>
+        <li>
+          <a href="../index.html"><i class="fas fa-home"></i> Home</a>
+        </li>
+        <li>
+          <a href="../about.html"><i class="fas fa-info-circle"></i> Tentang</a>
+        </li>
         <li class="dropdown">
-          <a href="#" class="active">Materi ▾</a>
+          <a href="#" class="active"><i class="fas fa-book"></i> Materi ▾</a>
           <ul class="dropdown-content">
             <li><a href="bab1.html">Bab 1: Pendahuluan</a></li>
             <li><a href="bab2.html">Bab 2: HTML5</a></li>
@@ -26,225 +35,1043 @@
             <li><a href="bab9.html">Bab 9: Tren Web</a></li>
           </ul>
         </li>
-        <li><a href="../contact.html">Kontak</a></li>
+        <li>
+          <a href="../contact.html"><i class="fas fa-envelope"></i> Kontak</a>
+        </li>
       </ul>
       <div class="hamburger"><span></span><span></span><span></span></div>
     </nav>
 
     <div class="container">
       <div class="row">
+        <!-- Sidebar Navigation -->
         <aside class="col-left">
           <h3>Daftar Isi Bab III</h3>
           <ul>
-            <li><a href="#31">3.1 Konsep CSS</a></li>
-            <li><a href="#32">3.2 Selektor, Properti, Nilai</a></li>
-            <li><a href="#33">3.3 Warna, Teks, Font</a></li>
-            <li><a href="#34">3.4 Box Model</a></li>
-            <li><a href="#35">3.5 Flexbox & Grid</a></li>
-            <li><a href="#36">3.6 Efek Visual</a></li>
+            <li><a href="#section31">3.1 Konsep CSS</a></li>
+            <li><a href="#section32">3.2 Selektor, Properti, dan Nilai</a></li>
+            <li><a href="#section33">3.3 Warna, Teks, dan Font</a></li>
+            <li><a href="#section34">3.4 Box Model</a></li>
+            <li><a href="#section35">3.5 Flexbox & Grid</a></li>
+            <li><a href="#section36">3.6 Efek Visual</a></li>
           </ul>
         </aside>
 
+        <!-- Main Content -->
         <main class="col-right">
           <h1>BAB III<br />PENGENALAN DASAR CSS3</h1>
 
-          <section class="animate-on-scroll" id="31">
-            <h3>3.1 Konsep CSS (Inline, Internal,External)</h3>
+          <hr class="section-divider" />
+
+          <!-- Section 3.1 -->
+          <section id="section31">
+            <h2>3.1 Konsep CSS (Inline, Internal, External Stylesheet)</h2>
+            <p>
+              Cascading Style Sheets (CSS) adalah bahasa pemrograman yang
+              digunakan untuk mengatur tampilan dan gaya pada halaman web. CSS3
+              merupakan versi terbaru yang menawarkan fitur lebih lengkap
+              seperti transition, transform, animation, dan fitur modular yang
+              memudahkan pengembangan desain modern.
+            </p>
+            <p>
+              CSS memungkinkan pemisahan antara struktur dokumen HTML dan desain
+              visual, sehingga mempermudah pengelolaan, pemeliharaan, serta
+              konsistensi tampilan pada suatu website. Dengan CSS3, pengembang
+              dapat mengontrol layout, warna, tipografi, jarak, hingga efek
+              animasi yang memperkaya pengalaman pengguna.
+            </p>
+            <p>
+              CSS dapat diterapkan pada dokumen HTML dengan tiga cara utama:
+              inline, internal, dan external stylesheet. Ketiga metode ini
+              memiliki karakteristik dan kegunaan masing-masing sesuai kebutuhan
+              pengembangan.
+            </p>
+
             <h4>3.1.1 CSS Inline</h4>
+            <p>
+              CSS inline adalah metode penulisan CSS langsung pada elemen HTML
+              menggunakan atribut
+              <code>style</code>. Cara ini hanya memengaruhi elemen tempat CSS
+              diterapkan. Inline style biasanya digunakan untuk perubahan cepat
+              atau penyesuaian khusus pada satu elemen.
+            </p>
             <img
               src="../images/bab 3 css inline.png"
               alt="CSS Inline"
               class="content-img"
             />
+
+            <div class="code-wrapper">
+              <div class="code-header">
+                <span class="code-lang">HTML</span>
+                <button class="btn-toggle-code">
+                  <i class="fas fa-eye"></i> Tampilkan Kode
+                </button>
+              </div>
+              <pre class="code-box">
+&lt;p style="color: red; font-size: 18px;"&gt;Teks dengan CSS Inline&lt;/p&gt;</pre
+              >
+            </div>
+
+            <div class="highlight-box">
+              <h4>Kelebihan:</h4>
+              <ul>
+                <li>Mudah diterapkan untuk perubahan kecil</li>
+                <li>Tidak memerlukan file tambahan</li>
+              </ul>
+              <h4>Kekurangan:</h4>
+              <ul>
+                <li>Tidak efisien jika digunakan pada banyak elemen</li>
+                <li>
+                  Menyulitkan pemeliharaan karena gaya bercampur dengan struktur
+                  HTML
+                </li>
+                <li>Tidak mendukung konsep pemisahan konten dan presentasi</li>
+              </ul>
+            </div>
+
             <h4>3.1.2 CSS Internal</h4>
+            <p>
+              CSS internal ditulis dalam tag <code>&lt;style&gt;</code> di dalam
+              bagian <code>&lt;head&gt;</code> pada dokumen HTML. Metode ini
+              digunakan ketika style hanya diperlukan untuk satu halaman saja.
+            </p>
             <img
               src="../images/bab 3 css internal.png"
               alt="CSS Internal"
               class="content-img"
             />
+
+            <div class="code-wrapper">
+              <div class="code-header">
+                <span class="code-lang">HTML</span>
+                <button class="btn-toggle-code">
+                  <i class="fas fa-eye"></i> Tampilkan Kode
+                </button>
+              </div>
+              <pre class="code-box">
+&lt;head&gt;
+  &lt;style&gt;
+    p {
+      color: blue;
+      font-size: 16px;
+    }
+  &lt;/style&gt;
+&lt;/head&gt;</pre
+              >
+            </div>
+
+            <div class="highlight-box">
+              <h4>Kelebihan:</h4>
+              <ul>
+                <li>Tidak memerlukan file luar</li>
+                <li>Mudah digunakan untuk halaman tunggal</li>
+                <li>Struktur tetap lebih bersih dibanding inline</li>
+              </ul>
+              <h4>Kekurangan:</h4>
+              <ul>
+                <li>Tidak efektif untuk banyak halaman</li>
+                <li>Memperbesar ukuran file HTML jika style terlalu banyak</li>
+                <li>Style tidak dapat digunakan ulang pada halaman lain</li>
+              </ul>
+            </div>
+
             <h4>3.1.3 CSS External</h4>
+            <p>
+              CSS external menggunakan file <code>.css</code> yang ditautkan ke
+              dokumen HTML dengan tag <code>&lt;link&gt;</code>. Metode ini
+              adalah yang paling umum digunakan pada proyek web profesional
+              karena mendukung pemisahan konten dan tampilan.
+            </p>
             <img
               src="../images/bab 3 css external-1.png"
-              alt="CSS External 1"
+              alt="CSS External HTML"
               class="content-img"
             />
+
+            <div class="code-wrapper">
+              <div class="code-header">
+                <span class="code-lang">HTML</span>
+                <button class="btn-toggle-code">
+                  <i class="fas fa-eye"></i> Tampilkan Kode
+                </button>
+              </div>
+              <pre class="code-box">
+&lt;head&gt;
+  &lt;link rel="stylesheet" href="style.css"&gt;
+&lt;/head&gt;</pre
+              >
+            </div>
+
             <img
               src="../images/bab 3 css external-2.png"
-              alt="CSS External 2"
+              alt="CSS External File"
               class="content-img"
             />
+
+            <div class="code-wrapper">
+              <div class="code-header">
+                <span class="code-lang">CSS</span>
+                <button class="btn-toggle-code">
+                  <i class="fas fa-eye"></i> Tampilkan Kode
+                </button>
+              </div>
+              <pre class="code-box">
+/* style.css */
+p {
+  color: green;
+  font-size: 18px;
+}</pre
+              >
+            </div>
+
+            <div class="highlight-box">
+              <h4>Kelebihan:</h4>
+              <ul>
+                <li>Style dapat digunakan ulang pada banyak halaman</li>
+                <li>Struktur HTML lebih bersih</li>
+                <li>Pengelolaan dan pemeliharaan lebih mudah</li>
+                <li>Ukuran file HTML menjadi lebih ringan</li>
+              </ul>
+              <h4>Kekurangan:</h4>
+              <ul>
+                <li>Membutuhkan file tambahan</li>
+                <li>
+                  Tampilan mungkin tidak langsung muncul jika terjadi gangguan
+                  koneksi atau file CSS gagal dimuat
+                </li>
+              </ul>
+            </div>
           </section>
 
           <hr class="section-divider" />
 
-          <section class="animate-on-scroll" id="32">
-            <h3>3.2 Selektor, Properti, dan Nilai</h3>
+          <!-- Section 3.2: Selektor, Properti, dan Nilai -->
+          <section id="section32">
+            <h2>3.2 Selektor, Properti, dan Nilai</h2>
+            <p>
+              Dalam CSS, tampilan elemen HTML diatur melalui kombinasi antara
+              selektor, properti, dan nilai. Ketiga komponen ini merupakan dasar
+              dalam penulisan aturan CSS. Selektor menentukan elemen mana yang
+              akan diberi gaya, properti menentukan aspek visual yang akan
+              diubah, dan nilai menjelaskan pengaturan atau konfigurasi pada
+              properti tersebut.
+            </p>
+
             <h4>3.2.1 Selektor</h4>
-            <img
-              src="../images/bab 3 Selector universal.png"
-              alt="Universal"
-              class="content-img"
-            />
+            <p>
+              Selektor adalah pola yang digunakan untuk memilih elemen HTML yang
+              akan diberi style. CSS menyediakan berbagai jenis selektor untuk
+              kebutuhan yang beragam.
+            </p>
+
+            <h5>1. Selektor Elemen (Element Selector)</h5>
+            <p>Memilih elemen berdasarkan nama tag HTML.</p>
             <img
               src="../images/bab 3 Selector elemen.png"
-              alt="Element"
+              alt="Selektor Elemen"
               class="content-img"
             />
+            <div class="code-wrapper">
+              <div class="code-header">
+                <span class="code-lang">CSS</span>
+                <button class="btn-toggle-code">
+                  <i class="fas fa-eye"></i> Tampilkan Kode
+                </button>
+              </div>
+              <pre class="code-box">
+p {
+  color: blue;
+  font-size: 16px;
+}</pre
+              >
+            </div>
+
+            <h5>2. Selektor Class</h5>
+            <p>
+              Menggunakan atribut class pada HTML. Ditandai dengan tanda titik
+              (.).
+            </p>
             <img
               src="../images/bab 3 Selector class.png"
-              alt="Class"
+              alt="Selektor Class"
               class="content-img"
             />
+            <div class="code-wrapper">
+              <div class="code-header">
+                <span class="code-lang">CSS</span>
+                <button class="btn-toggle-code">
+                  <i class="fas fa-eye"></i> Tampilkan Kode
+                </button>
+              </div>
+              <pre class="code-box">
+.highlight {
+  background-color: yellow;
+  font-weight: bold;
+}</pre
+              >
+            </div>
+
+            <h5>3. Selektor ID</h5>
+            <p>
+              Menggunakan atribut id. Ditandai dengan tanda pagar (#). Setiap id
+              hanya boleh digunakan satu kali per halaman.
+            </p>
             <img
               src="../images/bab 3 Selector ID.png"
-              alt="ID"
+              alt="Selektor ID"
               class="content-img"
             />
+            <div class="code-wrapper">
+              <div class="code-header">
+                <span class="code-lang">CSS</span>
+                <button class="btn-toggle-code">
+                  <i class="fas fa-eye"></i> Tampilkan Kode
+                </button>
+              </div>
+              <pre class="code-box">
+#header {
+  background-color: navy;
+  color: white;
+}</pre
+              >
+            </div>
+
+            <h5>4. Selektor Atribut</h5>
+            <p>
+              Memilih elemen berdasarkan nilai atau keberadaan atribut tertentu.
+            </p>
             <img
               src="../images/bab 3 Selector atribut.png"
-              alt="Attribute"
+              alt="Selektor Atribut"
               class="content-img"
             />
+            <div class="code-wrapper">
+              <div class="code-header">
+                <span class="code-lang">CSS</span>
+                <button class="btn-toggle-code">
+                  <i class="fas fa-eye"></i> Tampilkan Kode
+                </button>
+              </div>
+              <pre class="code-box">
+input[type="text"] {
+  border: 2px solid blue;
+}</pre
+              >
+            </div>
+
+            <h5>5. Selektor Descendant (Turunan)</h5>
+            <p>
+              Digunakan untuk menargetkan elemen yang berada di dalam elemen
+              lain.
+            </p>
             <img
               src="../images/bab 3 Selector descendant.png"
-              alt="Descendant"
+              alt="Selektor Descendant"
               class="content-img"
             />
-            <h4>3.2.4 Contoh Penggunaan</h4>
+            <div class="code-wrapper">
+              <div class="code-header">
+                <span class="code-lang">CSS</span>
+                <button class="btn-toggle-code">
+                  <i class="fas fa-eye"></i> Tampilkan Kode
+                </button>
+              </div>
+              <pre class="code-box">
+div p {
+  color: red;
+}</pre
+              >
+            </div>
+
+            <h5>6. Selektor Universal</h5>
+            <p>Menargetkan semua elemen HTML menggunakan tanda bintang *.</p>
+            <img
+              src="../images/bab 3 Selector universal.png"
+              alt="Selektor Universal"
+              class="content-img"
+            />
+            <div class="code-wrapper">
+              <div class="code-header">
+                <span class="code-lang">CSS</span>
+                <button class="btn-toggle-code">
+                  <i class="fas fa-eye"></i> Tampilkan Kode
+                </button>
+              </div>
+              <pre class="code-box">
+* {
+  margin: 0;
+  padding: 0;
+}</pre
+              >
+            </div>
+
+            <h4>3.2.2 Properti (Property)</h4>
+            <p>
+              Properti adalah aspek tampilan yang ingin diatur pada elemen HTML.
+              CSS memiliki ratusan properti, namun beberapa kategori utama yang
+              sering digunakan antara lain:
+            </p>
+
+            <ul>
+              <li>
+                <strong>Properti Warna dan Latar Belakang:</strong> color,
+                background-color, background-image
+              </li>
+              <li>
+                <strong>Properti Teks dan Tipografi:</strong> font-size,
+                font-family, text-align, font-weight
+              </li>
+              <li>
+                <strong>Properti Layout dan Box Model:</strong> margin, padding,
+                border, width, height
+              </li>
+              <li>
+                <strong>Properti Tampilan (Display):</strong> display: block,
+                display: inline, display: flex
+              </li>
+              <li>
+                <strong>Properti Visual Modern:</strong> box-shadow,
+                border-radius, opacity
+              </li>
+            </ul>
+
+            <h4>3.2.3 Nilai (Value)</h4>
+            <p>
+              Nilai merupakan isi atau konfigurasi dari sebuah properti. Nilai
+              dapat berupa angka, warna, kata kunci, atau kombinasi tertentu.
+            </p>
+
+            <table class="styled-table">
+              <thead>
+                <tr>
+                  <th>Jenis Nilai</th>
+                  <th>Contoh</th>
+                  <th>Keterangan</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr>
+                  <td>Warna</td>
+                  <td>red, #ff0000, rgb(255,0,0)</td>
+                  <td>Mendefinisikan warna</td>
+                </tr>
+                <tr>
+                  <td>Satuan panjang</td>
+                  <td>px, em, rem, %</td>
+                  <td>Mengatur ukuran</td>
+                </tr>
+                <tr>
+                  <td>Kata kunci</td>
+                  <td>center, bold, flex</td>
+                  <td>Nilai yang telah ditentukan CSS</td>
+                </tr>
+                <tr>
+                  <td>URL</td>
+                  <td>url("image.jpg")</td>
+                  <td>Biasanya untuk gambar latar</td>
+                </tr>
+                <tr>
+                  <td>Angka</td>
+                  <td>1, 0.5</td>
+                  <td>Dipakai pada opacity, z-index, dll</td>
+                </tr>
+              </tbody>
+            </table>
+
+            <h4>3.2.4 Contoh Penggunaan Selektor, Properti, dan Nilai</h4>
             <img
               src="../images/bab 3 penggunaan selektor, nilai, properti.png"
-              alt="Penggunaan"
+              alt="Penggunaan Selektor"
               class="content-img"
             />
+            <div class="code-wrapper">
+              <div class="code-header">
+                <span class="code-lang">CSS</span>
+                <button class="btn-toggle-code">
+                  <i class="fas fa-eye"></i> Tampilkan Kode
+                </button>
+              </div>
+              <pre class="code-box">
+p.intro {
+  font-size: 18px;
+  color: #333;
+  line-height: 1.6;
+}</pre
+              >
+            </div>
+            <p><strong>Penjelasan:</strong></p>
+            <ul>
+              <li><code>p.intro</code> → selektor</li>
+              <li><code>font-size, color, line-height</code> → properti</li>
+              <li><code>18px, #333, 1.6</code> → nilai</li>
+            </ul>
           </section>
 
           <hr class="section-divider" />
 
-          <section class="animate-on-scroll" id="33">
-            <h3>3.3 Warna, Teks, dan Font</h3>
-            <h4>3.3.1 Warna</h4>
+          <!-- Section 3.3: Warna, Teks, dan Font -->
+          <section id="section33">
+            <h2>3.3 Warna, Teks, dan Font</h2>
+            <p>
+              Dalam perancangan antarmuka web, pengaturan warna, teks, dan font
+              berperan penting dalam meningkatkan estetika, keterbacaan, dan
+              pengalaman pengguna. CSS menyediakan berbagai properti yang dapat
+              digunakan untuk mengontrol aspek visual dari elemen teks.
+            </p>
+
+            <h4>3.3.1 Pengaturan Warna (Color)</h4>
+            <p>
+              Warna merupakan elemen visual penting dalam desain web. CSS
+              menyediakan beberapa format nilai warna yang dapat digunakan
+              sesuai kebutuhan.
+            </p>
+
+            <h5>a) Format Penulisan Warna</h5>
+
+            <h6>1. Nama warna standar (color names)</h6>
             <img
               src="../images/bab 3 format warna std.png"
-              alt="Warna Standard"
+              alt="Warna Standar"
               class="content-img"
             />
+            <div class="code-wrapper">
+              <div class="code-header">
+                <span class="code-lang">CSS</span>
+                <button class="btn-toggle-code">
+                  <i class="fas fa-eye"></i> Tampilkan Kode
+                </button>
+              </div>
+              <pre class="code-box">
+h1 {
+  color: red;
+}</pre
+              >
+            </div>
+
+            <h6>2. Hexadecimal</h6>
+            <p>Nilai 6 digit atau 3 digit.</p>
             <img
               src="../images/bab 3 format warna hex.png"
-              alt="Hex"
+              alt="Hexadecimal"
               class="content-img"
             />
+            <div class="code-wrapper">
+              <div class="code-header">
+                <span class="code-lang">CSS</span>
+                <button class="btn-toggle-code">
+                  <i class="fas fa-eye"></i> Tampilkan Kode
+                </button>
+              </div>
+              <pre class="code-box">
+h1 {
+  color: #ff0000;
+}</pre
+              >
+            </div>
+
+            <h6>3. RGB (Red, Green, Blue)</h6>
             <img
               src="../images/bab 3 format warna rgb.png"
               alt="RGB"
               class="content-img"
             />
+            <div class="code-wrapper">
+              <div class="code-header">
+                <span class="code-lang">CSS</span>
+                <button class="btn-toggle-code">
+                  <i class="fas fa-eye"></i> Tampilkan Kode
+                </button>
+              </div>
+              <pre class="code-box">
+h1 {
+  color: rgb(255, 0, 0);
+}</pre
+              >
+            </div>
+
+            <h6>4. RGBA (RGB + Alpha)</h6>
+            <p>Menambahkan tingkat transparansi.</p>
             <img
               src="../images/bab 3 format warna rgba.png"
               alt="RGBA"
               class="content-img"
             />
+            <div class="code-wrapper">
+              <div class="code-header">
+                <span class="code-lang">CSS</span>
+                <button class="btn-toggle-code">
+                  <i class="fas fa-eye"></i> Tampilkan Kode
+                </button>
+              </div>
+              <pre class="code-box">
+h1 {
+  color: rgba(255, 0, 0, 0.5);
+}</pre
+              >
+            </div>
+
+            <h6>5. HSL (Hue, Saturation, Lightness)</h6>
             <img
               src="../images/bab 3 format warna hsl.png"
               alt="HSL"
               class="content-img"
             />
-            <h4>3.3.2 Teks</h4>
+            <div class="code-wrapper">
+              <div class="code-header">
+                <span class="code-lang">CSS</span>
+                <button class="btn-toggle-code">
+                  <i class="fas fa-eye"></i> Tampilkan Kode
+                </button>
+              </div>
+              <pre class="code-box">
+h1 {
+  color: hsl(0, 100%, 50%);
+}</pre
+              >
+            </div>
+
+            <h5>b) Properti Warna yang Sering Digunakan</h5>
+            <ul>
+              <li><code>color</code> → warna teks</li>
+              <li><code>background-color</code> → warna latar belakang</li>
+              <li><code>border-color</code> → warna garis tepi</li>
+            </ul>
+
+            <h4>3.3.2 Pengaturan Teks (Text Properties)</h4>
+
+            <h6>1. text-align</h6>
+            <p>Mengatur perataan teks:</p>
             <img
               src="../images/bab 3 text align.png"
-              alt="Align"
+              alt="Text Align"
               class="content-img"
             />
+            <div class="code-wrapper">
+              <div class="code-header">
+                <span class="code-lang">CSS</span>
+                <button class="btn-toggle-code">
+                  <i class="fas fa-eye"></i> Tampilkan Kode
+                </button>
+              </div>
+              <pre class="code-box">
+p {
+  text-align: center; /* left, right, justify */
+}</pre
+              >
+            </div>
+
+            <h6>2. text-decoration</h6>
+            <p>Menambah garis seperti underline atau strikethrough.</p>
             <img
               src="../images/bab 3 text decoration.png"
-              alt="Decoration"
+              alt="Text Decoration"
               class="content-img"
             />
+            <div class="code-wrapper">
+              <div class="code-header">
+                <span class="code-lang">CSS</span>
+                <button class="btn-toggle-code">
+                  <i class="fas fa-eye"></i> Tampilkan Kode
+                </button>
+              </div>
+              <pre class="code-box">
+a {
+  text-decoration: underline; /* none, overline, line-through */
+}</pre
+              >
+            </div>
+
+            <h6>3. text-transform</h6>
+            <p>Mengatur kapitalisasi:</p>
             <img
               src="../images/bab 3 text transform.png"
-              alt="Transform"
+              alt="Text Transform"
               class="content-img"
             />
-            <img
-              src="../images/bab 3 text shadow.png"
-              alt="Shadow"
-              class="content-img"
-            />
-            <img
-              src="../images/bab 3 letter dan word.png"
-              alt="Letter Word"
-              class="content-img"
-            />
+            <div class="code-wrapper">
+              <div class="code-header">
+                <span class="code-lang">CSS</span>
+                <button class="btn-toggle-code">
+                  <i class="fas fa-eye"></i> Tampilkan Kode
+                </button>
+              </div>
+              <pre class="code-box">
+h1 {
+  text-transform: uppercase; /* lowercase, capitalize */
+}</pre
+              >
+            </div>
+
+            <h6>4. line-height</h6>
+            <p>Mengatur jarak antarbaris:</p>
             <img
               src="../images/bab 3 line height.png"
               alt="Line Height"
               class="content-img"
             />
-            <h4>3.3.3 Font</h4>
+            <div class="code-wrapper">
+              <div class="code-header">
+                <span class="code-lang">CSS</span>
+                <button class="btn-toggle-code">
+                  <i class="fas fa-eye"></i> Tampilkan Kode
+                </button>
+              </div>
+              <pre class="code-box">
+p {
+  line-height: 1.6;
+}</pre
+              >
+            </div>
+
+            <h6>5. letter-spacing & word-spacing</h6>
+            <p>Mengatur jarak antar huruf dan kata:</p>
+            <img
+              src="../images/bab 3 letter dan word.png"
+              alt="Letter Word Spacing"
+              class="content-img"
+            />
+            <div class="code-wrapper">
+              <div class="code-header">
+                <span class="code-lang">CSS</span>
+                <button class="btn-toggle-code">
+                  <i class="fas fa-eye"></i> Tampilkan Kode
+                </button>
+              </div>
+              <pre class="code-box">
+h1 {
+  letter-spacing: 2px;
+  word-spacing: 5px;
+}</pre
+              >
+            </div>
+
+            <h6>6. text-shadow</h6>
+            <p>Membuat efek bayangan teks:</p>
+            <img
+              src="../images/bab 3 text shadow.png"
+              alt="Text Shadow"
+              class="content-img"
+            />
+            <div class="code-wrapper">
+              <div class="code-header">
+                <span class="code-lang">CSS</span>
+                <button class="btn-toggle-code">
+                  <i class="fas fa-eye"></i> Tampilkan Kode
+                </button>
+              </div>
+              <pre class="code-box">
+h1 {
+  text-shadow: 2px 2px 5px rgba(0,0,0,0.3);
+}</pre
+              >
+            </div>
+
+            <h4>3.3.3 Pengaturan Font (Font Properties)</h4>
+
+            <h6>1. font-family</h6>
+            <p>
+              Menentukan jenis font yang digunakan. Disarankan menuliskan
+              fallback font.
+            </p>
             <img
               src="../images/bab 3 font family.png"
               alt="Font Family"
               class="content-img"
             />
+            <div class="code-wrapper">
+              <div class="code-header">
+                <span class="code-lang">CSS</span>
+                <button class="btn-toggle-code">
+                  <i class="fas fa-eye"></i> Tampilkan Kode
+                </button>
+              </div>
+              <pre class="code-box">
+body {
+  font-family: 'Arial', 'Helvetica', sans-serif;
+}</pre
+              >
+            </div>
+
+            <h6>2. font-size</h6>
+            <p>
+              Mengatur ukuran teks. Satuan yang sering digunakan: px, em, rem, %
+            </p>
             <img
               src="../images/bab 3 font size.png"
               alt="Font Size"
               class="content-img"
             />
+            <div class="code-wrapper">
+              <div class="code-header">
+                <span class="code-lang">CSS</span>
+                <button class="btn-toggle-code">
+                  <i class="fas fa-eye"></i> Tampilkan Kode
+                </button>
+              </div>
+              <pre class="code-box">
+p {
+  font-size: 16px; /* 1em, 1rem, 100% */
+}</pre
+              >
+            </div>
+
+            <h6>3. font-weight</h6>
+            <p>Mengatur ketebalan teks:</p>
             <img
               src="../images/bab 3 font weight.png"
               alt="Font Weight"
               class="content-img"
             />
+            <div class="code-wrapper">
+              <div class="code-header">
+                <span class="code-lang">CSS</span>
+                <button class="btn-toggle-code">
+                  <i class="fas fa-eye"></i> Tampilkan Kode
+                </button>
+              </div>
+              <pre class="code-box">
+h1 {
+  font-weight: bold; /* normal, 100-900 */
+}</pre
+              >
+            </div>
+
+            <h6>4. font-style</h6>
+            <p>Mengatur gaya font:</p>
             <img
               src="../images/bab 3 font style.png"
               alt="Font Style"
               class="content-img"
             />
+            <div class="code-wrapper">
+              <div class="code-header">
+                <span class="code-lang">CSS</span>
+                <button class="btn-toggle-code">
+                  <i class="fas fa-eye"></i> Tampilkan Kode
+                </button>
+              </div>
+              <pre class="code-box">
+em {
+  font-style: italic; /* normal, oblique */
+}</pre
+              >
+            </div>
+
+            <h6>5. font-variant</h6>
+            <p>Digunakan untuk small-caps:</p>
             <img
               src="../images/bab 3 font variant.png"
               alt="Font Variant"
               class="content-img"
             />
+            <div class="code-wrapper">
+              <div class="code-header">
+                <span class="code-lang">CSS</span>
+                <button class="btn-toggle-code">
+                  <i class="fas fa-eye"></i> Tampilkan Kode
+                </button>
+              </div>
+              <pre class="code-box">
+p {
+  font-variant: small-caps;
+}</pre
+              >
+            </div>
+
+            <h6>6. @font-face</h6>
+            <p>Mengimport font custom lokal maupun eksternal.</p>
             <img
               src="../images/bab 3 font face.png"
               alt="Font Face"
               class="content-img"
             />
-            <img
-              src="../images/bab 3 font google.png"
-              alt="Google Fonts"
-              class="content-img"
-            />
+            <div class="code-wrapper">
+              <div class="code-header">
+                <span class="code-lang">CSS</span>
+                <button class="btn-toggle-code">
+                  <i class="fas fa-eye"></i> Tampilkan Kode
+                </button>
+              </div>
+              <pre class="code-box">
+@font-face {
+  font-family: 'CustomFont';
+  src: url('fonts/custom.woff2') format('woff2');
+}
+
+body {
+  font-family: 'CustomFont', sans-serif;
+}</pre
+              >
+            </div>
+
+            <h6>7. Menggunakan Google Fonts</h6>
+            <p>Google Fonts umum digunakan di banyak projek mahasiswa.</p>
+            <p>Contoh di HTML:</p>
             <img
               src="../images/bab 3 font google html.png"
               alt="Google Fonts HTML"
               class="content-img"
             />
-            <h4>3.3.4 Implementasi</h4>
+            <div class="code-wrapper">
+              <div class="code-header">
+                <span class="code-lang">HTML</span>
+                <button class="btn-toggle-code">
+                  <i class="fas fa-eye"></i> Tampilkan Kode
+                </button>
+              </div>
+              <pre class="code-box">
+&lt;link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap" rel="stylesheet"&gt;</pre
+              >
+            </div>
+
+            <p>Di CSS:</p>
+            <img
+              src="../images/bab 3 font google.png"
+              alt="Google Fonts CSS"
+              class="content-img"
+            />
+            <div class="code-wrapper">
+              <div class="code-header">
+                <span class="code-lang">CSS</span>
+                <button class="btn-toggle-code">
+                  <i class="fas fa-eye"></i> Tampilkan Kode
+                </button>
+              </div>
+              <pre class="code-box">
+body {
+  font-family: 'Roboto', sans-serif;
+}</pre
+              >
+            </div>
+
+            <h4>3.3.4 Contoh Implementasi Warna, Teks, dan Font</h4>
             <img
               src="../images/bab 3 implementasi warna, teks, dan font.png"
               alt="Implementasi"
+              class="content-img"
+            />
+            <div class="code-wrapper">
+              <div class="code-header">
+                <span class="code-lang">CSS</span>
+                <button class="btn-toggle-code">
+                  <i class="fas fa-eye"></i> Tampilkan Kode
+                </button>
+              </div>
+              <pre class="code-box">
+h1 {
+  font-family: 'Arial', sans-serif;
+  font-size: 36px;
+  font-weight: bold;
+  color: #2c3e50;
+  text-align: center;
+  text-shadow: 2px 2px 4px rgba(0,0,0,0.2);
+}
+
+p {
+  font-size: 16px;
+  line-height: 1.6;
+  color: #34495e;
+  letter-spacing: 0.5px;
+}</pre
+              >
+            </div>
+
+            <p><strong>Output:</strong></p>
+            <img
+              src="../images/output bab 3 implementasi.png"
+              alt="Output Implementasi"
               class="content-img"
             />
           </section>
 
           <hr class="section-divider" />
 
-          <section class="animate-on-scroll" id="34">
-            <h3>3.4 Box Model</h3>
-            <h4>3.4.1 Konsep Box Model</h4>
+          <!-- Section 3.4: Box Model -->
+          <section id="section34">
+            <h2>3.4 Box Model (Margin, Padding, Border)</h2>
+            <p>
+              Dalam CSS, seluruh elemen pada halaman web direpresentasikan
+              menggunakan box model. Konsep ini sangat penting karena menentukan
+              bagaimana suatu elemen ditampilkan, diatur jaraknya, serta
+              berinteraksi dengan elemen lainnya di dalam layout halaman.
+            </p>
+
+            <h4>3.4.1 Konsep Dasar Box Model</h4>
+            <p>
+              Secara visual, CSS Box Model dapat dijelaskan sebagai
+              lapisan-lapisan yang menyelimuti konten. Komponen utama:
+            </p>
+            <ol>
+              <li>
+                <strong>Content</strong> - Isi dari elemen, seperti teks,
+                gambar, atau komponen lain.
+              </li>
+              <li>
+                <strong>Padding</strong> - Jarak antara content dan border,
+                memberikan ruang dalam elemen.
+              </li>
+              <li>
+                <strong>Border</strong> - Garis yang mengelilingi padding dan
+                content.
+              </li>
+              <li>
+                <strong>Margin</strong> - Ruang luar yang memisahkan elemen dari
+                elemen lainnya.
+              </li>
+            </ol>
             <img
               src="../images/bab 3 css box model.png"
               alt="Box Model"
               class="content-img"
             />
+
             <h4>3.4.2 Padding</h4>
+            <p>
+              Padding menambah ruang di dalam sebuah elemen antara content dan
+              border. Properti ini tidak mempengaruhi elemen lain secara
+              langsung, tetapi menambah ukuran keseluruhan elemen.
+            </p>
             <img
               src="../images/bab 3 padding.png"
               alt="Padding"
               class="content-img"
             />
+            <div class="code-wrapper">
+              <div class="code-header">
+                <span class="code-lang">CSS</span>
+                <button class="btn-toggle-code">
+                  <i class="fas fa-eye"></i> Tampilkan Kode
+                </button>
+              </div>
+              <pre class="code-box">
+div {
+  padding-top: 10px;
+  padding-right: 20px;
+  padding-bottom: 10px;
+  padding-left: 20px;
+}</pre
+              >
+            </div>
+
+            <p><strong>Bentuk penulisan shorthand:</strong></p>
+            <ul>
+              <li><code>padding: 10px;</code> → semua sisi</li>
+              <li><code>padding: 10px 20px;</code> → vertical horizontal</li>
+              <li>
+                <code>padding: 10px 20px 30px;</code> → top horizontal bottom
+              </li>
+              <li>
+                <code>padding: 10px 20px 30px 40px;</code> → top right bottom
+                left
+              </li>
+            </ul>
+
             <h4>3.4.3 Border</h4>
+            <p>
+              Border adalah garis tepi yang mengelilingi elemen. Border memiliki
+              tiga komponen: width, style, dan color.
+            </p>
             <img
               src="../images/bab 3 border.png"
               alt="Border"
@@ -252,166 +1079,854 @@
             />
             <img
               src="../images/bab 3 border-1.png"
-              alt="Border  1"
+              alt="Border Detail"
               class="content-img"
             />
+            <div class="code-wrapper">
+              <div class="code-header">
+                <span class="code-lang">CSS</span>
+                <button class="btn-toggle-code">
+                  <i class="fas fa-eye"></i> Tampilkan Kode
+                </button>
+              </div>
+              <pre class="code-box">
+div {
+  border-width: 2px;
+  border-style: solid;
+  border-color: #333;
+  
+  /* Shorthand */
+  border: 2px solid #333;
+}</pre
+              >
+            </div>
+
+            <p><strong>Macam-macam border-style:</strong></p>
+            <ul>
+              <li>solid</li>
+              <li>dashed</li>
+              <li>dotted</li>
+              <li>double</li>
+              <li>ridge</li>
+              <li>groove</li>
+              <li>none</li>
+            </ul>
+
+            <h5>Border-radius</h5>
+            <p>Untuk membuat sudut melengkung:</p>
             <img
               src="../images/bab 3 border-rds.png"
               alt="Border Radius"
               class="content-img"
             />
+            <div class="code-wrapper">
+              <div class="code-header">
+                <span class="code-lang">CSS</span>
+                <button class="btn-toggle-code">
+                  <i class="fas fa-eye"></i> Tampilkan Kode
+                </button>
+              </div>
+              <pre class="code-box">
+div {
+  border-radius: 10px; /* 50% untuk lingkaran sempurna */
+}</pre
+              >
+            </div>
+
             <h4>3.4.4 Margin</h4>
+            <p>
+              Margin adalah ruang di luar border, digunakan untuk memberi jarak
+              antar elemen. Margin dapat bernilai positif maupun negatif.
+            </p>
             <img
               src="../images/bab 3 margin.png"
               alt="Margin"
               class="content-img"
             />
+            <div class="code-wrapper">
+              <div class="code-header">
+                <span class="code-lang">CSS</span>
+                <button class="btn-toggle-code">
+                  <i class="fas fa-eye"></i> Tampilkan Kode
+                </button>
+              </div>
+              <pre class="code-box">
+div {
+  margin-top: 10px;
+  margin-right: 20px;
+  margin-bottom: 10px;
+  margin-left: 20px;
+}</pre
+              >
+            </div>
+
+            <p><strong>Bentuk shorthand:</strong></p>
+            <ul>
+              <li><code>margin: 10px;</code></li>
+              <li><code>margin: 10px 20px;</code></li>
+              <li><code>margin: 10px 20px 30px;</code></li>
+              <li><code>margin: 10px 20px 30px 40px;</code></li>
+            </ul>
+
+            <h5>Auto margin</h5>
+            <p>Sering digunakan untuk centering:</p>
             <img
               src="../images/bab 3 margin auto.png"
               alt="Margin Auto"
               class="content-img"
             />
-            <h4>3.4.5 Box Sizing</h4>
+            <div class="code-wrapper">
+              <div class="code-header">
+                <span class="code-lang">CSS</span>
+                <button class="btn-toggle-code">
+                  <i class="fas fa-eye"></i> Tampilkan Kode
+                </button>
+              </div>
+              <pre class="code-box">
+div {
+  width: 500px;
+  margin: 0 auto; /* centering horizontal */
+}</pre
+              >
+            </div>
+
+            <h4>3.4.5 Perhitungan Ukuran Elemen (Element Size Calculation)</h4>
+            <p>
+              Secara default, width dan height hanya menghitung content, tidak
+              termasuk padding, border, dan margin.
+            </p>
+            <p><strong>Rumus:</strong></p>
+            <img
+              src="../images/bab 3 ukuran elemen.png"
+              alt="Ukuran Elemen"
+              class="content-img"
+            />
+
+            <h5>Menggunakan box-sizing: border-box;</h5>
+            <p>
+              Mengubah perhitungan sehingga padding dan border sudah termasuk ke
+              dalam width dan height.
+            </p>
             <img
               src="../images/bab 3 box sizing.png"
               alt="Box Sizing"
               class="content-img"
             />
-            <img
-              src="../images/bab 3 ukuran elemen.png"
-              alt="Ukuran Element"
-              class="content-img"
-            />
-            <h4>3.4.6 Implementasi</h4>
+            <div class="code-wrapper">
+              <div class="code-header">
+                <span class="code-lang">CSS</span>
+                <button class="btn-toggle-code">
+                  <i class="fas fa-eye"></i> Tampilkan Kode
+                </button>
+              </div>
+              <pre class="code-box">
+* {
+  box-sizing: border-box;
+}
+
+div {
+  width: 300px;
+  padding: 20px;
+  border: 5px solid #333;
+  /* Total width tetap 300px */
+}</pre
+              >
+            </div>
+            <p>
+              Ini sangat umum digunakan pada desain modern karena memudahkan
+              pengaturan layout.
+            </p>
+
+            <h4>3.4.6 Contoh Implementasi Box Model</h4>
             <img
               src="../images/bab 3 implementasi box model.png"
               alt="Implementasi Box Model"
               class="content-img"
             />
-            <img
-              src="../images/output bab 3 implementasi.png"
-              alt="Output"
-              class="content-img"
-            />
+            <div class="code-wrapper">
+              <div class="code-header">
+                <span class="code-lang">CSS</span>
+                <button class="btn-toggle-code">
+                  <i class="fas fa-eye"></i> Tampilkan Kode
+                </button>
+              </div>
+              <pre class="code-box">
+.card {
+  width: 300px;
+  padding: 20px;
+  border: 2px solid #ddd;
+  border-radius: 8px;
+  margin: 20px auto;
+  box-sizing: border-box;
+  background-color: #f9f9f9;
+}</pre
+              >
+            </div>
+            <p>Pada contoh di atas:</p>
+            <ul>
+              <li>Padding → memberi ruang dalam</li>
+              <li>Margin → memberi jarak antar elemen</li>
+              <li>Border → memberi batas visual</li>
+              <li>Box-sizing → memudahkan perhitungan ukuran</li>
+            </ul>
           </section>
 
           <hr class="section-divider" />
 
-          <section class="animate-on-scroll" id="35">
-            <h3>3.5 Flexbox & Grid CSS</h3>
-            <h4>3.5.1 Flexbox</h4>
+          <!-- Section 3.5: Flexbox & Grid -->
+          <section id="section35">
+            <h2>3.5 Layout Dasar dengan Flexbox & Grid CSS</h2>
+            <p>
+              Dalam pengembangan antarmuka web modern, pengaturan tata letak
+              (layout) menjadi faktor penting untuk memastikan tampilan halaman
+              yang responsif, rapi, dan mudah dikelola. CSS menyediakan dua
+              teknik layout yang sangat efektif dan kini menjadi standar
+              industri, yaitu Flexbox dan Grid Layout.
+            </p>
+
+            <h4>3.5.1 Flexbox (Flexible Box Layout)</h4>
+            <p>
+              Flexbox merupakan model layout satu dimensi yang digunakan untuk
+              mengatur elemen dalam satu baris (row) atau kolom (column).
+            </p>
+
+            <h5>A. Konsep Dasar Flexbox</h5>
+            <p>Flexbox bekerja melalui dua komponen utama:</p>
+            <ul>
+              <li>
+                <strong>Flex Container</strong> = elemen pembungkus, diberi
+                properti <code>display: flex;</code>
+              </li>
+              <li>
+                <strong>Flex Items</strong> = elemen-elemen di dalam container
+                yang terkena pengaturan flex
+              </li>
+            </ul>
+
+            <h5>B. Properti Utama Flex Container</h5>
+
+            <h6>1. display: flex</h6>
+            <p>Mengaktifkan mode Flexbox.</p>
             <img
               src="../images/bab 3 display flex.png"
               alt="Display Flex"
               class="content-img"
             />
+            <div class="code-wrapper">
+              <div class="code-header">
+                <span class="code-lang">CSS</span>
+                <button class="btn-toggle-code">
+                  <i class="fas fa-eye"></i> Tampilkan Kode
+                </button>
+              </div>
+              <pre class="code-box">
+.container {
+  display: flex;
+}</pre
+              >
+            </div>
+
+            <h6>2. flex-direction</h6>
+            <p>Menentukan arah elemen (horizontal/vertical).</p>
             <img
               src="../images/bab 3 flex dir.png"
               alt="Flex Direction"
               class="content-img"
             />
-            <img
-              src="../images/bab 3 flex wrap.png"
-              alt="Flex Wrap"
-              class="content-img"
-            />
+            <div class="code-wrapper">
+              <div class="code-header">
+                <span class="code-lang">CSS</span>
+                <button class="btn-toggle-code">
+                  <i class="fas fa-eye"></i> Tampilkan Kode
+                </button>
+              </div>
+              <pre class="code-box">
+.container {
+  flex-direction: row; /* row, column, row-reverse, column-reverse */
+}</pre
+              >
+            </div>
+
+            <h6>3. justify-content</h6>
+            <p>Mengatur perataan elemen secara horizontal (main axis).</p>
+            <p>
+              Contoh: flex-start, center, flex-end, space-between, space-around
+            </p>
             <img
               src="../images/bab 3 justify content.png"
               alt="Justify Content"
               class="content-img"
             />
+            <div class="code-wrapper">
+              <div class="code-header">
+                <span class="code-lang">CSS</span>
+                <button class="btn-toggle-code">
+                  <i class="fas fa-eye"></i> Tampilkan Kode
+                </button>
+              </div>
+              <pre class="code-box">
+.container {
+  justify-content: space-between;
+}</pre
+              >
+            </div>
+
+            <h6>4. align-items</h6>
+            <p>Mengatur perataan vertikal (cross axis).</p>
             <img
               src="../images/bab 3 align items.png"
               alt="Align Items"
               class="content-img"
             />
+            <div class="code-wrapper">
+              <div class="code-header">
+                <span class="code-lang">CSS</span>
+                <button class="btn-toggle-code">
+                  <i class="fas fa-eye"></i> Tampilkan Kode
+                </button>
+              </div>
+              <pre class="code-box">
+.container {
+  align-items: center; /* flex-start, flex-end, stretch, baseline */
+}</pre
+              >
+            </div>
+
+            <h6>5. flex-wrap</h6>
+            <p>Mengatur apakah elemen akan turun ke baris berikutnya.</p>
+            <img
+              src="../images/bab 3 flex wrap.png"
+              alt="Flex Wrap"
+              class="content-img"
+            />
+            <div class="code-wrapper">
+              <div class="code-header">
+                <span class="code-lang">CSS</span>
+                <button class="btn-toggle-code">
+                  <i class="fas fa-eye"></i> Tampilkan Kode
+                </button>
+              </div>
+              <pre class="code-box">
+.container {
+  flex-wrap: wrap; /* nowrap, wrap-reverse */
+}</pre
+              >
+            </div>
+
+            <h5>C. Properti Flex Item</h5>
+
+            <h6>flex-grow</h6>
+            <p>Mengatur apakah elemen boleh melebar.</p>
             <img
               src="../images/bab 3 flex item grow.png"
               alt="Flex Grow"
               class="content-img"
             />
+            <div class="code-wrapper">
+              <div class="code-header">
+                <span class="code-lang">CSS</span>
+                <button class="btn-toggle-code">
+                  <i class="fas fa-eye"></i> Tampilkan Kode
+                </button>
+              </div>
+              <pre class="code-box">
+.item {
+  flex-grow: 1;
+}</pre
+              >
+            </div>
+
+            <h6>flex-shrink</h6>
+            <p>Mengatur apakah elemen boleh menyusut.</p>
             <img
               src="../images/bab 3 flex item shrink.png"
               alt="Flex Shrink"
               class="content-img"
             />
+            <div class="code-wrapper">
+              <div class="code-header">
+                <span class="code-lang">CSS</span>
+                <button class="btn-toggle-code">
+                  <i class="fas fa-eye"></i> Tampilkan Kode
+                </button>
+              </div>
+              <pre class="code-box">
+.item {
+  flex-shrink: 0;
+}</pre
+              >
+            </div>
+
+            <h6>flex-basis</h6>
+            <p>Menentukan ukuran awal item.</p>
             <img
               src="../images/bab 3 flex item basis.png"
               alt="Flex Basis"
               class="content-img"
             />
+            <div class="code-wrapper">
+              <div class="code-header">
+                <span class="code-lang">CSS</span>
+                <button class="btn-toggle-code">
+                  <i class="fas fa-eye"></i> Tampilkan Kode
+                </button>
+              </div>
+              <pre class="code-box">
+.item {
+  flex-basis: 200px;
+}</pre
+              >
+            </div>
+
+            <h6>Shorthand: flex</h6>
             <img
               src="../images/bab 3 flex shorthand.png"
               alt="Flex Shorthand"
               class="content-img"
             />
+            <div class="code-wrapper">
+              <div class="code-header">
+                <span class="code-lang">CSS</span>
+                <button class="btn-toggle-code">
+                  <i class="fas fa-eye"></i> Tampilkan Kode
+                </button>
+              </div>
+              <pre class="code-box">
+.item {
+  flex: 1 0 200px; /* grow shrink basis */
+}</pre
+              >
+            </div>
+
+            <h5>D. Contoh Implementasi Flexbox</h5>
             <img
               src="../images/bab 3 Implementasi flexbox.png"
               alt="Implementasi Flexbox"
               class="content-img"
             />
-            <h4>3.5.2 CSS Grid</h4>
+            <div class="code-wrapper">
+              <div class="code-header">
+                <span class="code-lang">HTML + CSS</span>
+                <button class="btn-toggle-code">
+                  <i class="fas fa-eye"></i> Tampilkan Kode
+                </button>
+              </div>
+              <pre class="code-box">
+&lt;!-- HTML --&gt;
+&lt;div class="flex-container"&gt;
+  &lt;div class="flex-item"&gt;Item 1&lt;/div&gt;
+  &lt;div class="flex-item"&gt;Item 2&lt;/div&gt;
+  &lt;div class="flex-item"&gt;Item 3&lt;/div&gt;
+&lt;/div&gt;
+
+/* CSS */
+.flex-container {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 20px;
+}
+
+.flex-item {
+  flex: 1;
+  padding: 20px;
+  background: #4CAF50;
+  color: white;
+  text-align: center;
+}</pre
+              >
+            </div>
+
+            <h4>3.5.2 CSS Grid Layout</h4>
+            <p>
+              CSS Grid adalah sistem layout dua dimensi yang memungkinkan
+              pengaturan elemen berdasarkan baris (rows) dan kolom (columns).
+            </p>
+
+            <h5>a) Konsep Dasar Grid</h5>
+            <p>Grid menggunakan dua elemen utama:</p>
+            <ol>
+              <li>
+                <strong>Grid Container</strong> → diberi
+                <code>display: grid;</code>
+              </li>
+              <li><strong>Grid Items</strong> → elemen-elemen di dalam grid</li>
+            </ol>
+
+            <h5>b) Properti Utama Grid Container</h5>
+
+            <h6>1. grid-template-columns & grid-template-rows</h6>
+            <p>Menentukan jumlah dan ukuran kolom serta baris grid.</p>
             <img
               src="../images/bab 3 grid template.png"
               alt="Grid Template"
               class="content-img"
             />
+            <div class="code-wrapper">
+              <div class="code-header">
+                <span class="code-lang">CSS</span>
+                <button class="btn-toggle-code">
+                  <i class="fas fa-eye"></i> Tampilkan Kode
+                </button>
+              </div>
+              <pre class="code-box">
+.grid-container {
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr; /* 3 kolom sama besar */
+  grid-template-rows: 100px 200px; /* 2 baris */
+}</pre
+              >
+            </div>
+
+            <h6>2. gap</h6>
+            <p>Jarak antar-elemen grid.</p>
             <img
               src="../images/bab 3 grid gap.png"
               alt="Grid Gap"
               class="content-img"
             />
-            <img
-              src="../images/bab 3 grid column & row.png"
-              alt="Grid Column Row"
-              class="content-img"
-            />
-            <img
-              src="../images/bab 3 grid areas.png"
-              alt="Grid Areas"
-              class="content-img"
-            />
+            <div class="code-wrapper">
+              <div class="code-header">
+                <span class="code-lang">CSS</span>
+                <button class="btn-toggle-code">
+                  <i class="fas fa-eye"></i> Tampilkan Kode
+                </button>
+              </div>
+              <pre class="code-box">
+.grid-container {
+  gap: 20px; /* row-gap & column-gap sekaligus */
+}</pre
+              >
+            </div>
+
+            <h6>3. justify-items & align-items</h6>
+            <p>Mengatur perataan isi dalam setiap grid cell.</p>
             <img
               src="../images/bab 3 grid justify align.png"
               alt="Grid Justify Align"
               class="content-img"
             />
+            <div class="code-wrapper">
+              <div class="code-header">
+                <span class="code-lang">CSS</span>
+                <button class="btn-toggle-code">
+                  <i class="fas fa-eye"></i> Tampilkan Kode
+                </button>
+              </div>
+              <pre class="code-box">
+.grid-container {
+  justify-items: center;
+  align-items: center;
+}</pre
+              >
+            </div>
+
+            <h6>4. grid-template-areas</h6>
+            <p>Membuat layout visual yang lebih kompleks dan mudah dipahami.</p>
             <img
-              src="../images/bab 3 grid item self.png"
-              alt="Grid Item Self"
+              src="../images/bab 3 grid areas.png"
+              alt="Grid Areas"
               class="content-img"
             />
+            <div class="code-wrapper">
+              <div class="code-header">
+                <span class="code-lang">CSS</span>
+                <button class="btn-toggle-code">
+                  <i class="fas fa-eye"></i> Tampilkan Kode
+                </button>
+              </div>
+              <pre class="code-box">
+.grid-container {
+  display: grid;
+  grid-template-areas:
+    "header header header"
+    "sidebar content content"
+    "footer footer footer";
+}
+
+.header { grid-area: header; }
+.sidebar { grid-area: sidebar; }
+.content { grid-area: content; }
+.footer { grid-area: footer; }</pre
+              >
+            </div>
+
+            <h5>c) Properti Grid Item</h5>
+
+            <h6>grid-column & grid-row</h6>
+            <p>Menentukan posisi item dalam grid.</p>
+            <img
+              src="../images/bab 3 grid column & row.png"
+              alt="Grid Column Row"
+              class="content-img"
+            />
+            <div class="code-wrapper">
+              <div class="code-header">
+                <span class="code-lang">CSS</span>
+                <button class="btn-toggle-code">
+                  <i class="fas fa-eye"></i> Tampilkan Kode
+                </button>
+              </div>
+              <pre class="code-box">
+.item {
+  grid-column: 1 / 3; /* mulai kolom 1, berakhir di kolom 3 */
+  grid-row: 2 / 4; /* mulai baris 2, berakhir di baris 4 */
+}</pre
+              >
+            </div>
+
+            <h6>place-self</h6>
+            <p>Mengatur perataan item individual.</p>
+            <img
+              src="../images/bab 3 grid item self.png"
+              alt="Grid Place Self"
+              class="content-img"
+            />
+            <div class="code-wrapper">
+              <div class="code-header">
+                <span class="code-lang">CSS</span>
+                <button class="btn-toggle-code">
+                  <i class="fas fa-eye"></i> Tampilkan Kode
+                </button>
+              </div>
+              <pre class="code-box">
+.item {
+  place-self: center; /* justify-self & align-self */
+}</pre
+              >
+            </div>
+
+            <h5>d) Contoh Implementasi Grid</h5>
             <img
               src="../images/bab 3 Implementasi grid.png"
               alt="Implementasi Grid"
               class="content-img"
             />
+            <div class="code-wrapper">
+              <div class="code-header">
+                <span class="code-lang">HTML + CSS</span>
+                <button class="btn-toggle-code">
+                  <i class="fas fa-eye"></i> Tampilkan Kode
+                </button>
+              </div>
+              <pre class="code-box">
+&lt;!-- HTML --&gt;
+&lt;div class="grid-container"&gt;
+  &lt;div class="grid-item"&gt;1&lt;/div&gt;
+  &lt;div class="grid-item"&gt;2&lt;/div&gt;
+  &lt;div class="grid-item"&gt;3&lt;/div&gt;
+  &lt;div class="grid-item"&gt;4&lt;/div&gt;
+&lt;/div&gt;
+
+/* CSS */
+.grid-container {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 20px;
+}
+
+.grid-item {
+  padding: 20px;
+  background: #2196F3;
+  color: white;
+  text-align: center;
+}</pre
+              >
+            </div>
+
+            <h4>3.5.3 Perbandingan Flexbox dan Grid</h4>
+            <table class="styled-table">
+              <thead>
+                <tr>
+                  <th>Aspek</th>
+                  <th>Flexbox</th>
+                  <th>Grid</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr>
+                  <td>Dimensi</td>
+                  <td>Satu dimensi (row/column)</td>
+                  <td>Dua dimensi (row & column)</td>
+                </tr>
+                <tr>
+                  <td>Kegunaan</td>
+                  <td>Menu, navbar, card horizontal</td>
+                  <td>Layout halaman, galeri, dashboard</td>
+                </tr>
+                <tr>
+                  <td>Kemudahan</td>
+                  <td>Sederhana, fleksibel</td>
+                  <td>Lebih kompleks namun lebih terstruktur</td>
+                </tr>
+                <tr>
+                  <td>Distribusi ruang</td>
+                  <td>Sangat baik untuk item dinamis</td>
+                  <td>Sangat baik untuk layout terencana</td>
+                </tr>
+              </tbody>
+            </table>
           </section>
 
           <hr class="section-divider" />
 
-          <section class="animate-on-scroll" id="36">
-            <h3>3.6 Efek Visual</h3>
-            <h4>3.6.1 Transition</h4>
+          <!-- Section 3.6: Efek Visual -->
+          <section id="section36">
+            <h2>3.6 Efek Visual (Transisi, Transformasi, Animasi Sederhana)</h2>
+            <p>
+              CSS3 menyediakan berbagai efek visual yang membuat tampilan
+              website lebih menarik, interaktif, dan modern. Tiga fitur penting
+              dalam efek visual adalah transition, transform, dan animation.
+            </p>
+
+            <h4>3.6.1 CSS Transition (Efek Perubahan yang Halus)</h4>
+            <p>
+              Transition membuat perubahan properti CSS menjadi lebih mulus
+              (smooth) dengan durasi tertentu.
+            </p>
             <img
               src="../images/bab 3 css transition.png"
-              alt="Transition"
+              alt="CSS Transition"
               class="content-img"
             />
-            <h4>3.6.2 Transform</h4>
+            <div class="code-wrapper">
+              <div class="code-header">
+                <span class="code-lang">CSS</span>
+                <button class="btn-toggle-code">
+                  <i class="fas fa-eye"></i> Tampilkan Kode
+                </button>
+              </div>
+              <pre class="code-box">
+.button {
+  background-color: #4CAF50;
+  padding: 15px 30px;
+  transition: all 0.3s ease;
+}
+
+.button:hover {
+  background-color: #45a049;
+  transform: scale(1.1);
+}</pre
+              >
+            </div>
+            <p>
+              Ketika hover, warna background berubah pelan dan ukuran membesar
+              halus.
+            </p>
+
+            <p><strong>Properti penting transition:</strong></p>
+            <ul>
+              <li>
+                <code>transition-property</code> → properti apa yang berubah
+              </li>
+              <li><code>transition-duration</code> → durasi (ms atau s)</li>
+              <li>
+                <code>transition-timing-function</code> → gaya percepatan (ease,
+                linear, ease-in, dll)
+              </li>
+              <li>
+                <code>transition-delay</code> → jeda sebelum animasi dimulai
+              </li>
+            </ul>
+
+            <h4>3.6.2 CSS Transform (Mengubah Bentuk Elemen)</h4>
+            <p>
+              Transform digunakan untuk memutar (rotate), memperbesar (scale),
+              menggeser (translate), atau memiringkan (skew) elemen.
+            </p>
             <img
               src="../images/bab 3 css transform.png"
-              alt="Transform"
+              alt="CSS Transform"
               class="content-img"
             />
-            <h4>3.6.3 Animation</h4>
+            <div class="code-wrapper">
+              <div class="code-header">
+                <span class="code-lang">CSS</span>
+                <button class="btn-toggle-code">
+                  <i class="fas fa-eye"></i> Tampilkan Kode
+                </button>
+              </div>
+              <pre class="code-box">
+.box {
+  width: 100px;
+  height: 100px;
+  background-color: #2196F3;
+  transition: transform 0.3s;
+}
+
+.box:hover {
+  transform: rotate(45deg) scale(1.2);
+}</pre
+              >
+            </div>
+
+            <p><strong>Jenis transformasi:</strong></p>
+            <ul>
+              <li><code>scale()</code> → memperbesar/memperkecil</li>
+              <li><code>rotate()</code> → memutar elemen</li>
+              <li><code>translate()</code> → menggeser posisi</li>
+              <li><code>skew()</code> → memiringkan</li>
+              <li><code>matrix()</code> → kombinasi transformasi lanjutan</li>
+            </ul>
+
+            <h4>3.6.3 CSS Animation (Animasi Berulang)</h4>
+            <p>
+              Animation memungkinkan animasi yang lebih kompleks dengan
+              keyframes.
+            </p>
             <img
               src="../images/bab 3 css animasi.png"
-              alt="Animation"
+              alt="CSS Animation"
               class="content-img"
             />
-          </section>
+            <div class="code-wrapper">
+              <div class="code-header">
+                <span class="code-lang">CSS</span>
+                <button class="btn-toggle-code">
+                  <i class="fas fa-eye"></i> Tampilkan Kode
+                </button>
+              </div>
+              <pre class="code-box">
+@keyframes slideRight {
+  0% {
+    transform: translateX(0);
+  }
+  50% {
+    transform: translateX(200px);
+  }
+  100% {
+    transform: translateX(0);
+  }
+}
 
+.animated-box {
+  width: 100px;
+  height: 100px;
+  background-color: #FF5722;
+  animation: slideRight 3s infinite;
+}</pre
+              >
+            </div>
+            <p>Elemen bergerak ke kanan, lalu kembali, dan berulang terus.</p>
+
+            <p><strong>Properti penting animation:</strong></p>
+            <ul>
+              <li><code>animation-name</code> → nama keyframes</li>
+              <li><code>animation-duration</code> → lamanya animasi</li>
+              <li>
+                <code>animation-iteration-count</code> → jumlah perulangan (1,
+                2, infinite)
+              </li>
+              <li>
+                <code>animation-timing-function</code> → percepatan (ease,
+                linear, dll)
+              </li>
+              <li><code>animation-delay</code> → jeda awal</li>
+              <li>
+                <code>animation-direction</code> → normal, reverse, alternate
+              </li>
+            </ul>
+          </section>
           <!-- Navigation Buttons -->
           <div class="nav-btn-container">
             <a href="bab2.html" class="nav-btn">&laquo; Bab II</a>
@@ -424,6 +1939,7 @@
     <footer>
       <p>&copy; 2025 Kelompok 6 - Universitas Pamulang | Pemrograman Web 1</p>
     </footer>
+
     <script src="../js/script.js"></script>
   </body>
 </html>

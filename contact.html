@@ -8,16 +8,24 @@
       content="Hubungi Kelompok 6 - Universitas Pamulang"
     />
     <title>Kontak - Kelompok 6</title>
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css"
+    />
     <link rel="stylesheet" href="css/style.css" />
   </head>
   <body>
     <nav class="navbar">
       <div class="logo">WebProg<span>6</span></div>
       <ul class="nav-links">
-        <li><a href="index.html">Home</a></li>
-        <li><a href="about.html">Tentang</a></li>
+        <li>
+          <a href="index.html"><i class="fas fa-home"></i> Home</a>
+        </li>
+        <li>
+          <a href="about.html"><i class="fas fa-info-circle"></i> Tentang</a>
+        </li>
         <li class="dropdown">
-          <a href="#">Materi ▾</a>
+          <a href="#"><i class="fas fa-book"></i> Materi ▾</a>
           <ul class="dropdown-content">
             <li><a href="materi/bab1.html">Bab 1: Pendahuluan</a></li>
             <li><a href="materi/bab2.html">Bab 2: HTML5</a></li>
@@ -30,7 +38,11 @@
             <li><a href="materi/bab9.html">Bab 9: Tren Web</a></li>
           </ul>
         </li>
-        <li><a href="contact.html" class="active">Kontak</a></li>
+        <li>
+          <a href="contact.html" class="active"
+            ><i class="fas fa-envelope"></i> Kontak</a
+          >
+        </li>
       </ul>
       <div class="hamburger">
         <span></span>
@@ -102,11 +114,11 @@
           </div>
 
           <button type="submit" class="btn-primary w-full text-lg">
-            📨 Kirim Pesan
+            <i class="fas fa-paper-plane"></i> Kirim Pesan
           </button>
         </form>
       </div>
-      <br>
+      <br />
 
       <!-- Team Member Introduction Videos -->
       <div class="card mt-2 animate-on-scroll">
@@ -175,23 +187,23 @@
           </div>
         </div>
       </div>
-      <br>
+      <br />
 
       <div class="grid-3 mt-2 animate-on-scroll">
         <div class="card text-center hover-scale">
-          <div class="info-icon">🏫</div>
+          <div class="info-icon"><i class="fas fa-university"></i></div>
           <h3>Universitas</h3>
           <p class="text-muted">Universitas Pamulang</p>
         </div>
 
         <div class="card text-center hover-scale">
-          <div class="info-icon">📚</div>
+          <div class="info-icon"><i class="fas fa-book"></i></div>
           <h3>Mata Kuliah</h3>
           <p class="text-muted">Pemrograman Web 1</p>
         </div>
 
         <div class="card text-center hover-scale">
-          <div class="info-icon">👥</div>
+          <div class="info-icon"><i class="fas fa-users"></i></div>
           <h3>Kelompok</h3>
           <p class="text-muted">Kelompok 6</p>
         </div>

@@ -11,7 +11,7 @@ const toggleBtn = document.createElement("button");
 toggleBtn.id = "theme-toggle";
 toggleBtn.className = "theme-toggle";
 toggleBtn.ariaLabel = "Ganti Mode Tema";
-toggleBtn.innerHTML = "🌙"; // Default icon
+toggleBtn.innerHTML = '<i class="fas fa-moon"></i>'; // Default icon
 
 // Inject Toggle Button into Navbar
 function injectThemeToggle() {
@@ -31,10 +31,10 @@ function initTheme() {
 
   if (savedTheme === "dark" || (!savedTheme && systemDark)) {
     document.documentElement.setAttribute("data-theme", "dark");
-    toggleBtn.innerHTML = "☀️";
+    toggleBtn.innerHTML = '<i class="fas fa-sun"></i>';
   } else {
     document.documentElement.setAttribute("data-theme", "light");
-    toggleBtn.innerHTML = "🌙";
+    toggleBtn.innerHTML = '<i class="fas fa-moon"></i>';
   }
 }
 
@@ -49,7 +49,10 @@ toggleBtn.addEventListener("click", () => {
   // Animate Icon
   toggleBtn.style.transform = "rotate(360deg)";
   setTimeout(() => {
-    toggleBtn.innerHTML = newTheme === "dark" ? "☀️" : "🌙";
+    toggleBtn.innerHTML =
+      newTheme === "dark"
+        ? '<i class="fas fa-sun"></i>'
+        : '<i class="fas fa-moon"></i>';
     toggleBtn.style.transform = "rotate(0deg)";
   }, 200);
 });
@@ -167,7 +170,7 @@ function initFloatingTOC() {
   // Create floating button
   const tocBtn = document.createElement("button");
   tocBtn.className = "floating-toc-btn";
-  tocBtn.innerHTML = "📑 Daftar Isi";
+  tocBtn.innerHTML = '<i class="fas fa-list-ul"></i> Daftar Isi';
   tocBtn.setAttribute("aria-label", "Toggle Table of Contents");
 
   // Create overlay
@@ -419,5 +422,29 @@ const observer = new IntersectionObserver((entries) => {
 window.addEventListener("load", () => {
   document.querySelectorAll(".animate-on-scroll").forEach((el) => {
     observer.observe(el);
+  });
+});
+// ============================================
+// COLLAPSIBLE CONTENT TOGGLE (Code Show/Hide)
+// Enhanced with Modern Animations
+// ============================================
+const toggleCodeButtons = document.querySelectorAll(".btn-toggle-code");
+toggleCodeButtons.forEach((button) => {
+  button.addEventListener("click", () => {
+    const codeWrapper = button.closest(".code-wrapper");
+    const codeBox = codeWrapper.querySelector(".code-box");
+
+    //Toggle active class on button for icon rotation
+    button.classList.toggle("active");
+
+    // Toggle show class for smooth animation
+    codeBox.classList.toggle("show");
+
+    // Update button text with icon
+    if (codeBox.classList.contains("show")) {
+      button.innerHTML = '<i class="fas fa-eye-slash"></i> Sembunyikan Kode';
+    } else {
+      button.innerHTML = '<i class="fas fa-eye"></i> Tampilkan Kode';
+    }
   });
 });
