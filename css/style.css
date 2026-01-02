@@ -766,6 +766,8 @@ section {
   background: var(--code-bg);
   color: var(--code-text);
   border-radius: 0 0 var(--radius-md) var(--radius-md);
+  overflow-x: auto; /* Enable horizontal scroll for code if needed */
+  word-wrap: break-word;
 }
 
 .code-box.show {
@@ -779,6 +781,9 @@ section {
   background: transparent;
   border: none;
   animation: slideInCode 0.3s ease;
+  overflow-x: auto;
+  white-space: pre-wrap; /* Allow text wrapping */
+  word-break: break-word;
 }
 
 @keyframes slideInCode {
@@ -1290,15 +1295,93 @@ h3 i {
     grid-template-columns: repeat(2, 1fr); /* 2 columns on tablet */
   }
 
-  /* ===== LAYOUT & SPACING ===== */
-  /* Reduce padding on main content for mobile */
-  .col-right {
-    padding: 1rem; /* Reduced from 3rem */
+  /* ===== ULTRA-AGGRESSIVE MOBILE LAYOUT FIXES ===== */
+  /* CRITICAL: Force ALL content to fit viewport */
+
+  /* Main container - absolute width control */
+  .container {
+    padding: 0 !important;
+    margin: 0 !important;
+    max-width: 100vw !important;
+    overflow-x: hidden !important;
   }
 
-  /* Reduce container padding on mobile */
-  .container {
-    padding: 0 0.75rem;
+  /* Main content column - force compact padding */
+  .col-right {
+    padding: 0.5rem !important; /* Ultra-minimal padding */
+    margin: 0 !important;
+    max-width: 100vw !important;
+    width: 100% !important;
+    overflow-x: hidden !important;
+    box-sizing: border-box !important;
+  }
+
+  /* FORCE ALL CHILDREN TO WRAP AND FIT */
+  .col-right *,
+  .col-right *::before,
+  .col-right *::after {
+    max-width: 100% !important;
+    box-sizing: border-box !important;
+    word-break: break-word !important;
+    overflow-wrap: break-word !important;
+    hyphens: auto !important;
+  }
+
+  /* Headings - aggressive text breaking */
+  .col-right h1,
+  .col-right h2,
+  .col-right h3,
+  .col-right h4,
+  .col-right h5,
+  .col-right h6 {
+    word-break: break-word !important;
+    overflow-wrap: break-word !important;
+    hyphens: auto !important;
+    max-width: 100% !important;
+    font-size: clamp(
+      1.2rem,
+      5vw,
+      2rem
+    ) !important; /* Responsive font scaling */
+  }
+
+  /* Paragraphs and text  */
+  .col-right p,
+  .col-right li,
+  .col-right td,
+  .col-right th,
+  .col-right span,
+  .col-right div {
+    word-break: break-word !important;
+    overflow-wrap: break-word !important;
+    hyphens: auto !important;
+  }
+
+  /* Code blocks - MUST wrap */
+  .col-right pre,
+  .col-right code,
+  .col-right .code-box,
+  .col-right .code-wrapper {
+    max-width: 100% !important;
+    overflow-x: auto !important;
+    white-space: pre-wrap !important;
+    word-break: break-word !important;
+    overflow-wrap: break-word !important;
+  }
+
+  /* Images must scale */
+  .col-right img,
+  .col-right .content-img {
+    max-width: 100% !important;
+    height: auto !important;
+    width: auto !important;
+  }
+
+  /* Tables responsive */
+  .col-right table {
+    max-width: 100% !important;
+    overflow-x: auto !important;
+    display: block !important;
   }
 
   /* Center all nav items on mobile */
