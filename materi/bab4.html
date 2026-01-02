@@ -3,7 +3,7 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Bab IV - Pengenalan JavaScript Modern (ES6+)</title>
+    <title>Bab IV - PENGENALAN JAVASCRIPT MODERN (ES6+)</title>
     <link
       rel="stylesheet"
       href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css"
@@ -46,88 +46,787 @@
         <aside class="col-left">
           <h3>Daftar Isi Bab IV</h3>
           <ul>
-            <li><a href="#41">4.1 Konsep Dasar</a></li>
-            <li><a href="#42">4.2 Variabel</a></li>
-            <li><a href="#43">4.3 Tipe Data & Operator</a></li>
-            <li><a href="#44">4.4 Struktur Kontrol</a></li>
-            <li><a href="#45">4.5 Fungsi</a></li>
-            <li><a href="#46">4.6 Event Handling</a></li>
+            <li><a href="#section41">4.1 Konsep Dasar</a></li>
+            <li><a href="#section42">4.2 Variabel</a></li>
+            <li><a href="#section43">4.3 Tipe Data & Operator</a></li>
+            <li><a href="#section44">4.4 Struktur Kontrol</a></li>
+            <li><a href="#section45">4.5 Fungsi</a></li>
+            <li><a href="#section46">4.6 Event Handling</a></li>
           </ul>
         </aside>
 
         <main class="col-right">
           <h1>BAB IV<br />PENGENALAN JAVASCRIPT MODERN (ES6+)</h1>
 
-          <section class="animate-on-scroll" id="41">
-            <h3>4.1 Konsep Dasar Pemrograman dengan JavaScript</h3>
+          <hr class="section-divider" />
+
+          <!-- Section 4.1: Konsep Dasar Pemrograman dengan JavaScript -->
+          <section id="section41">
+            <h2>4.1 Konsep Dasar Pemrograman dengan JavaScript</h2>
+            <p>
+              JavaScript merupakan bahasa pemrograman yang berjalan di sisi
+              klien (client-side) dan berfungsi untuk menambahkan interaktivitas
+              pada halaman web. Berbeda dengan HTML yang mengatur struktur dan
+              CSS yang mengatur tampilan, JavaScript berperan dalam
+              mengendalikan logika, perilaku elemen, serta respons halaman web
+              terhadap tindakan pengguna. Konsep dasar pemrograman dengan
+              JavaScript meliputi pemahaman variabel, tipe data, operator,
+              struktur kontrol, fungsi, serta interaksi dengan Document Object
+              Model (DOM).
+            </p>
+            <p>
+              Pertama, <strong>variabel</strong> digunakan untuk menyimpan data
+              yang dapat diproses atau dimodifikasi selama program berjalan.
+              JavaScript modern menggunakan <code>let</code> dan
+              <code>const</code> untuk deklarasi variabel yang lebih aman
+              dibanding <code>var</code>. Selanjutnya,
+              <strong>tipe data</strong> dalam JavaScript mencakup tipe primitif
+              seperti string, number, boolean, null, undefined, serta tipe
+              kompleks seperti object dan array. Operator digunakan untuk
+              melakukan operasi aritmatika, logika, maupun perbandingan.
+            </p>
+            <p>
+              Selain itu, JavaScript menyediakan
+              <strong>struktur kontrol</strong> seperti <code>if</code>,
+              <code>else</code>, <code>switch</code>, serta pengulangan
+              <code>for</code> dan <code>while</code> untuk mengatur alur
+              eksekusi program. <strong>Fungsi</strong> berperan sebagai blok
+              kode yang dapat dipanggil berulang kali, baik dalam bentuk
+              deklarasi fungsi biasa maupun arrow function versi modern. Konsep
+              dasar ini menjadi fondasi bagi pengembangan logika yang lebih
+              kompleks.
+            </p>
+            <p>
+              Terakhir, salah satu aspek penting dalam JavaScript adalah
+              kemampuannya untuk berinteraksi dengan
+              <strong>DOM (Document Object Model)</strong>. Melalui DOM,
+              JavaScript dapat mengubah konten HTML, mengubah gaya CSS,
+              menangani event seperti klik atau input, serta menciptakan elemen
+              baru secara dinamis. Dengan memahami konsep dasar tersebut,
+              mahasiswa dapat membangun aplikasi web yang lebih interaktif,
+              responsif, dan fungsional.
+            </p>
+
+            <h4>Contoh Code: JavaScript di dalam HTML</h4>
+            <p>
+              Kode JavaScript dapat ditulis langsung di dalam file HTML
+              menggunakan tag
+              <code>&lt;script&gt;</code>:
+            </p>
+
             <img
               src="../images/bab 4 JS.png"
-              alt="JavaScript"
+              alt="Contoh JavaScript di HTML"
+              class="content-img"
+            />
+
+            <div class="code-wrapper">
+              <div class="code-header">
+                <span class="code-lang">HTML + JavaScript</span>
+                <button class="btn-toggle-code">
+                  <i class="fas fa-eye"></i> Tampilkan Kode
+                </button>
+              </div>
+              <pre class="code-box">
+&lt;!DOCTYPE html&gt;
+&lt;html&gt;
+&lt;head&gt;
+  &lt;title&gt;JavaScript Dasar&lt;/title&gt;
+&lt;/head&gt;
+&lt;body&gt;
+  &lt;h1 id="judul"&gt;Hello JavaScript!&lt;/h1&gt;
+  &lt;button onclick="ubahTeks()"&gt;Klik untuk Ubah Teks&lt;/button&gt;
+
+  &lt;script&gt;
+    function ubahTeks() {
+      document.getElementById('judul').textContent = 'Teks telah diubah!';
+    }
+  &lt;/script&gt;
+&lt;/body&gt;
+&lt;/html&gt;</pre
+              >
+            </div>
+
+            <h4>Output:</h4>
+            <img
+              src="../images/bab 4 ss JS.png"
+              alt="Output JavaScript"
               class="content-img"
             />
           </section>
 
           <hr class="section-divider" />
 
-          <section class="animate-on-scroll" id="42">
-            <h3>4.2 Variabel (let, const, var)</h3>
+          <!-- Section 4.2: Variabel (let, const, var) -->
+          <section id="section42">
+            <h2>4.2 Variabel (let, const, var)</h2>
+            <p>
+              Variabel dalam JavaScript berfungsi sebagai wadah untuk menyimpan
+              data yang dapat digunakan, dimodifikasi, atau diproses selama
+              program berjalan. JavaScript modern menyediakan tiga cara utama
+              untuk mendeklarasikan variabel, yaitu <code>var</code>,
+              <code>let</code>, dan <code>const</code>. Meskipun ketiganya
+              memiliki fungsi dasar yang sama, ketiganya memiliki karakteristik
+              berbeda terkait cakupan (scope), kemampuan perubahan nilai
+              (mutability), serta konteks penggunaannya dalam pengembangan
+              aplikasi web modern.
+            </p>
+
+            <h4>a) var (Function Scope - Legacy)</h4>
+            <p>
+              <code>var</code> merupakan cara deklarasi variabel yang telah
+              digunakan sejak versi awal JavaScript. Variabel yang
+              dideklarasikan menggunakan <code>var</code> memiliki
+              <strong>function scope</strong> dan bukan block scope, sehingga
+              cakupan variabel tidak terbatas pada blok tertentu, misalnya pada
+              kurung kurawal <code>{}</code>. Hal ini sering menimbulkan masalah
+              seperti hoisting dan konflik nilai variabel, sehingga
+              penggunaannya semakin jarang direkomendasikan dalam JavaScript
+              modern.
+            </p>
+
+            <h4>b) let (Block Scope - Recommended)</h4>
+            <p>
+              <code>let</code> merupakan bentuk deklarasi variabel yang
+              diperkenalkan pada standar ECMAScript 2015 (ES6). Variabel
+              <code>let</code> memiliki <strong>block scope</strong>, sehingga
+              nilai dan keberadaannya hanya berlaku dalam blok tempat variabel
+              tersebut dideklarasikan. <code>let</code> memungkinkan perubahan
+              nilai setelah deklarasi, sehingga cocok digunakan untuk variabel
+              yang bersifat dinamis atau akan dimodifikasi selama proses
+              program.
+            </p>
+
+            <h4>c) const (Block Scope - Constant)</h4>
+            <p>
+              <code>const</code> digunakan untuk mendeklarasikan variabel yang
+              nilainya bersifat konstan atau tidak dapat diubah setelah pertama
+              kali diberikan. Sama seperti <code>let</code>,
+              <code>const</code> juga memiliki <strong>block scope</strong>.
+              Meskipun demikian, pada variabel yang berupa objek atau array,
+              struktur internalnya masih dapat dimodifikasi; yang tidak dapat
+              diubah adalah referensinya. <code>const</code> umumnya dipilih
+              ketika nilai variabel dianggap bersifat tetap atau digunakan
+              sebagai konfigurasi.
+            </p>
+
+            <p>
+              Secara umum, pengembangan JavaScript modern lebih menganjurkan
+              penggunaan <code>let</code> dan <code>const</code> karena keduanya
+              memberikan kontrol yang lebih baik terhadap cakupan variabel serta
+              mengurangi potensi kesalahan logika. Pemahaman mengenai perbedaan
+              ketiga jenis deklarasi variabel ini menjadi dasar penting dalam
+              menulis kode JavaScript yang lebih aman, terstruktur, dan mudah
+              dikelola.
+            </p>
+
+            <h4>Contoh Code:</h4>
             <img
               src="../images/bab 4 variable JS.png"
-              alt="Variable"
+              alt="Contoh Variabel JavaScript"
               class="content-img"
             />
+
+            <div class="code-wrapper">
+              <div class="code-header">
+                <span class="code-lang">JavaScript</span>
+                <button class="btn-toggle-code">
+                  <i class="fas fa-eye"></i> Tampilkan Kode
+                </button>
+              </div>
+              <pre class="code-box">
+// var - Function Scope (tidak direkomendasikan)
+var nama = "Budi";
+var nama = "Siti"; // Dapat dideklarasikan ulang
+console.log(nama); // Output: Siti
+
+// let - Block Scope (untuk nilai yang berubah)
+let umur = 20;
+umur = 21; // Dapat diubah
+console.log(umur); // Output: 21
+
+// const - Block Scope (untuk nilai tetap)
+const PI = 3.14159;
+// PI = 3.14; // Error: Assignment to constant variable
+
+// const dengan object (struktur dapat diubah)
+const mahasiswa = {
+  nama: "Andi",
+  nim: "12345"
+};
+
+mahasiswa.nama = "Ahmad"; // Allowed
+mahasiswa.jurusan = "Informatika"; // Allowed
+console.log(mahasiswa);
+// Output: { nama: 'Ahmad', nim: '12345', jurusan: 'Informatika' }</pre
+              >
+            </div>
           </section>
 
           <hr class="section-divider" />
 
-          <section class="animate-on-scroll" id="43">
-            <h3>4.3 Tipe Data dan Operator</h3>
+          <!-- Section 4.3: Tipe Data dan Operator -->
+          <section id="section43">
+            <h2>4.3 Tipe Data dan Operator</h2>
+            <p>
+              JavaScript merupakan bahasa pemrograman yang bersifat
+              <strong>loosely typed</strong> dan <strong>dynamic</strong>,
+              artinya variabel tidak harus dideklarasikan dengan tipe data
+              tertentu dan tipe data dapat berubah selama eksekusi program.
+              Pemahaman mengenai tipe data serta operator sangat penting untuk
+              membangun logika yang benar dan menghindari kesalahan dalam
+              manipulasi nilai.
+            </p>
+
+            <h4>Tipe Data Primitif</h4>
+            <ul>
+              <li>
+                <strong>String:</strong> Teks yang ditulis di antara tanda kutip
+                tunggal, ganda, atau backticks.
+              </li>
+              <li>
+                <strong>Number:</strong> Bilangan bulat, desimal, maupun nilai
+                khusus seperti NaN dan Infinity.
+              </li>
+              <li>
+                <strong>Boolean:</strong> Hanya memiliki dua nilai:
+                <code>true</code> atau <code>false</code>.
+              </li>
+              <li>
+                <strong>Null:</strong> Nilai yang secara eksplisit menyatakan
+                "kosong".
+              </li>
+              <li>
+                <strong>Undefined:</strong> Nilai yang muncul ketika variabel
+                belum diberikan nilai.
+              </li>
+              <li>
+                <strong>BigInt:</strong> Digunakan untuk menyimpan bilangan
+                sangat besar yang melebihi batas tipe Number.
+              </li>
+              <li>
+                <strong>Symbol:</strong> Digunakan untuk membuat identifier unik
+                pada objek.
+              </li>
+            </ul>
+
+            <h4>Tipe Data Non-Primitif</h4>
+            <p>
+              Tipe data non-primitif umumnya berbentuk <strong>Object</strong>,
+              termasuk struktur seperti array, function, dan objek literal.
+              Objek dapat menyimpan banyak nilai dalam bentuk pasangan key-value
+              sehingga sering digunakan untuk menyusun data yang kompleks dalam
+              aplikasi web.
+            </p>
+
+            <h4>Operator JavaScript</h4>
+            <ul>
+              <li>
+                <strong>Operator Aritmatika:</strong> <code>+</code>,
+                <code>-</code>, <code>*</code>, <code>/</code>, <code>%</code>,
+                <code>**</code> (eksponensial)
+              </li>
+              <li>
+                <strong>Operator Perbandingan:</strong> <code>==</code>,
+                <code>===</code>, <code>!=</code>, <code>!==</code>,
+                <code>&lt;</code>, <code>&gt;</code>, <code>&lt;=</code>,
+                <code>&gt;=</code>
+              </li>
+              <li>
+                <strong>Operator Logika:</strong> <code>&&</code> (AND),
+                <code>||</code> (OR), <code>!</code> (NOT)
+              </li>
+              <li>
+                <strong>Operator Penugasan:</strong> <code>=</code>,
+                <code>+=</code>, <code>-=</code>, <code>*=</code>,
+                <code>/=</code>
+              </li>
+              <li>
+                <strong>Operator Ternary:</strong>
+                <code>condition ? value1 : value2</code>
+              </li>
+            </ul>
+
+            <p>
+              Dalam praktik pengembangan modern, <code>===</code> lebih
+              dianjurkan daripada <code>==</code>
+              karena melakukan perbandingan nilai sekaligus tipe data. Pemahaman
+              terhadap tipe data dan operator ini sangat penting karena menjadi
+              dasar dalam menyusun algoritma, mengelola data, serta membangun
+              struktur logika pada aplikasi web.
+            </p>
+
+            <h4>Contoh Code:</h4>
             <img
               src="../images/bab 4 Tipe data dan Operator JS.png"
-              alt="Tipe Data Operator"
+              alt="Contoh Tipe Data dan Operator"
               class="content-img"
             />
+
+            <div class="code-wrapper">
+              <div class="code-header">
+                <span class="code-lang">JavaScript</span>
+                <button class="btn-toggle-code">
+                  <i class="fas fa-eye"></i> Tampilkan Kode
+                </button>
+              </div>
+              <pre class="code-box">
+// Tipe Data Primitif
+let nama = "Ahmad";          // String
+let umur = 25;               // Number
+let aktif = true;            // Boolean
+let kosong = null;           // Null
+let belumDiisi;              // Undefined
+
+// Tipe Data Object
+let mahasiswa = {
+  nama: "Dewi",
+  nim: "202301",
+  ipk: 3.8
+};
+
+let nilai = [90, 85, 95, 88]; // Array
+
+// Operator Aritmatika
+let a = 10 + 5;  // 15
+let b = 10 - 5;  // 5
+let c = 10 * 5;  // 50
+let d = 10 / 5;  // 2
+let e = 10 % 3;  // 1 (modulus/sisa bagi)
+let f = 2 ** 3;  // 8 (eksponensial)
+
+// Operator Perbandingan
+console.log(10 == "10");   // true (hanya nilai)
+console.log(10 === "10");  // false (nilai dan tipe)
+console.log(5 != 3);       // true
+console.log(5 !== "5");    // true
+
+// Operator Logika
+let hasil = (10 > 5) && (20 > 15); // true (AND)
+let hasil2 = (10 < 5) || (20 > 15); // true (OR)
+let hasil3 = !(10 > 5);             // false (NOT)
+
+// Operator Ternary
+let status = umur >= 17 ? "Dewasa" : "Anak-anak";
+console.log(status); // Output: Dewasa</pre
+              >
+            </div>
           </section>
 
           <hr class="section-divider" />
 
-          <section class="animate-on-scroll" id="44">
-            <h3>4.4 Struktur Kontrol (if, loop, switch)</h3>
+          <!-- Section 4.4: Struktur Kontrol (if, loop, switch) -->
+          <section id="section44">
+            <h2>4.4 Struktur Kontrol (if, loop, switch)</h2>
+            <p>
+              Struktur kontrol merupakan komponen penting dalam pemrograman
+              JavaScript karena menentukan alur eksekusi dari sebuah program.
+              Dengan menggunakan struktur kontrol, program dapat mengambil
+              keputusan, melakukan pengulangan, serta menentukan percabangan
+              logika sesuai kondisi tertentu. Tiga struktur kontrol yang paling
+              umum digunakan dalam JavaScript adalah
+              <code>if</code> statement, looping, dan
+              <code>switch</code> statement.
+            </p>
+
+            <h4>a) Struktur Kontrol if-else</h4>
+            <p>
+              Struktur kontrol <code>if</code> memungkinkan program mengeksekusi
+              blok kode tertentu jika suatu kondisi terpenuhi. Kondisi tersebut
+              dievaluasi dalam bentuk ekspresi boolean, yang menghasilkan nilai
+              <code>true</code> atau <code>false</code>. Variasi dari struktur
+              ini mencakup <code>if</code>, <code>if-else</code>, serta
+              <code>if-else if</code> yang digunakan ketika terdapat lebih dari
+              satu kondisi yang perlu diuji.
+            </p>
+
             <img
               src="../images/bab 4 struktur kontrol if else.png"
-              alt="If Else"
+              alt="Contoh if-else"
               class="content-img"
             />
-            <img
-              src="../images/bab 4 struktur kontrol switch.png"
-              alt="Switch"
-              class="content-img"
-            />
+
+            <div class="code-wrapper">
+              <div class="code-header">
+                <span class="code-lang">JavaScript</span>
+                <button class="btn-toggle-code">
+                  <i class="fas fa-eye"></i> Tampilkan Kode
+                </button>
+              </div>
+              <pre class="code-box">
+let nilai = 85;
+
+if (nilai >= 90) {
+  console.log("Nilai A - Sangat Baik");
+} else if (nilai >= 80) {
+  console.log("Nilai B - Baik");
+} else if (nilai >= 70) {
+  console.log("Nilai C - Cukup");
+} else if (nilai >= 60) {
+  console.log("Nilai D - Kurang");
+} else {
+  console.log("Nilai E - Gagal");
+}
+// Output: Nilai B - Baik</pre
+              >
+            </div>
+
+            <h4>b) Struktur Pengulangan (Loop)</h4>
+            <p>
+              Struktur pengulangan (loop) digunakan ketika program perlu
+              mengeksekusi suatu blok kode secara berulang. JavaScript
+              menyediakan beberapa jenis loop seperti <code>for</code>,
+              <code>while</code>, dan <code>do...while</code>. Loop
+              <code>for</code> digunakan ketika jumlah iterasi sudah diketahui,
+              sedangkan loop <code>while</code> akan berjalan selama kondisi
+              bernilai benar.
+            </p>
+
             <img
               src="../images/bab 4 struktur kontrol loop.png"
-              alt="Loop"
+              alt="Contoh Loop"
               class="content-img"
             />
+
+            <div class="code-wrapper">
+              <div class="code-header">
+                <span class="code-lang">JavaScript</span>
+                <button class="btn-toggle-code">
+                  <i class="fas fa-eye"></i> Tampilkan Kode
+                </button>
+              </div>
+              <pre class="code-box">
+// Loop for - untuk iterasi dengan jumlah yang sudah diketahui
+for (let i = 1; i <= 5; i++) {
+  console.log("Perulangan ke-" + i);
+}
+
+// Loop while - berjalan selama kondisi true
+let counter = 1;
+while (counter <= 3) {
+  console.log("Counter: " + counter);
+  counter++;
+}
+
+// Loop for...of - iterasi pada array
+let buah = ["Apel", "Jeruk", "Mangga"];
+for (let item of buah) {
+  console.log(item);
+}
+
+// Loop for...in - iterasi pada properti object
+let mahasiswa = { nama: "Andi", nim: "123", jurusan: "TI" };
+for (let key in mahasiswa) {
+  console.log(key + ": " + mahasiswa[key]);
+}</pre
+              >
+            </div>
+
+            <h4>c) Struktur Kontrol switch</h4>
+            <p>
+              Struktur kontrol <code>switch</code> berfungsi sebagai alternatif
+              dari penggunaan banyak kondisi <code>if-else if</code>. Struktur
+              ini cocok digunakan ketika terdapat beberapa kemungkinan nilai
+              tetap yang harus diuji. Dalam <code>switch</code>, nilai ekspresi
+              dibandingkan dengan beberapa <code>case</code>, dan setiap case
+              memiliki blok kode yang akan dijalankan jika cocok. Penggunaan
+              <code>break</code> penting agar eksekusi tidak berlanjut ke case
+              lain.
+            </p>
+
+            <img
+              src="../images/bab 4 struktur kontrol switch.png"
+              alt="Contoh Switch"
+              class="content-img"
+            />
+
+            <div class="code-wrapper">
+              <div class="code-header">
+                <span class="code-lang">JavaScript</span>
+                <button class="btn-toggle-code">
+                  <i class="fas fa-eye"></i> Tampilkan Kode
+                </button>
+              </div>
+              <pre class="code-box">
+let hari = 3;
+let namaHari;
+
+switch (hari) {
+  case 1:
+    namaHari = "Senin";
+    break;
+  case 2:
+    namaHari = "Selasa";
+    break;
+  case 3:
+    namaHari = "Rabu";
+    break;
+  case 4:
+    namaHari = "Kamis";
+    break;
+  case 5:
+    namaHari = "Jumat";
+    break;
+  case 6:
+    namaHari = "Sabtu";
+    break;
+  case 7:
+    namaHari = "Minggu";
+    break;
+  default:
+    namaHari = "Hari tidak valid";
+}
+
+console.log("Hari ke-" + hari + " adalah " + namaHari);
+// Output: Hari ke-3 adalah Rabu</pre
+              >
+            </div>
           </section>
 
           <hr class="section-divider" />
 
-          <section class="animate-on-scroll" id="45">
-            <h3>4.5 Fungsi (Regular Function, Arrow Function)</h3>
+          <!-- Section 4.5: Fungsi (Regular Function, Arrow Function) -->
+          <section id="section45">
+            <h2>4.5 Fungsi (Regular Function, Arrow Function)</h2>
+            <p>
+              Fungsi merupakan salah satu elemen fundamental dalam JavaScript
+              karena memungkinkan pengembang untuk mengelompokkan serangkaian
+              perintah ke dalam satu kesatuan logis yang dapat dipanggil kapan
+              saja. Fungsi digunakan untuk mengurangi redundansi kode,
+              mempermudah pemeliharaan program, serta memberikan struktur yang
+              lebih jelas dalam pengembangan aplikasi web. Dalam JavaScript
+              modern, terdapat dua bentuk umum dari fungsi, yaitu
+              <strong>regular function</strong> dan
+              <strong>arrow function</strong>.
+            </p>
+
+            <h4>a) Regular Function (Fungsi Tradisional)</h4>
+            <p>
+              Regular function adalah bentuk fungsi tradisional yang telah
+              digunakan sejak versi awal JavaScript. Regular function dapat
+              dideklarasikan menggunakan kata kunci <code>function</code>, baik
+              sebagai function declaration maupun function expression. Kelebihan
+              dari fungsi ini adalah dukungan penuh terhadap konsep hoisting,
+              sehingga fungsi dapat dipanggil sebelum lokasi deklarasinya dalam
+              kode. Regular function juga memiliki konteks
+              <code>this</code> tersendiri yang bersifat dinamis.
+            </p>
+
+            <h4>b) Arrow Function (Fungsi Modern ES6+)</h4>
+            <p>
+              Arrow function merupakan fitur yang diperkenalkan dalam ECMAScript
+              2015 (ES6) dan dirancang untuk memberikan sintaks yang lebih
+              ringkas dan mudah dibaca. Arrow function ditulis menggunakan tanda
+              panah <code>=&gt;</code> dan biasanya digunakan dalam fungsi
+              pendek atau ekspresi callback. Salah satu perbedaan utama adalah
+              bahwa arrow function tidak memiliki konteks
+              <code>this</code> sendiri; melainkan mewarisi konteks
+              <code>this</code> dari lingkup tempat fungsi tersebut
+              didefinisikan (lexical this).
+            </p>
+
+            <p>
+              Dalam praktik pengembangan aplikasi web modern, pemilihan antara
+              regular function dan arrow function bergantung pada kebutuhan
+              konteks dan gaya penulisan kode. Arrow function lebih efisien
+              untuk fungsi singkat dan manipulasi DOM sederhana, sementara
+              regular function lebih sesuai untuk fungsi kompleks yang
+              memerlukan pengelolaan konteks <code>this</code>.
+            </p>
+
+            <h4>Contoh Code:</h4>
             <img
               src="../images/bab 4 Fungsi JS.png"
-              alt="Fungsi"
+              alt="Contoh Fungsi JavaScript"
               class="content-img"
             />
+
+            <div class="code-wrapper">
+              <div class="code-header">
+                <span class="code-lang">JavaScript</span>
+                <button class="btn-toggle-code">
+                  <i class="fas fa-eye"></i> Tampilkan Kode
+                </button>
+              </div>
+              <pre class="code-box">
+// REGULAR FUNCTION
+
+// Function Declaration
+function sapa(nama) {
+  return "Halo, " + nama + "!";
+}
+console.log(sapa("Budi")); // Output: Halo, Budi!
+
+// Function Expression
+const kali = function(a, b) {
+  return a * b;
+};
+console.log(kali(5, 3)); // Output: 15
+
+// Function dengan default parameter
+function perkenalan(nama, umur = 20) {
+  console.log(`Nama: ${nama}, Umur: ${umur}`);
+}
+perkenalan("Siti"); // Output: Nama: Siti, Umur: 20
+
+// ARROW FUNCTION
+
+// Arrow function sederhana
+const tambah = (a, b) => a + b;
+console.log(tambah(10, 5)); // Output: 15
+
+// Arrow function dengan satu parameter (tanpa kurung)
+const kuadrat = x => x * x;
+console.log(kuadrat(4)); // Output: 16
+
+// Arrow function dengan blok kode
+const cekGanjilGenap = (angka) => {
+  if (angka % 2 === 0) {
+    return "Genap";
+  } else {
+    return "Ganjil";
+  }
+};
+console.log(cekGanjilGenap(7)); // Output: Ganjil
+
+// Arrow function dalam callback
+const angka = [1, 2, 3, 4, 5];
+const hasilKali2 = angka.map(n => n * 2);
+console.log(hasilKali2); // Output: [2, 4, 6, 8, 10]</pre
+              >
+            </div>
           </section>
 
           <hr class="section-divider" />
 
-          <section class="animate-on-scroll" id="46">
-            <h3>4.6 Event Handling Dasar</h3>
+          <!-- Section 4.6: Event Handling Dasar -->
+          <section id="section46">
+            <h2>4.6 Event Handling Dasar</h2>
+            <p>
+              Event handling merupakan salah satu konsep penting dalam
+              JavaScript yang memungkinkan pengembang menciptakan interaktivitas
+              pada halaman web. Event dalam konteks pemrograman web merujuk pada
+              setiap tindakan atau kejadian yang terjadi pada halaman, seperti
+              klik, ketikan pengguna, pergerakan mouse, pemuatan halaman, atau
+              perubahan nilai pada sebuah elemen. Melalui event handling,
+              JavaScript dapat merespons peristiwa tersebut dengan menjalankan
+              kode tertentu, sehingga aplikasi web menjadi dinamis dan
+              responsif.
+            </p>
+
+            <h4>Tiga Cara Menangani Event</h4>
+
+            <h5>1. Inline Event Handler (Tidak Direkomendasikan)</h5>
+            <p>
+              Event dapat ditangani secara inline, yaitu dengan menuliskan
+              pemanggilan fungsi langsung pada atribut HTML seperti
+              <code>onclick</code>. Meskipun mudah digunakan, pendekatan ini
+              dianggap kurang efisien dan tidak dianjurkan pada pengembangan
+              modern karena mencampurkan logika JavaScript dengan struktur HTML.
+            </p>
+
+            <h5>2. Event Handler Property</h5>
+            <p>
+              Event dapat ditangani menggunakan event handler properti, yaitu
+              dengan menetapkan fungsi pada properti event suatu elemen,
+              contohnya <code>element.onclick = function() { ... }</code>. Cara
+              ini lebih baik dari inline, namun tetap terbatas karena hanya
+              memungkinkan satu event handler untuk setiap jenis event pada
+              suatu elemen.
+            </p>
+
+            <h5>3. addEventListener() (Recommended)</h5>
+            <p>
+              Metode yang paling direkomendasikan dalam pengembangan modern
+              adalah penggunaan
+              <code>addEventListener()</code>, yang memungkinkan penambahan
+              lebih dari satu handler untuk jenis event yang sama serta
+              memberikan fleksibilitas yang lebih besar. Dengan
+              <code>addEventListener()</code>, pengembang dapat menentukan jenis
+              event dan fungsi yang akan dijalankan ketika event tersebut
+              terjadi.
+            </p>
+
+            <h4>Event yang Sering Digunakan</h4>
+            <ul>
+              <li><strong>click:</strong> Ketika elemen di-klik</li>
+              <li><strong>keyup:</strong> Ketika tombol keyboard dilepas</li>
+              <li><strong>change:</strong> Ketika nilai input berubah</li>
+              <li>
+                <strong>mouseover:</strong> Ketika mouse bergerak di atas elemen
+              </li>
+              <li><strong>submit:</strong> Ketika form dikirim</li>
+            </ul>
+
+            <p>
+              Secara keseluruhan, pemahaman tentang event handling dasar sangat
+              penting dalam membangun pengalaman pengguna yang lebih interaktif
+              dan intuitif. Kemampuan JavaScript dalam merespons berbagai
+              peristiwa memungkinkan pengembang menciptakan antarmuka yang
+              adaptif, menarik, serta sesuai kebutuhan aplikasi web modern.
+            </p>
+
+            <h4>Contoh Code:</h4>
             <img
               src="../images/bab 4 Event handling.png"
-              alt="Event Handling"
+              alt="Contoh Event Handling"
+              class="content-img"
+            />
+
+            <div class="code-wrapper">
+              <div class="code-header">
+                <span class="code-lang">HTML + JavaScript</span>
+                <button class="btn-toggle-code">
+                  <i class="fas fa-eye"></i> Tampilkan Kode
+                </button>
+              </div>
+              <pre class="code-box">
+&lt;!DOCTYPE html&gt;
+&lt;html&gt;
+&lt;head&gt;
+  &lt;title&gt;Event Handling&lt;/title&gt;
+&lt;/head&gt;
+&lt;body&gt;
+  &lt;button id="tombol"&gt;Klik Saya&lt;/button&gt;
+  &lt;p id="pesan"&gt;Belum ada interaksi&lt;/p&gt;
+  &lt;input type="text" id="inputNama" placeholder="Masukkan nama Anda"&gt;
+
+  &lt;script&gt;
+    // addEventListener - Recommended
+    const tombol = document.getElementById('tombol');
+    const pesan = document.getElementById('pesan');
+    const input = document.getElementById('inputNama');
+
+    // Event click
+    tombol.addEventListener('click', function() {
+      pesan.textContent = 'Tombol telah diklik!';
+      pesan.style.color = 'green';
+    });
+
+    // Event keyup
+    input.addEventListener('keyup', function(event) {
+      pesan.textContent = 'Anda mengetik: ' + event.target.value;
+    });
+
+    // Event mouseover
+    tombol.addEventListener('mouseover', function() {
+      tombol.style.backgroundColor = 'lightblue';
+    });
+
+    // Event mouseout
+    tombol.addEventListener('mouseout', function() {
+      tombol.style.backgroundColor = '';
+    });
+  &lt;/script&gt;
+&lt;/body&gt;
+&lt;/html&gt;</pre
+              >
+            </div>
+
+            <h4>Output:</h4>
+            <img
+              src="../images/bab 4 ss event handling.png"
+              alt="Output Event Handling"
               class="content-img"
             />
           </section>

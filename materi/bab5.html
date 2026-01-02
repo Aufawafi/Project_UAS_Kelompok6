@@ -46,119 +46,869 @@
         <aside class="col-left">
           <h3>Daftar Isi Bab V</h3>
           <ul>
-            <li><a href="#51">5.1 Konsep DOM</a></li>
-            <li><a href="#52">5.2 Mengakses Elemen</a></li>
-            <li><a href="#53">5.3 Mengubah Konten & Atribut</a></li>
-            <li><a href="#54">5.4 Event Listener</a></li>
-            <li><a href="#55">5.5 Studi Kasus</a></li>
+            <li><a href="#section51">5.1 Konsep DOM</a></li>
+            <li><a href="#section52">5.2 Mengakses Elemen</a></li>
+            <li><a href="#section53">5.3 Mengubah Konten & Atribut</a></li>
+            <li><a href="#section54">5.4 Event Listener</a></li>
+            <li><a href="#section55">5.5 Studi Kasus</a></li>
           </ul>
         </aside>
 
         <main class="col-right">
           <h1>BAB V<br />DOM DAN MANIPULASI ELEMEN</h1>
 
-          <section class="animate-on-scroll" id="51">
-            <h3>5.1 Konsep Document Object Model (DOM)</h3>
+          <p>
+            Pada bab sebelumnya, kita telah mempelajari dasar-dasar sintaks
+            JavaScript seperti variabel, tipe data, dan fungsi. Namun, kode
+            JavaScript tersebut hanya berjalan di konsol dan belum benar-benar
+            berinteraksi dengan tampilan halaman web. Di bab ini, kita akan
+            masuk ke inti dari pengembangan Front-End, yaitu
+            <strong>DOM (Document Object Model)</strong>. DOM adalah jembatan
+            yang menghubungkan JavaScript dengan HTML dan CSS, memungkinkan kita
+            untuk membuat halaman web yang dinamis, interaktif, dan responsif
+            terhadap tindakan pengguna.
+          </p>
+
+          <hr class="section-divider" />
+
+          <!-- Section 5.1: Konsep Document Object Model (DOM) -->
+          <section id="section51">
+            <h2>5.1 Konsep Document Object Model (DOM)</h2>
             <p>
-              DOM adalah representasi terstruktur dari dokumen HTML yang
-              memungkinkan JavaScript untuk mengakses dan memanipulasi elemen
-              halaman web.
+              <strong>Document Object Model</strong> atau disingkat
+              <strong>DOM</strong> adalah representasi terstruktur dari dokumen
+              HTML yang dibuat oleh browser saat halaman web dimuat.
+              Sederhananya, DOM adalah "peta" atau model dari seluruh elemen
+              yang ada di halaman web Anda. Browser membaca kode HTML baris demi
+              baris dan mengubahnya menjadi serangkaian objek yang tersusun
+              dalam <strong>struktur pohon (tree structure)</strong>.
+            </p>
+
+            <h4>Struktur Pohon DOM (DOM Tree)</h4>
+            <p>
+              Dalam struktur pohon ini, setiap bagian dari dokumen disebut
+              sebagai <strong>Node</strong>
+              (simpul):
+            </p>
+
+            <ul>
+              <li>
+                <strong>1. Document Node:</strong> Akar utama dari pohon,
+                mewakili seluruh halaman web.
+              </li>
+              <li>
+                <strong>2. Element Node:</strong> Mewakili tag HTML (seperti
+                <code>&lt;body&gt;</code>, <code>&lt;h1&gt;</code>,
+                <code>&lt;div&gt;</code>, <code>&lt;p&gt;</code>).
+              </li>
+              <li>
+                <strong>3. Text Node:</strong> Mewakili isi teks di dalam elemen
+                (misalnya tulisan "Halo Dunia" di dalam
+                <code>&lt;h1&gt;</code>).
+              </li>
+              <li>
+                <strong>4. Attribute Node:</strong> Mewakili atribut pada tag
+                HTML (seperti <code>id</code>, <code>class</code>,
+                <code>src</code>, <code>href</code>).
+              </li>
+            </ul>
+
+            <h4>Hubungan Antar Node</h4>
+            <p>
+              Hubungan antar node ini digambarkan seperti silsilah keluarga:
+            </p>
+            <ul>
+              <li>
+                <strong>Parent (Induk):</strong> Elemen yang membungkus elemen
+                lain. Contoh: <code>&lt;body&gt;</code> adalah parent dari
+                <code>&lt;h1&gt;</code>.
+              </li>
+              <li>
+                <strong>Child (Anak):</strong> Elemen yang berada di dalam
+                elemen lain.
+              </li>
+              <li>
+                <strong>Sibling (Saudara):</strong> Elemen-elemen yang berada di
+                dalam parent yang sama.
+              </li>
+            </ul>
+
+            <p>
+              Dengan memahami konsep ini, JavaScript dapat "berjalan-jalan"
+              menelusuri pohon DOM untuk menemukan elemen tertentu, lalu
+              mengubah, menghapus, atau menambahkannya secara dinamis tanpa
+              perlu memuat ulang (reload) halaman.
             </p>
           </section>
 
           <hr class="section-divider" />
 
-          <section class="animate-on-scroll" id="52">
-            <h3>5.2 Mengakses Elemen HTML</h3>
-            <h4>5.2.1 getElementById</h4>
+          <!-- Section 5.2: Mengakses Elemen HTML -->
+          <section id="section52">
+            <h2>
+              5.2 Mengakses Elemen HTML dengan getElementById dan querySelector
+            </h2>
+            <p>
+              Langkah pertama dalam memanipulasi DOM adalah "menangkap" atau
+              menyeleksi elemen yang ingin kita ubah. JavaScript menyediakan
+              beberapa metode untuk melakukan hal ini, mulai dari cara klasik
+              hingga cara modern yang lebih fleksibel.
+            </p>
+
+            <h4>5.2.1 Menggunakan ID (getElementById)</h4>
+            <p>
+              Ini adalah metode paling cepat dan spesifik. Karena aturan HTML
+              mengharuskan setiap ID bersifat unik (hanya boleh ada satu ID yang
+              sama dalam satu halaman), metode ini akan selalu mengembalkan satu
+              elemen tunggal.
+            </p>
+
             <img
               src="../images/bab 5 HTML dengan getID.png"
-              alt="getElementById"
+              alt="Contoh getElementById"
               class="content-img"
             />
-            <h4>5.2.2 querySelector</h4>
+
+            <div class="code-wrapper">
+              <div class="code-header">
+                <span class="code-lang">HTML + JavaScript</span>
+                <button class="btn-toggle-code">
+                  <i class="fas fa-eye"></i> Tampilkan Kode
+                </button>
+              </div>
+              <pre class="code-box">
+&lt;!DOCTYPE html&gt;
+&lt;html&gt;
+&lt;head&gt;
+  &lt;title&gt;Mengakses dengan ID&lt;/title&gt;
+&lt;/head&gt;
+&lt;body&gt;
+  &lt;h1 id="judul"&gt;Selamat Datang&lt;/h1&gt;
+  &lt;button onclick="ubahJudul()"&gt;Ubah Judul&lt;/button&gt;
+
+  &lt;script&gt;
+    function ubahJudul() {
+      // Tangkap elemen dengan ID "judul"
+      let elemenJudul = document.getElementById('judul');
+      
+      // Ubah teksnya
+      elemenJudul.textContent = 'Judul Telah Diubah!';
+    }
+  &lt;/script&gt;
+&lt;/body&gt;
+&lt;/html&gt;</pre
+              >
+            </div>
+
+            <h4>5.2.2 Menggunakan Selektor CSS (querySelector)</h4>
+            <p>
+              Ini adalah metode modern yang sangat powerful.
+              <code>querySelector</code> memungkinkan kita memilih elemen
+              menggunakan sintaks yang sama persis dengan CSS Selector (bisa
+              berdasarkan ID, Class, Tag, atau kombinasi atribut). Metode ini
+              akan mengembalikan elemen pertama yang ditemukan jika ada banyak
+              elemen yang cocok.
+            </p>
+
             <img
               src="../images/bab 5 selector css dengan JS.png"
-              alt="querySelector"
+              alt="Contoh querySelector"
               class="content-img"
             />
-            <h4>5.2.3 querySelectorAll</h4>
+
+            <div class="code-wrapper">
+              <div class="code-header">
+                <span class="code-lang">HTML + JavaScript</span>
+                <button class="btn-toggle-code">
+                  <i class="fas fa-eye"></i> Tampilkan Kode
+                </button>
+              </div>
+              <pre class="code-box">
+&lt;!DOCTYPE html&gt;
+&lt;html&gt;
+&lt;head&gt;
+  &lt;title&gt;Mengakses dengan querySelector&lt;/title&gt;
+&lt;/head&gt;
+&lt;body&gt;
+  &lt;p class="intro"&gt;Ini adalah paragraf pertama&lt;/p&gt;
+  &lt;p class="intro"&gt;Ini adalah paragraf kedua&lt;/p&gt;
+  &lt;button onclick="ubahParagraf()"&gt;Ubah Paragraf&lt;/button&gt;
+
+  &lt;script&gt;
+    function ubahParagraf() {
+      // Pilih elemen pertama dengan class "intro"
+      let p = document.querySelector('.intro');
+      p.textContent = 'Paragraf telah diubah dengan querySelector!';
+      
+      // Atau gunakan ID
+      // let el = document.querySelector('#judul');
+      
+      // Atau kombinasi
+      // let el = document.querySelector('div.container p');
+    }
+  &lt;/script&gt;
+&lt;/body&gt;
+&lt;/html&gt;</pre
+              >
+            </div>
+
+            <h4>5.2.3 Menggunakan querySelectorAll (Banyak Elemen)</h4>
+            <p>
+              Jika kita ingin memilih semua elemen yang cocok dengan kriteria
+              tertentu (misalnya memilih semua tombol di halaman), kita
+              menggunakan <code>querySelectorAll</code>. Hasilnya bukan satu
+              elemen, melainkan sebuah daftar (NodeList) yang mirip dengan
+              Array.
+            </p>
+
             <img
               src="../images/bab 5 selector all.png"
-              alt="querySelectorAll"
+              alt="Contoh querySelectorAll"
               class="content-img"
             />
+
+            <div class="code-wrapper">
+              <div class="code-header">
+                <span class="code-lang">HTML + JavaScript</span>
+                <button class="btn-toggle-code">
+                  <i class="fas fa-eye"></i> Tampilkan Kode
+                </button>
+              </div>
+              <pre class="code-box">
+&lt;!DOCTYPE html&gt;
+&lt;html&gt;
+&lt;head&gt;
+  &lt;title&gt;Mengakses Banyak Elemen&lt;/title&gt;
+&lt;/head&gt;
+&lt;body&gt;
+  &lt;button class="btn"&gt;Tombol 1&lt;/button&gt;
+  &lt;button class="btn"&gt;Tombol 2&lt;/button&gt;
+  &lt;button class="btn"&gt;Tombol 3&lt;/button&gt;
+  &lt;button onclick="ubahSemuaTombol()"&gt;Ubah Semua&lt;/button&gt;
+
+  &lt;script&gt;
+    function ubahSemuaTombol() {
+      // Pilih SEMUA elemen dengan class "btn"
+      let tombolList = document.querySelectorAll('.btn');
+      
+      // Loop untuk mengubah satu per satu
+      tombolList.forEach(function(tombol, index) {
+        tombol.textContent = 'Tombol ' + (index + 1) + ' diubah!';
+        tombol.style.backgroundColor = 'green';
+        tombol.style.color = 'white';
+      });
+    }
+  &lt;/script&gt;
+&lt;/body&gt;
+&lt;/html&gt;</pre
+              >
+            </div>
           </section>
 
           <hr class="section-divider" />
 
-          <section class="animate-on-scroll" id="53">
-            <h3>5.3 Mengubah Konten dan Atribut Elemen</h3>
-            <h4>5.3.1 Manipulasi Konten</h4>
+          <!-- Section 5.3: Mengubah Konten dan Atribut Elemen -->
+          <section id="section53">
+            <h2>5.3 Mengubah Konten dan Atribut Elemen</h2>
+            <p>
+              Setelah berhasil menangkap elemen, langkah selanjutnya adalah
+              memanipulasinya. Kita bisa mengubah teks, menyisipkan HTML baru,
+              mengganti gambar, atau bahkan mengubah gaya visual (CSS) secara
+              langsung.
+            </p>
+
+            <h4>5.3.1 Manipulasi Konten (innerText vs innerHTML)</h4>
+            <ul>
+              <li>
+                <strong>innerText</strong> atau
+                <strong>textContent</strong> digunakan untuk mengubah teks polos
+                di dalam elemen. Ini aman dari serangan XSS (Cross Site
+                Scripting) karena tidak mengeksekusi tag HTML.
+              </li>
+              <li>
+                <strong>innerHTML</strong> digunakan jika kita ingin menyisipkan
+                elemen HTML baru (seperti menambahkan
+                <code>&lt;b&gt;tebal&lt;/b&gt;</code> atau tag
+                <code>&lt;span&gt;</code>).
+              </li>
+            </ul>
+
             <img
               src="../images/bab 5 manipulasi konten.png"
               alt="Manipulasi Konten"
               class="content-img"
             />
-            <h4>5.3.2 Manipulasi Atribut</h4>
+
+            <div class="code-wrapper">
+              <div class="code-header">
+                <span class="code-lang">HTML + JavaScript</span>
+                <button class="btn-toggle-code">
+                  <i class="fas fa-eye"></i> Tampilkan Kode
+                </button>
+              </div>
+              <pre class="code-box">
+&lt;!DOCTYPE html&gt;
+&lt;html&gt;
+&lt;body&gt;
+  &lt;div id="kotak"&gt;Teks awal&lt;/div&gt;
+  &lt;button onclick="gantiText()"&gt;Ganti Teks&lt;/button&gt;
+  &lt;button onclick="sisipHTML()"&gt;Sisip HTML&lt;/button&gt;
+
+  &lt;script&gt;
+    function gantiText() {
+      let kotak = document.getElementById('kotak');
+      // Mengubah teks polos (aman)
+      kotak.textContent = 'Teks telah diganti!';
+    }
+
+    function sisipHTML() {
+      let kotak = document.getElementById('kotak');
+      // Menyisipkan HTML (bisa dangerous jika dari user input)
+      kotak.innerHTML = '&lt;b&gt;Teks Tebal&lt;/b&gt; dan &lt;i&gt;Miring&lt;/i&gt;';
+    }
+  &lt;/script&gt;
+&lt;/body&gt;
+&lt;/html&gt;</pre
+              >
+            </div>
+
+            <h4>5.3.2 Manipulasi Atribut (setAttribute, src, href)</h4>
+            <p>
+              Kita sering perlu mengubah atribut elemen, misalnya mengganti
+              gambar pada slider, atau mengubah tujuan link.
+            </p>
+
             <img
               src="../images/bab 5 manipulasi atribut.png"
               alt="Manipulasi Atribut"
               class="content-img"
             />
-            <h4>5.3.3 Manipulasi Style dan Class</h4>
+
+            <div class="code-wrapper">
+              <div class="code-header">
+                <span class="code-lang">HTML + JavaScript</span>
+                <button class="btn-toggle-code">
+                  <i class="fas fa-eye"></i> Tampilkan Kode
+                </button>
+              </div>
+              <pre class="code-box">
+&lt;!DOCTYPE html&gt;
+&lt;html&gt;
+&lt;body&gt;
+  &lt;img id="gambar" src="foto1.jpg" alt="Foto" /&gt;
+  &lt;a id="link" href="https://google.com"&gt;Link&lt;/a&gt;
+  &lt;button onclick="ubahAtribut()"&gt;Ubah Atribut&lt;/button&gt;
+
+  &lt;script&gt;
+    function ubahAtribut() {
+      // Mengubah src gambar
+      let img = document.getElementById('gambar');
+      img.src = 'foto2.jpg';
+      img.alt = 'Foto Baru';
+      
+      // Mengubah href link
+      let link = document.getElementById('link');
+      link.href = 'https://youtube.com';
+      link.textContent = 'Link YouTube';
+      
+      // Menggunakan setAttribute (lebih umum)
+      img.setAttribute('src', 'foto3.jpg');
+      img.setAttribute('title', 'Gambar telah diubah');
+    }
+  &lt;/script&gt;
+&lt;/body&gt;
+&lt;/html&gt;</pre
+              >
+            </div>
+
+            <h4>5.3.3 Manipulasi Style dan Class (Penting!)</h4>
+            <p>Mengubah tampilan elemen bisa dilakukan dengan dua cara:</p>
+            <ul>
+              <li>
+                <strong>style property</strong>, untuk menulis CSS inline (tidak
+                disarankan untuk perubahan besar).
+              </li>
+              <li>
+                <strong>classList</strong>, untuk menambah atau menghapus class
+                CSS yang sudah didefinisikan di file .css. Ini adalah cara
+                terbaik (<strong>Best Practice</strong>) karena memisahkan
+                logika (JS) dan gaya (CSS).
+              </li>
+            </ul>
+
             <img
               src="../images/bab 5 manipulasi syle dan class.png"
-              alt="Manipulasi Style Class"
+              alt="Manipulasi Style dan Class"
               class="content-img"
             />
+
+            <div class="code-wrapper">
+              <div class="code-header">
+                <span class="code-lang">HTML + JavaScript + CSS</span>
+                <button class="btn-toggle-code">
+                  <i class="fas fa-eye"></i> Tampilkan Kode
+                </button>
+              </div>
+              <pre class="code-box">
+&lt;!DOCTYPE html&gt;
+&lt;html&gt;
+&lt;head&gt;
+  &lt;style&gt;
+    .highlight {
+      background-color: yellow;
+      font-weight: bold;
+      padding: 10px;
+    }
+  &lt;/style&gt;
+&lt;/head&gt;
+&lt;body&gt;
+  &lt;p id="teks"&gt;Ini adalah teks biasa&lt;/p&gt;
+  &lt;button onclick="ubahStyle()"&gt;Ubah Style&lt;/button&gt;
+  &lt;button onclick="tambahClass()"&gt;Tambah Class&lt;/button&gt;
+
+  &lt;script&gt;
+    function ubahStyle() {
+      let p = document.getElementById('teks');
+      // Mengubah CSS inline (tidak disarankan untuk banyak properti)
+      p.style.color = 'red';
+      p.style.fontSize = '24px';
+      p.style.backgroundColor = 'lightblue';
+    }
+
+    function tambahClass() {
+      let p = document.getElementById('teks');
+      // Menambah class CSS (Best Practice!)
+      p.classList.add('highlight');
+      
+      // Menghapus class
+      // p.classList.remove('highlight');
+      
+      // Toggle class (tambah jika tidak ada, hapus jika ada)
+      // p.classList.toggle('highlight');
+    }
+  &lt;/script&gt;
+&lt;/body&gt;
+&lt;/html&gt;</pre
+              >
+            </div>
           </section>
 
           <hr class="section-divider" />
 
-          <section class="animate-on-scroll" id="54">
-            <h3>5.4 Event Listener dan Interaktivitas Halaman</h3>
+          <!-- Section 5.4: Event Listener dan Interaktivitas Halaman -->
+          <section id="section54">
+            <h2>5.4 Event Listener dan Interaktivitas Halaman</h2>
+            <p>
+              Halaman web statis itu kurang menarik, kita ingin halaman bereaksi
+              ketika pengguna melakukan sesuatu. Di sinilah
+              <strong>Event</strong> berperan. Event adalah kejadian yang
+              terjadi di browser, seperti pengguna mengklik mouse, menekan
+              tombol keyboard, menggerakkan mouse (hover), atau mengirim
+              formulir (submit).
+            </p>
+
+            <h4>Menggunakan addEventListener</h4>
+            <p>
+              Cara modern dan standar untuk menangani event adalah menggunakan
+              metode
+              <code>addEventListener</code>. Metode ini lebih unggul
+              dibandingkan atribut HTML kuno (seperti
+              <code>onclick="..."</code>) karena memungkinkan kita memisahkan
+              kode JavaScript dari HTML sepenuhnya.
+            </p>
+
+            <p><strong>Sintaks dasarnya:</strong></p>
+            <pre>elemen.addEventListener('jenis_event', fungsi_callback);</pre>
+
+            <h4>Jenis-Jenis Event Populer:</h4>
+            <ul>
+              <li>
+                <strong>Mouse Events:</strong> <code>click</code>,
+                <code>dblclick</code>, <code>mouseover</code>,
+                <code>mouseout</code>
+              </li>
+              <li>
+                <strong>Keyboard Events:</strong> <code>keydown</code>,
+                <code>keyup</code>, <code>keypress</code>
+              </li>
+              <li>
+                <strong>Form Events:</strong> <code>submit</code>,
+                <code>change</code>, <code>focus</code>, <code>blur</code>
+              </li>
+              <li>
+                <strong>Window Events:</strong> <code>load</code>,
+                <code>resize</code>, <code>scroll</code>
+              </li>
+            </ul>
+
             <img
               src="../images/bab 5 Event Listener.png"
               alt="Event Listener"
               class="content-img"
             />
+
+            <div class="code-wrapper">
+              <div class="code-header">
+                <span class="code-lang">HTML + JavaScript</span>
+                <button class="btn-toggle-code">
+                  <i class="fas fa-eye"></i> Tampilkan Kode
+                </button>
+              </div>
+              <pre class="code-box">
+&lt;!DOCTYPE html&gt;
+&lt;html&gt;
+&lt;body&gt;
+  &lt;button id="tombol"&gt;Klik Saya&lt;/button&gt;
+  &lt;div id="hasil"&gt;&lt;/div&gt;
+
+  &lt;script&gt;
+    // Tangkap elemen
+    let tombol = document.getElementById('tombol');
+    let hasil = document.getElementById('hasil');
+    let counter = 0;
+
+    // Tambahkan event listener untuk event 'click'
+    tombol.addEventListener('click', function() {
+      counter++;
+      hasil.textContent = 'Tombol sudah diklik ' + counter + ' kali';
+      
+      if (counter >= 5) {
+        tombol.style.backgroundColor = 'green';
+        tombol.textContent = 'Sudah 5 kali!';
+      }
+    });
+
+    // Event mouseover
+    tombol.addEventListener('mouseover', function() {
+      tombol.style.cursor = 'pointer';
+      tombol.style.transform = 'scale(1.1)';
+    });
+
+    // Event mouseout
+    tombol.addEventListener('mouseout', function() {
+      tombol.style.transform = 'scale(1)';
+    });
+  &lt;/script&gt;
+&lt;/body&gt;
+&lt;/html&gt;</pre
+              >
+            </div>
           </section>
 
           <hr class="section-divider" />
 
-          <section class="animate-on-scroll" id="55">
-            <h3>5.5 Contoh Sederhana (Studi Kasus)</h3>
+          <!-- Section 5.5: Studi Kasus -->
+          <section id="section55">
+            <h2>5.5 Contoh Sederhana (Studi Kasus)</h2>
+            <p>
+              Sebagai penutup bab ini, mari kita gabungkan semua konsep di atas
+              (Seleksi, Manipulasi, dan Event) untuk membuat dua fitur umum:
+              <strong>Toggle Menu Navigasi</strong> (untuk tampilan responsif)
+              dan <strong>Form Validasi Sederhana</strong>.
+            </p>
+
+            <h3>Studi Kasus: Toggle Menu (Navigasi Mobile)</h3>
+            <p>
+              Fitur ini umum digunakan pada desain web responsif. Saat di layar
+              kecil, menu disembunyikan dan hanya muncul tombol garis tiga.
+              Ketika tombol diklik, menu muncul.
+            </p>
+
+            <h4>Kode HTML:</h4>
             <img
               src="../images/bab 5 Std kasus html-1.png"
               alt="Studi Kasus HTML 1"
               class="content-img"
             />
+
             <img
               src="../images/bab 5 Std kasus html-2.png"
               alt="Studi Kasus HTML 2"
               class="content-img"
             />
+
+            <div class="code-wrapper">
+              <div class="code-header">
+                <span class="code-lang">HTML</span>
+                <button class="btn-toggle-code">
+                  <i class="fas fa-eye"></i> Tampilkan Kode
+                </button>
+              </div>
+              <pre class="code-box">
+&lt;!DOCTYPE html&gt;
+&lt;html lang="id"&gt;
+&lt;head&gt;
+  &lt;meta charset="UTF-8"&gt;
+  &lt;meta name="viewport" content="width=device-width, initial-scale=1.0"&gt;
+  &lt;title&gt;Toggle Menu - Studi Kasus&lt;/title&gt;
+  &lt;link rel="stylesheet" href="style.css"&gt;
+&lt;/head&gt;
+&lt;body&gt;
+  &lt;nav class="navbar"&gt;
+    &lt;div class="navbar-container"&gt;
+      &lt;div class="logo"&gt;MyWebsite&lt;/div&gt;
+      
+      &lt;!-- Hamburger Icon (akan muncul di mobile) --&gt;
+      &lt;button class="hamburger" id="hamburger"&gt;
+        &lt;span&gt;&lt;/span&gt;
+        &lt;span&gt;&lt;/span&gt;
+        &lt;span&gt;&lt;/span&gt;
+      &lt;/button&gt;
+      
+      &lt;!-- Menu Navigasi --&gt;
+      &lt;ul class="nav-menu" id="navMenu"&gt;
+        &lt;li&gt;&lt;a href="#home"&gt;Home&lt;/a&gt;&lt;/li&gt;
+        &lt;li&gt;&lt;a href="#about"&gt;About&lt;/a&gt;&lt;/li&gt;
+        &lt;li&gt;&lt;a href="#services"&gt;Services&lt;/a&gt;&lt;/li&gt;
+        &lt;li&gt;&lt;a href="#contact"&gt;Contact&lt;/a&gt;&lt;/li&gt;
+      &lt;/ul&gt;
+    &lt;/div&gt;
+  &lt;/nav&gt;
+  
+  &lt;main&gt;
+    &lt;h1&gt;Selamat Datang di Website Saya&lt;/h1&gt;
+    &lt;p&gt;Lihat menu navigasi bekerja di berbagai ukuran layar!&lt;/p&gt;
+  &lt;/main&gt;
+  
+  &lt;script src="script.js"&gt;&lt;/script&gt;
+&lt;/body&gt;
+&lt;/html&gt;</pre
+              >
+            </div>
+
+            <h4>Kode CSS:</h4>
             <img
               src="../images/bab 5 Std kasus css-1.png"
               alt="Studi Kasus CSS 1"
               class="content-img"
             />
+
             <img
               src="../images/bab 5 Std kasus css-2.png"
               alt="Studi Kasus CSS 2"
               class="content-img"
             />
+
             <img
               src="../images/bab 5 Std kasus css-3.png"
               alt="Studi Kasus CSS 3"
               class="content-img"
             />
+
+            <div class="code-wrapper">
+              <div class="code-header">
+                <span class="code-lang">CSS</span>
+                <button class="btn-toggle-code">
+                  <i class="fas fa-eye"></i> Tampilkan Kode
+                </button>
+              </div>
+              <pre class="code-box">
+/* Reset dan Base Styles */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: Arial, sans-serif;
+  background-color: #f4f4f4;
+}
+
+/* Navbar Styles */
+.navbar {
+  background-color: #333;
+  padding: 1rem;
+  position: sticky;
+  top: 0;
+  z-index: 100;
+}
+
+.navbar-container {
+  max-width: 1200px;
+  margin: 0 auto;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.logo {
+  color: white;
+  font-size: 1.5rem;
+  font-weight: bold;
+}
+
+/* Menu Navigasi */
+.nav-menu {
+  display: flex;
+  list-style: none;
+  gap: 2rem;
+}
+
+.nav-menu li a {
+  color: white;
+  text-decoration: none;
+  font-size: 1rem;
+  transition: color 0.3s;
+}
+
+.nav-menu li a:hover {
+  color: #4CAF50;
+}
+
+/* Hamburger Icon (hidden by default) */
+.hamburger {
+  display: none;
+  flex-direction: column;
+  background: none;
+  border: none;
+  cursor: pointer;
+  gap: 5px;
+}
+
+.hamburger span {
+  width: 25px;
+  height: 3px;
+  background-color: white;
+  transition: all 0.3s ease;
+}
+
+/* Main Content */
+main {
+  max-width: 1200px;
+  margin: 2rem auto;
+  padding: 2rem;
+  background: white;
+  border-radius: 10px;
+  box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+}
+
+h1 {
+  color: #333;
+  margin-bottom: 1rem;
+}
+
+/* ===== RESPONSIVE DESIGN ===== */
+@media (max-width: 768px) {
+  /* Show hamburger icon */
+  .hamburger {
+    display: flex;
+  }
+  
+  /* Hide menu by default on mobile */
+  .nav-menu {
+    position: absolute;
+    top: 60px;
+    left: 0;
+    width: 100%;
+    background-color: #333;
+    flex-direction: column;
+    gap: 0;
+    padding: 1rem 0;
+    
+    /* Sembunyikan dulu */
+    max-height: 0;
+    overflow: hidden;
+    transition: max-height 0.3s ease;
+  }
+  
+  /* Ketika menu aktif (class 'active' ditambahkan) */
+  .nav-menu.active {
+    max-height: 300px; /* Tampilkan */
+  }
+  
+  .nav-menu li {
+    text-align: center;
+    padding: 0.75rem 0;
+    border-bottom: 1px solid #444;
+  }
+  
+  /* Hamburger animation when active */
+  .hamburger.active span:nth-child(1) {
+    transform: rotate(45deg) translate(5px, 5px);
+  }
+  
+  .hamburger.active span:nth-child(2) {
+    opacity: 0;
+  }
+  
+  .hamburger.active span:nth-child(3) {
+    transform: rotate(-45deg) translate(7px, -6px);
+  }
+}</pre
+              >
+            </div>
+
+            <h4>Kode JavaScript:</h4>
             <img
               src="../images/bab 5 Std kasus JS-1.png"
-              alt="Studi Kasus JS"
+              alt="Studi Kasus JavaScript"
               class="content-img"
             />
+
+            <div class="code-wrapper">
+              <div class="code-header">
+                <span class="code-lang">JavaScript</span>
+                <button class="btn-toggle-code">
+                  <i class="fas fa-eye"></i> Tampilkan Kode
+                </button>
+              </div>
+              <pre class="code-box">
+// Tangkap elemen hamburger dan nav menu
+const hamburger = document.getElementById('hamburger');
+const navMenu = document.getElementById('navMenu');
+
+// Event listener untuk toggle menu
+hamburger.addEventListener('click', function() {
+  // Toggle class 'active' pada hamburger dan menu
+  hamburger.classList.toggle('active');
+  navMenu.classList.toggle('active');
+});
+
+// Optional: Tutup menu ketika link diklik (UX lebih baik)
+const navLinks = document.querySelectorAll('.nav-menu li a');
+
+navLinks.forEach(function(link) {
+  link.addEventListener('click', function() {
+    // Hapus class 'active' untuk menutup menu
+    hamburger.classList.remove('active');
+    navMenu.classList.remove('active');
+  });
+});</pre
+              >
+            </div>
+
+            <h4>Output:</h4>
+            <img
+              src="../images/bab 5 std kasus ot.png"
+              alt="Output Studi Kasus"
+              class="content-img"
+            />
+
+            <div class="highlight-box">
+              <h4><i class="fas fa-lightbulb"></i> Penjelasan Studi Kasus:</h4>
+              <p>
+                <strong>HTML:</strong> Struktur navbar dengan hamburger button
+                dan menu list.
+              </p>
+              <p>
+                <strong>CSS:</strong> Desain responsif dengan media query
+                @768px, menu disembunyikan dengan <code>max-height: 0</code> dan
+                ditampilkan dengan <code>max-height: 300px</code> saat class
+                <code>active</code> ditambahkan.
+              </p>
+              <p>
+                <strong>JavaScript:</strong> Menggunakan
+                <code>addEventListener</code> dan
+                <code>classList.toggle()</code> untuk menambah/menghapus class
+                <code>active</code> pada hamburger dan menu.
+              </p>
+              <p>
+                <strong>Best Practice:</strong> Pisahkan HTML (struktur), CSS
+                (tampilan), dan JavaScript (logika) untuk kode yang lebih bersih
+                dan mudah di-maintain!
+              </p>
+            </div>
           </section>
 
           <!-- Navigation Buttons -->

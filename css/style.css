@@ -793,6 +793,130 @@ section {
 }
 
 /* ============================================
+   RESPONSIVE TABLES
+   ============================================ */
+
+/* Base Table Styling */
+.styled-table {
+  width: 100%;
+  border-collapse: collapse;
+  background: var(--bg-card);
+  border-radius: var(--radius-lg);
+  overflow: hidden;
+  box-shadow: var(--shadow-md);
+  margin: 2rem 0;
+  font-size: 0.95rem;
+  border: 1px solid var(--border-color);
+}
+
+.styled-table thead tr {
+  background: var(--gradient-primary);
+  color: #ffffff;
+  text-align: left;
+  font-weight: 600;
+  font-size: 1rem;
+}
+
+.styled-table th,
+.styled-table td {
+  padding: 1rem 1.25rem;
+  border-bottom: 1px solid var(--border-color);
+}
+
+.styled-table tbody tr {
+  transition: all 0.3s ease;
+}
+
+.styled-table tbody tr:hover {
+  background: rgba(79, 70, 229, 0.05);
+  transform: scale(1.01);
+  box-shadow: 0 2px 8px rgba(79, 70, 229, 0.1);
+}
+
+.styled-table tbody tr:last-child td {
+  border-bottom: none;
+}
+
+.styled-table td {
+  color: var(--text-main);
+}
+
+.styled-table td:first-child {
+  font-weight: 600;
+  color: var(--primary);
+}
+
+/* Responsive Table - Mobile Card Layout */
+@media (max-width: 768px) {
+  .styled-table {
+    border: 0;
+    box-shadow: none;
+    background: transparent;
+  }
+
+  .styled-table thead {
+    display: none; /* Hide headers on mobile */
+  }
+
+  .styled-table tbody {
+    display: block;
+  }
+
+  .styled-table tr {
+    display: block;
+    margin-bottom: 1.5rem;
+    background: var(--bg-card);
+    border-radius: var(--radius-lg);
+    box-shadow: var(--shadow-md);
+    border: 1px solid var(--border-color);
+    overflow: hidden;
+    transition: all 0.3s ease;
+  }
+
+  .styled-table tr:hover {
+    transform: translateY(-3px);
+    box-shadow: var(--shadow-lg);
+  }
+
+  .styled-table td {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+    padding: 0.875rem 1rem;
+    text-align: right;
+    border-bottom: 1px solid rgba(79, 70, 229, 0.1);
+  }
+
+  .styled-table td:last-child {
+    border-bottom: none;
+  }
+
+  .styled-table td:before {
+    content: attr(data-label);
+    font-weight: 600;
+    text-transform: uppercase;
+    font-size: 0.75rem;
+    color: var(--primary);
+    margin-right: 1rem;
+    flex-shrink: 0;
+    text-align: left;
+  }
+
+  .styled-table td:first-child {
+    background: var(--gradient-primary);
+    color: #ffffff;
+    font-weight: 600;
+    font-size: 1rem;
+    justify-content: center;
+    padding: 1rem;
+  }
+
+  .styled-table td:first-child:before {
+    display: none;
+  }
+}
+
+/* ============================================
    ICON UTILITIES
    ============================================ */
 
