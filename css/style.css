@@ -1290,6 +1290,17 @@ h3 i {
     grid-template-columns: repeat(2, 1fr); /* 2 columns on tablet */
   }
 
+  /* ===== LAYOUT & SPACING ===== */
+  /* Reduce padding on main content for mobile */
+  .col-right {
+    padding: 1rem; /* Reduced from 3rem */
+  }
+
+  /* Reduce container padding on mobile */
+  .container {
+    padding: 0 0.75rem;
+  }
+
   /* Center all nav items on mobile */
   .nav-links li {
     text-align: center;
