@@ -674,19 +674,80 @@ section {
   border-top: 1px solid var(--border-color);
 }
 .highlight-box {
-  background: linear-gradient(
-    135deg,
-    rgba(99, 102, 241, 0.1) 0%,
-    rgba(236, 72, 153, 0.05) 100%
-  );
+  background: var(--bg-card);
+  border-left: 4px solid var(--primary);
   padding: 1.5rem;
   border-radius: var(--radius-md);
-  margin: 2rem 0;
-  border-left: 4px solid var(--primary);
+  margin: 1.5rem 0;
+  box-shadow: var(--shadow-sm);
 }
+
 .highlight-box h4 {
-  color: var(--primary);
   margin-bottom: 1rem;
+  color: var(--primary);
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+}
+
+/* Yellow Warning Box - Readable in Dark Mode */
+.highlight-warning {
+  background: #fff3cd !important; /* Light yellow */
+  border-left: 4px solid #ffc107 !important; /* Amber border */
+  padding: 1.5rem;
+  border-radius: var(--radius-md);
+  margin: 1.5rem 0;
+  color: #333 !important; /* Dark text for contrast */
+}
+
+.highlight-warning h4 {
+  margin-bottom: 1rem;
+  color: #333 !important; /* Dark heading */
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+}
+
+.highlight-warning p,
+.highlight-warning strong,
+.highlight-warning ul,
+.highlight-warning li {
+  color: #333 !important; /* Ensure all text is dark */
+}
+
+/* Gradient Success Box */
+.highlight-gradient {
+  background: linear-gradient(135deg, #667eea 0%, #764ba2 100%) !important;
+  border-left: none;
+  padding: 1.5rem;
+  border-radius: var(--radius-md);
+  margin: 1.5rem 0;
+  color: white !important;
+}
+
+.highlight-gradient h4 {
+  margin-bottom: 1rem;
+  color: white !important;
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+}
+
+.highlight-gradient p,
+.highlight-gradient strong,
+.highlight-gradient ul,
+.highlight-gradient li {
+  color: white !important;
+}
+
+.highlight-gradient ul {
+  margin: 0;
+  padding-left: 1.5rem;
+}
+
+.highlight-gradient p:last-child {
+  margin-top: 1rem;
+  margin-bottom: 0;
 }
 
 /* ============================================
