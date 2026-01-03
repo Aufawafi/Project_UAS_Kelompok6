@@ -46,91 +46,908 @@
         <aside class="col-left">
           <h3>Daftar Isi Bab VI</h3>
           <ul>
-            <li><a href="#61">6.1 Konsep RWD & Mobile-First</a></li>
-            <li><a href="#62">6.2 Media Queries CSS</a></li>
-            <li><a href="#63">6.3 Layout Responsif</a></li>
-            <li><a href="#64">6.4 Framework CSS</a></li>
+            <li><a href="#section61">6.1 Konsep RWD & Mobile-First</a></li>
+            <li><a href="#section62">6.2 Media Queries CSS</a></li>
+            <li><a href="#section63">6.3 Flexbox & Grid Layout</a></li>
+            <li><a href="#section64">6.4 Framework CSS Populer</a></li>
           </ul>
         </aside>
 
         <main class="col-right">
           <h1>BAB VI<br />RESPONSIVE WEB DESIGN</h1>
 
-          <section class="animate-on-scroll" id="61">
-            <h3>6.1 Konsep Responsive Design dan Mobile-First</h3>
-            <h4>6.1.1 Definisi Responsive Web Design (RWD)</h4>
+          <p>
+            Perkembangan teknologi perangkat bergerak (<em>mobile devices</em>)
+            telah mengubah lanskap internet secara drastis. Jika satu dekade
+            lalu mayoritas pengguna mengakses situs web melalui komputer
+            desktop, kini statistik global menunjukkan bahwa akses melalui
+            perangkat seluler seperti ponsel pintar (smartphone) dan tablet
+            telah mendominasi lalu lintas internet. Perubahan perilaku ini
+            menuntut para pengembang web untuk meninggalkan metode desain statis
+            tradisional dan beralih ke pendekatan yang lebih adaptif.
+          </p>
+          <p>
+            Bab ini akan mengupas tuntas konsep
+            <strong>Responsive Web Design (RWD)</strong>, sebuah metodologi
+            desain yang memungkinkan satu situs web untuk tampil optimal di
+            berbagai ukuran layar, mulai dari jam tangan pintar hingga layar
+            monitor berukuran besar.
+          </p>
+
+          <hr class="section-divider" />
+
+          <!-- Section 6.1: Konsep Responsive Design dan Mobile-First -->
+          <section id="section61">
+            <h2>6.1 Konsep Responsive Design dan Mobile-First</h2>
+
+            <h3>6.1.1 Definisi Responsive Web Design (RWD)</h3>
+            <p>
+              Secara fundamental,
+              <strong>Responsive Web Design (RWD)</strong> bukanlah sebuah
+              teknologi tunggal, melainkan sekumpulan teknik dan prinsip desain
+              yang bekerja bersama-sama. Istilah ini pertama kali diperkenalkan
+              oleh <strong>Ethan Marcotte</strong> pada tahun 2010. Inti dari
+              RWD adalah <em>fluiditas</em>; elemen-elemen web seperti tata
+              letak (layout), gambar, dan tipografi dirancang agar fleksibel dan
+              mampu menyesuaikan diri dengan "wadah" (viewport) tempat mereka
+              ditampilkan.
+            </p>
+
+            <p>
+              Sebelum adanya RWD, pengembang web sering kali harus membuat dua
+              versi situs web yang berbeda: satu untuk desktop (misalnya
+              <code>www.website.com</code>) dan satu lagi sub-domain khusus
+              untuk seluler (misalnya <code>m.website.com</code>). Pendekatan
+              ini memiliki banyak kelemahan, seperti duplikasi konten, upaya
+              pemeliharaan (maintenance) yang ganda, dan masalah SEO (Search
+              Engine Optimization). Dengan RWD, kita hanya memelihara satu basis
+              kode HTML dan CSS yang cerdas untuk melayani semua perangkat.
+            </p>
+
+            <h4>Tiga Pilar Teknis Utama dalam RWD:</h4>
+            <ul>
+              <li>
+                <strong>Grid Cair (Fluid Grids):</strong> Sistem tata letak yang
+                menggunakan satuan relatif (seperti persentase
+                <code>%</code> atau unit <code>fr</code>) alih-alih satuan
+                absolut (seperti <code>px</code>). Ini memastikan kolom tidak
+                kaku dan bisa melebar atau menyempit.
+              </li>
+              <li>
+                <strong>Media Fleksibel (Flexible Media):</strong> Gambar dan
+                video yang dibatasi agar tidak pernah melebihi lebar wadahnya
+                (biasanya menggunakan <code>max-width: 100%</code>).
+              </li>
+              <li>
+                <strong>Media Queries:</strong> Fitur CSS3 yang memungkinkan
+                penerapan gaya yang berbeda berdasarkan kondisi spesifik
+                perangkat, seperti lebar layar, orientasi, atau resolusi.
+              </li>
+            </ul>
+
+            <h3>6.1.2 Konsep Mobile-First</h3>
+            <p>
+              Dalam mengimplementasikan RWD, terdapat dua strategi alur kerja
+              utama:
+            </p>
+
+            <h4>1. Desktop-First (Graceful Degradation)</h4>
+            <p>
+              Pendekatan tradisional di mana pengembang mendesain versi desktop
+              yang lengkap terlebih dahulu, kemudian "memangkas" atau
+              menyesuaikan elemen-elemen tersebut agar muat di layar yang lebih
+              kecil. Kelemahan pendekatan ini adalah sering kali kode CSS
+              menjadi berat karena memuat gaya desktop yang tidak diperlukan
+              oleh perangkat seluler, yang pada akhirnya memperlambat waktu muat
+              (<em>loading time</em>) di ponsel.
+            </p>
+
+            <h4>2. Mobile-First (Progressive Enhancement)</h4>
+            <p>
+              Ini adalah <strong>standar industri modern</strong> saat ini.
+              Desain dimulai dari layar terkecil (ponsel) dengan fitur-fitur
+              esensial saja. Kode CSS dasar ditulis untuk tampilan seluler tanpa
+              menggunakan Media Query. Kemudian, seiring bertambahnya lebar
+              layar (misalnya ke tablet atau desktop), kita menambahkan
+              kompleksitas desain dan fitur tambahan menggunakan Media Query
+              (<code>min-width</code>).
+            </p>
+
+            <h4>Keunggulan Mobile-First:</h4>
+            <ul>
+              <li>
+                <strong>Kinerja Lebih Cepat:</strong> Perangkat seluler dengan
+                koneksi data terbatas hanya mengunduh aset dan kode yang
+                benar-benar mereka butuhkan.
+              </li>
+              <li>
+                <strong>Fokus pada Konten:</strong> Ruang layar yang sempit
+                memaksa desainer untuk memprioritaskan konten yang paling
+                penting bagi pengguna.
+              </li>
+              <li>
+                <strong>Skalabilitas:</strong> Lebih mudah membangun
+                kompleksitas ke atas (menambah fitur) daripada mencoba
+                menyederhanakan sistem yang sudah rumit ke bawah.
+              </li>
+            </ul>
+
+            <h3>6.1.3 Viewport Meta Tag</h3>
+            <p>
+              Salah satu komponen teknis terpenting dalam RWD yang sering
+              terlupakan oleh pemula adalah tag <strong>meta viewport</strong>.
+              Tanpa tag ini, browser pada perangkat seluler akan berperilaku
+              seolah-olah mereka adalah layar desktop lebar, lalu melakukan
+              zoom-out hingga seluruh halaman muat dalam layar kecil, membuat
+              teks menjadi sangat kecil dan tidak terbaca.
+            </p>
+
             <img
               src="../images/bab 6 rwd.png"
-              alt="Responsive Web Design"
+              alt="Viewport Meta Tag"
               class="content-img"
             />
+
+            <p>
+              Tag berikut <strong>wajib</strong> disisipkan di dalam elemen
+              <code>&lt;head&gt;</code>
+              HTML:
+            </p>
+
+            <div class="code-wrapper">
+              <div class="code-header">
+                <span class="code-lang">HTML</span>
+                <button class="btn-toggle-code">
+                  <i class="fas fa-eye"></i> Tampilkan Kode
+                </button>
+              </div>
+              <pre class="code-box">
+&lt;head&gt;
+  &lt;meta charset="UTF-8"&gt;
+  &lt;meta name="viewport" content="width=device-width, initial-scale=1.0"&gt;
+  &lt;title&gt;Responsive Website&lt;/title&gt;
+&lt;/head&gt;</pre
+              >
+            </div>
+
+            <h4>Penjelasan Atribut:</h4>
+            <ul>
+              <li>
+                <code>width=device-width</code>: Menginstruksikan browser untuk
+                mengatur lebar halaman web agar sama dengan lebar fisik layar
+                perangkat.
+              </li>
+              <li>
+                <code>initial-scale=1.0</code>: Mengatur tingkat zoom awal ke
+                100% (ukuran normal) saat halaman pertama kali dimuat.
+              </li>
+            </ul>
           </section>
 
           <hr class="section-divider" />
 
-          <section class="animate-on-scroll" id="62">
-            <h3>6.2 Media Queries CSS</h3>
-            <h4>6.2.1 Sintaksis dan Struktur Logika</h4>
+          <!-- Section 6.2: Media Queries CSS -->
+          <section id="section62">
+            <h2>6.2 Media Queries CSS</h2>
+
+            <p>
+              <strong>Media Queries</strong> adalah mekanisme CSS3 yang
+              memungkinkan konten ditampilkan secara berbeda tergantung pada
+              perangkat yang merender konten tersebut. Ini adalah "otak" dari
+              desain responsif yang menentukan kapan tata letak harus berubah
+              bentuk. Media query diawali dengan <code>@media</code>, diikuti
+              oleh kondisi breakpoint.
+            </p>
+
+            <h3>6.2.1 Sintaksis dan Struktur Logika</h3>
+            <p>
+              Sebuah blok Media Query terdiri dari tipe media (opsional) dan
+              satu atau lebih ekspresi kondisi (seperti lebar layar). Jika
+              kondisi bernilai <code>true</code>, maka aturan CSS di dalam blok
+              tersebut akan diterapkan.
+            </p>
+
             <img
               src="../images/bab 6 media query css.png"
-              alt="Media Query"
+              alt="Media Query Syntax"
               class="content-img"
             />
+
+            <p><strong>Struktur dasarnya adalah:</strong></p>
+
+            <div class="code-wrapper">
+              <div class="code-header">
+                <span class="code-lang">CSS</span>
+                <button class="btn-toggle-code">
+                  <i class="fas fa-eye"></i> Tampilkan Kode
+                </button>
+              </div>
+              <pre class="code-box">
+/* Sintaksis Dasar Media Query */
+@media screen and (min-width: 768px) {
+  /* CSS rules yang diterapkan jika lebar layar >= 768px */
+  .container {
+    max-width: 1200px;
+    padding: 2rem;
+  }
+}</pre
+              >
+            </div>
+
+            <h4>Penjelasan Komponen:</h4>
+            <ul>
+              <li><code>@media</code>: Kata kunci untuk memulai query.</li>
+              <li>
+                <code>screen</code>: Tipe media yang paling umum, menargetkan
+                layar komputer, tablet, dan ponsel.
+              </li>
+              <li>
+                <code>and</code>: Operator logika untuk menggabungkan kondisi.
+              </li>
+              <li>
+                <code>(min-width: ...)</code>: Fitur media yang paling sering
+                digunakan dalam pendekatan Mobile-First. Ini berarti "terapkan
+                gaya ini jika lebar layar MINIMAL sekian".
+              </li>
+            </ul>
+
             <img
               src="../images/bab 6 media query css contoh.png"
-              alt="Media Query Contoh"
+              alt="Media Query Example"
               class="content-img"
             />
-            <h4>6.2.2 Penentuan Breakpoints</h4>
+
+            <h4>Contoh Penulisan:</h4>
+
+            <div class="code-wrapper">
+              <div class="code-header">
+                <span class="code-lang">CSS</span>
+                <button class="btn-toggle-code">
+                  <i class="fas fa-eye"></i> Tampilkan Kode
+                </button>
+              </div>
+              <pre class="code-box">
+/* Mobile First: Default styles untuk mobile */
+body {
+  font-size: 14px;
+}
+
+.sidebar {
+  display: none; /* Sembunyikan sidebar di mobile */
+}
+
+/* Tablet: >= 768px */
+@media screen and (min-width: 768px) {
+  body {
+    font-size: 16px;
+  }
+  
+  .sidebar {
+    display: block; /* Tampilkan sidebar di tablet */
+    width: 250px;
+  }
+}
+
+/* Desktop: >= 1024px */
+@media screen and (min-width: 1024px) {
+  body {
+    font-size: 18px;
+  }
+  
+  .sidebar {
+    width: 300px;
+  }
+}</pre
+              >
+            </div>
+
+            <h3>6.2.2 Penentuan Titik Henti (Breakpoints)</h3>
+            <p>
+              <strong>Breakpoint</strong> adalah titik piksel tertentu di mana
+              tampilan web akan berubah drastis (misalnya dari 1 kolom menjadi 2
+              kolom). Meskipun tidak ada standar baku karena variasi perangkat
+              yang tak terbatas, breakpoint umum yang sering digunakan dalam
+              industri didasarkan pada kategori perangkat berikut:
+            </p>
+
+            <ul>
+              <li>
+                <strong>Perangkat Seluler (Ponsel):</strong> Lebar &lt; 768px
+                (Biasanya gaya default tanpa media query).
+              </li>
+              <li><strong>Tablet (Portrait):</strong> Lebar ≥ 768px.</li>
+              <li><strong>Laptop/Desktop Kecil:</strong> Lebar ≥ 992px.</li>
+              <li><strong>Desktop Layar Lebar:</strong> Lebar ≥ 1200px.</li>
+            </ul>
+
             <img
               src="../images/bab 6 breakpoint.png"
-              alt="Breakpoint"
+              alt="Common Breakpoints"
               class="content-img"
             />
-            <h4>6.2.3 Fitur Media Lainnya</h4>
+
+            <h4>Contoh Implementasi Detail CSS:</h4>
+
+            <div class="code-wrapper">
+              <div class="code-header">
+                <span class="code-lang">CSS</span>
+                <button class="btn-toggle-code">
+                  <i class="fas fa-eye"></i> Tampilkan Kode
+                </button>
+              </div>
+              <pre class="code-box">
+/* ===== BASE STYLES (Mobile) ===== */
+.grid-container {
+  display: grid;
+  grid-template-columns: 1fr; /* 1 kolom untuk mobile */
+  gap: 1rem;
+  padding: 1rem;
+}
+
+.card {
+  background: white;
+  padding: 1rem;
+  border-radius: 8px;
+  box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+}
+
+/* ===== TABLET (768px+) ===== */
+@media screen and (min-width: 768px) {
+  .grid-container {
+    grid-template-columns: repeat(2, 1fr); /* 2 kolom */
+    gap: 1.5rem;
+    padding: 1.5rem;
+  }
+  
+  .card {
+    padding: 1.5rem;
+  }
+}
+
+/* ===== LAPTOP/DESKTOP KECIL (992px+) ===== */
+@media screen and (min-width: 992px) {
+  .grid-container {
+    grid-template-columns: repeat(3, 1fr); /* 3 kolom */
+    gap: 2rem;
+    padding: 2rem;
+    max-width: 1200px;
+    margin: 0 auto;
+  }
+  
+  .card {
+    padding: 2rem;
+  }
+}
+
+/* ===== DESKTOP LAYAR LEBAR (1200px+) ===== */
+@media screen and (min-width: 1200px) {
+  .grid-container {
+    grid-template-columns: repeat(4, 1fr); /* 4 kolom */
+    gap: 2.5rem;
+    max-width: 1400px;
+  }
+}</pre
+              >
+            </div>
+
+            <h3>6.2.3 Fitur Media Lainnya</h3>
+            <p>
+              Selain <code>width</code>, Media Queries juga bisa mendeteksi
+              fitur lain yang berguna untuk UX:
+            </p>
+
+            <h4>Orientation (Orientasi Perangkat)</h4>
+            <p>
+              Mendeteksi apakah perangkat dalam mode
+              <strong>portrait</strong> (tegak) atau
+              <strong>landscape</strong> (mendatar).
+            </p>
+
             <img
               src="../images/bab 6 media orientasi.png"
-              alt="Media Orientasi"
+              alt="Orientation Media Query"
               class="content-img"
             />
+
+            <div class="code-wrapper">
+              <div class="code-header">
+                <span class="code-lang">CSS</span>
+                <button class="btn-toggle-code">
+                  <i class="fas fa-eye"></i> Tampilkan Kode
+                </button>
+              </div>
+              <pre class="code-box">
+/* Mode Portrait (Tegak) */
+@media (orientation: portrait) {
+  .hero-image {
+    height: 60vh;
+    background-position: center top;
+  }
+  
+  .video-container {
+    aspect-ratio: 9 / 16; /* Vertikal */
+  }
+}
+
+/* Mode Landscape (Mendatar) */
+@media (orientation: landscape) {
+  .hero-image {
+    height: 100vh;
+    background-position: center center;
+  }
+  
+  .video-container {
+    aspect-ratio: 16 / 9; /* Horizontal */
+  }
+}
+
+/* Kombinasi: Tablet Landscape */
+@media screen and (min-width: 768px) and (orientation: landscape) {
+  .navbar {
+    position: sticky;
+    top: 0;
+  }
+}</pre
+              >
+            </div>
+
+            <h4>Resolution (Kepadatan Piksel)</h4>
+            <p>
+              Mendeteksi kepadatan piksel layar (berguna untuk layar Retina/High
+              DPI) untuk menyajikan gambar beresolusi tinggi.
+            </p>
+
             <img
               src="../images/bab 6 media resolusi.png"
-              alt="Media Resolusi"
+              alt="Resolution Media Query"
               class="content-img"
             />
+
+            <div class="code-wrapper">
+              <div class="code-header">
+                <span class="code-lang">CSS</span>
+                <button class="btn-toggle-code">
+                  <i class="fas fa-eye"></i> Tampilkan Kode
+                </button>
+              </div>
+              <pre class="code-box">
+/* Layar Standar (1x) */
+.logo {
+  background-image: url('logo.png');
+  width: 200px;
+  height: 50px;
+}
+
+/* Layar High DPI / Retina (2x) */
+@media (-webkit-min-device-pixel-ratio: 2),
+       (min-resolution: 192dpi) {
+  .logo {
+    background-image: url('logo@2x.png'); /* Gambar 2x lebih besar */
+    background-size: 200px 50px; /* Diperkecil ke ukuran asli */
+  }
+}
+
+/* Layar Super High DPI (3x) */
+@media (-webkit-min-device-pixel-ratio: 3),
+       (min-resolution: 288dpi) {
+  .logo {
+    background-image: url('logo@3x.png');
+    background-size: 200px 50px;
+  }
+}</pre
+              >
+            </div>
           </section>
 
           <hr class="section-divider" />
 
-          <section class="animate-on-scroll" id="63">
-            <h3>6.3 Layout Responsif dengan Flexbox dan Grid</h3>
-            <h4>6.3.1 Flexbox Responsif</h4>
+          <!-- Section 6.3: Layout Responsif dengan Flexbox dan Grid -->
+          <section id="section63">
+            <h2>6.3 Layout Responsif dengan Flexbox dan Grid</h2>
+
+            <p>
+              Sebelum kehadiran CSS3 modern, pembuatan tata letak responsif
+              sangat bergantung pada properti <code>float</code> dan teknik
+              clearing yang rumit dan rentan kesalahan (buggy). Saat ini, CSS
+              menyediakan dua sistem tata letak yang sangat kuat:
+              <strong>Flexbox</strong> (untuk 1 dimensi) dan
+              <strong>Grid</strong> (untuk 2 dimensi).
+            </p>
+
+            <h3>6.3.1 Flexbox Responsif</h3>
+            <p>
+              Flexbox dirancang untuk mengatur distribusi ruang antar elemen
+              dalam sebuah antarmuka dan memiliki kemampuan penyelarasan
+              (alignment) yang sangat baik. Flexbox sangat ideal untuk komponen
+              baris tunggal seperti Navbar, daftar produk horizontal, atau
+              penyusunan tombol.
+            </p>
+
+            <h4>Properti Kunci untuk Responsivitas:</h4>
+            <ul>
+              <li>
+                <code>flex-wrap: wrap;</code>: Ini adalah properti "ajaib" untuk
+                responsivitas. Secara default, Flexbox akan memaksa semua elemen
+                berada dalam satu baris. Dengan <code>wrap</code>, elemen yang
+                tidak muat dalam lebar layar akan otomatis turun ke baris
+                berikutnya.
+              </li>
+              <li>
+                <code>flex-direction</code>: Memungkinkan kita mengubah arah
+                tata letak dengan mudah. Pada seluler kita bisa menggunakan
+                <code>column</code> (vertikal), dan pada desktop kita ubah
+                menjadi <code>row</code> (horizontal) hanya dengan satu baris
+                kode di dalam Media Query.
+              </li>
+              <li>
+                <code>flex-grow</code> & <code>flex-shrink</code>: Mengizinkan
+                item untuk membesar mengisi ruang kosong atau mengecil agar
+                muat, tanpa perlu hitungan piksel yang kaku.
+              </li>
+            </ul>
+
             <img
               src="../images/bab 6 kasus flexbox dan grid.png"
-              alt="Flexbox Grid"
+              alt="Flexbox Responsive Example"
               class="content-img"
             />
-            <h4>6.3.2 CSS Grid Responsif</h4>
+
+            <h4>Contoh Kasus Flexbox:</h4>
+
+            <div class="code-wrapper">
+              <div class="code-header">
+                <span class="code-lang">HTML + CSS</span>
+                <button class="btn-toggle-code">
+                  <i class="fas fa-eye"></i> Tampilkan Kode
+                </button>
+              </div>
+              <pre class="code-box">
+&lt;!-- HTML --&gt;
+&lt;div class="product-list"&gt;
+  &lt;div class="product-card"&gt;Product 1&lt;/div&gt;
+  &lt;div class="product-card"&gt;Product 2&lt;/div&gt;
+  &lt;div class="product-card"&gt;Product 3&lt;/div&gt;
+  &lt;div class="product-card"&gt;Product 4&lt;/div&gt;
+&lt;/div&gt;
+
+&lt;!-- CSS --&gt;
+&lt;style&gt;
+/* Mobile: Vertikal Stack */
+.product-list {
+  display: flex;
+  flex-direction: column; /* Susun vertikal */
+  gap: 1rem;
+  padding: 1rem;
+}
+
+.product-card {
+  background: white;
+  padding: 1.5rem;
+  border-radius: 8px;
+  box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+  flex: 1;
+}
+
+/* Tablet: 2 kolom */
+@media (min-width: 768px) {
+  .product-list {
+    flex-direction: row; /* Ubah ke horizontal */
+    flex-wrap: wrap; /* Baris baru jika penuh */
+  }
+  
+  .product-card {
+    flex-basis: calc(50% - 0.5rem); /* 2 kolom dengan gap */
+  }
+}
+
+/* Desktop: 4 kolom */
+@media (min-width: 1024px) {
+  .product-card {
+    flex-basis: calc(25% - 0.75rem); /* 4 kolom */
+  }
+}
+&lt;/style&gt;</pre
+              >
+            </div>
+
+            <h3>6.3.2 CSS Grid Responsif</h3>
+            <p>
+              CSS Grid adalah sistem tata letak dua dimensi (baris dan kolom)
+              yang paling komprehensif di web saat ini. Berbeda dengan Flexbox
+              yang menangani konten satu dimensi, Grid dirancang untuk menangani
+              tata letak halaman secara keseluruhan.
+            </p>
+
+            <h4>Fitur Kunci untuk Responsivitas:</h4>
+            <ul>
+              <li>
+                <code>repeat(auto-fit, ...)</code>: Fungsi ini memungkinkan
+                pembuatan kolom sebanyak mungkin yang muat dalam container tanpa
+                perlu mendefinisikan jumlah kolom secara eksplisit.
+              </li>
+              <li>
+                <code>minmax()</code>: Menetapkan batas minimal dan maksimal
+                ukuran kolom.
+              </li>
+              <li>
+                <code>Unit fr (Fraction)</code>: Unit fleksibel yang membagi
+                ruang sisa yang tersedia.
+              </li>
+            </ul>
+
             <img
               src="../images/bab 6 kasus grid responsif.png"
-              alt="Grid Responsif"
+              alt="CSS Grid Responsive Example"
               class="content-img"
             />
+
+            <h4>Contoh Kekuatan CSS Grid:</h4>
+
+            <div class="code-wrapper">
+              <div class="code-header">
+                <span class="code-lang">HTML + CSS</span>
+                <button class="btn-toggle-code">
+                  <i class="fas fa-eye"></i> Tampilkan Kode
+                </button>
+              </div>
+              <pre class="code-box">
+&lt;!-- HTML --&gt;
+&lt;div class="gallery"&gt;
+  &lt;div class="gallery-item"&gt;Image 1&lt;/div&gt;
+  &lt;div class="gallery-item"&gt;Image 2&lt;/div&gt;
+  &lt;div class="gallery-item"&gt;Image 3&lt;/div&gt;
+  &lt;div class="gallery-item"&gt;Image 4&lt;/div&gt;
+  &lt;div class="gallery-item"&gt;Image 5&lt;/div&gt;
+  &lt;div class="gallery-item"&gt;Image 6&lt;/div&gt;
+&lt;/div&gt;
+
+&lt;!-- CSS --&gt;
+&lt;style&gt;
+/* Grid Otomatis Responsif - TANPA Media Query! */
+.gallery {
+  display: grid;
+  grid-template-columns: repeat(
+    auto-fit, 
+    minmax(250px, 1fr)
+  );
+  gap: 1.5rem;
+  padding: 2rem;
+}
+
+.gallery-item {
+  background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+  color: white;
+  padding: 3rem 1rem;
+  border-radius: 12px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 1.2rem;
+  font-weight: bold;
+  box-shadow: 0 4px 12px rgba(0,0,0,0.15);
+  transition: transform 0.3s ease;
+}
+
+.gallery-item:hover {
+  transform: translateY(-5px);
+}
+
+/* Penjelasan:
+   - repeat(auto-fit, ...): Buat kolom sebanyak mungkin yang muat
+   - minmax(250px, 1fr): Lebar minimal 250px, maksimal 1fr (fleksibel)
+   - Layar 400px = 1 kolom
+   - Layar 768px = 2-3 kolom
+   - Layar 1200px+ = 4-5 kolom
+   Semua OTOMATIS tanpa breakpoint manual!
+*/
+&lt;/style&gt;</pre
+              >
+            </div>
           </section>
 
           <hr class="section-divider" />
 
-          <section class="animate-on-scroll" id="64">
-            <h3>6.4 Penggunaan Framework CSS Populer</h3>
-            <h4>6.4.1 Klasifikasi Framework CSS</h4>
+          <!-- Section 6.4: Framework CSS Populer -->
+          <section id="section64">
+            <h2>6.4 Penggunaan Framework CSS Populer</h2>
+
             <p>
-              Framework CSS populer: Bootstrap, Tailwind CSS, Bulma, Foundation
+              Dalam ekosistem pengembangan web profesional, efisiensi waktu
+              adalah hal yang krusial. Meskipun memahami CSS murni (Native)
+              adalah fondasi wajib, banyak pengembang memilih menggunakan
+              <strong>Framework CSS</strong> untuk mempercepat proses pembuatan
+              situs web responsif. Framework menyediakan kumpulan kode CSS (dan
+              kadang JavaScript) yang telah diuji lintas browser dan perangkat.
             </p>
-            <h4>6.4.2 Memilih Framework yang Tepat</h4>
+
+            <h3>6.4.1 Klasifikasi Framework CSS</h3>
+            <p>Framework CSS umumnya dibagi menjadi dua paradigma utama:</p>
+
+            <h4>1. Component-Based Framework</h4>
+            <p><strong>Contoh:</strong> Bootstrap, Foundation, Bulma</p>
             <p>
-              Pertimbangkan: ukuran project, learning curve, customization, dan
-              support community
+              Jenis ini menyediakan komponen UI siap pakai yang lengkap dan
+              matang secara visual, seperti tombol, navbar, modal, card, dan
+              carousel. Pengembang cukup menyalin struktur HTML dan menambahkan
+              class tertentu.
             </p>
+
+            <div class="highlight-box">
+              <h4><i class="fas fa-plus-circle"></i> Kelebihan:</h4>
+              <ul>
+                <li>Sangat cepat untuk membuat prototipe atau situs admin</li>
+                <li>Desain konsisten dan teruji</li>
+                <li>Dokumentasi lengkap dan komunitas besar</li>
+                <li>
+                  Sistem Grid Bootstrap: Menggunakan sistem 12 kolom yang sangat
+                  populer. Contoh:
+                  <code>col-md-6</code> artinya elemen mengambil 6 dari 12 kolom
+                  (setengah lebar) pada layar medium
+                </li>
+              </ul>
+
+              <h4><i class="fas fa-minus-circle"></i> Kekurangan:</h4>
+              <ul>
+                <li>
+                  Situs cenderung terlihat "mirip Bootstrap" jika tidak
+                  dikustomisasi
+                </li>
+                <li>
+                  Ukuran file bawaan bisa cukup besar karena memuat banyak gaya
+                  yang mungkin tidak dipakai
+                </li>
+                <li>Kurva belajar untuk sistem class yang spesifik</li>
+              </ul>
+            </div>
+
+            <div class="code-wrapper">
+              <div class="code-header">
+                <span class="code-lang">HTML - Bootstrap Example</span>
+                <button class="btn-toggle-code">
+                  <i class="fas fa-eye"></i> Tampilkan Kode
+                </button>
+              </div>
+              <pre class="code-box">
+&lt;!-- Bootstrap Grid System --&gt;
+&lt;div class="container"&gt;
+  &lt;div class="row"&gt;
+    &lt;!-- Mobile: 12 kolom (100%), Tablet: 6 kolom (50%), Desktop: 4 kolom (33%) --&gt;
+    &lt;div class="col-12 col-md-6 col-lg-4"&gt;
+      &lt;div class="card"&gt;
+        &lt;div class="card-body"&gt;
+          &lt;h5 class="card-title"&gt;Card Title&lt;/h5&gt;
+          &lt;p class="card-text"&gt;Some quick example text.&lt;/p&gt;
+          &lt;a href="#" class="btn btn-primary"&gt;Go somewhere&lt;/a&gt;
+        &lt;/div&gt;
+      &lt;/div&gt;
+    &lt;/div&gt;
+  &lt;/div&gt;
+&lt;/div&gt;</pre
+              >
+            </div>
+
+            <h4>2. Utility-First Framework</h4>
+            <p><strong>Contoh:</strong> Tailwind CSS, Windi CSS</p>
+            <p>
+              Paradigma modern yang tidak menyediakan komponen jadi (seperti
+              tombol siap pakai), melainkan menyediakan kelas-kelas utilitas
+              tingkat rendah yang merepresentasikan properti CSS tunggal.
+            </p>
+
+            <div class="highlight-box">
+              <h4><i class="fas fa-plus-circle"></i> Kelebihan:</h4>
+              <ul>
+                <li>
+                  Fleksibilitas desain tanpa batas (tidak terikat gaya bawaan)
+                </li>
+                <li>
+                  Ukuran file CSS produksi sangat kecil (karena fitur Tree
+                  Shaking membuang kelas yang tidak dipakai)
+                </li>
+                <li>Tidak perlu berpindah-pindah antara file HTML dan CSS</li>
+                <li>
+                  Responsivitas di Tailwind: Menggunakan prefix
+                  <code>sm:</code>, <code>md:</code>, <code>lg:</code>,
+                  <code>xl:</code> langsung pada kelas utilitas
+                </li>
+              </ul>
+
+              <h4><i class="fas fa-minus-circle"></i> Kekurangan:</h4>
+              <ul>
+                <li>
+                  Kode HTML menjadi terlihat "kotor" dan panjang karena
+                  banyaknya nama kelas (contoh:
+                  <code
+                    >class="bg-blue-500 text-white p-4 rounded shadow-lg
+                    hover:bg-blue-600"</code
+                  >)
+                </li>
+                <li>
+                  Memerlukan build tools untuk production (PurgeCSS/JIT mode)
+                </li>
+                <li>
+                  Kurva belajar awal untuk mengingat nama-nama kelas utilitas
+                </li>
+              </ul>
+            </div>
+
+            <div class="code-wrapper">
+              <div class="code-header">
+                <span class="code-lang">HTML - Tailwind CSS Example</span>
+                <button class="btn-toggle-code">
+                  <i class="fas fa-eye"></i> Tampilkan Kode
+                </button>
+              </div>
+              <pre class="code-box">
+&lt;!-- Tailwind Utility Classes --&gt;
+&lt;!-- Mobile: w-full (100%), Tablet: w-1/2 (50%), Desktop: w-1/3 (33%) --&gt;
+&lt;div class="w-full md:w-1/2 lg:w-1/3 p-4"&gt;
+  &lt;div class="bg-white rounded-lg shadow-md overflow-hidden hover:shadow-xl transition-shadow duration-300"&gt;
+    &lt;img src="image.jpg" alt="Card" class="w-full h-48 object-cover"&gt;
+    &lt;div class="p-4"&gt;
+      &lt;h3 class="text-xl font-bold text-gray-800 mb-2"&gt;Card Title&lt;/h3&gt;
+      &lt;p class="text-gray-600 mb-4"&gt;Some quick example text to build on the card.&lt;/p&gt;
+      &lt;button class="bg-blue-500 text-white px-4 py-2 rounded hover:bg-blue-600 transition-colors"&gt;
+        Go somewhere
+      &lt;/button&gt;
+    &lt;/div&gt;
+  &lt;/div&gt;
+&lt;/div&gt;</pre
+              >
+            </div>
+
+            <h3>6.4.2 Memilih Framework yang Tepat</h3>
+            <p>
+              Pemilihan antara CSS Native, Bootstrap, atau Tailwind bergantung
+              pada kebutuhan proyek:
+            </p>
+
+            <div class="highlight-box">
+              <h4><i class="fas fa-code"></i> Gunakan CSS Native jika:</h4>
+              <ul>
+                <li>Anda sedang belajar dasar-dasar web</li>
+                <li>Membutuhkan kontrol penuh atas setiap piksel</li>
+                <li>Membuat situs sederhana yang sangat ringan</li>
+                <li>Ingin memahami fundamental CSS dengan mendalam</li>
+              </ul>
+
+              <h4><i class="fas fa-tools"></i> Gunakan Bootstrap jika:</h4>
+              <ul>
+                <li>Membutuhkan komponen UI standar dengan cepat</li>
+                <li>Bekerja dalam tim besar dengan deadline ketat</li>
+                <li>Desain unik bukan prioritas utama</li>
+                <li>Membuat admin panel atau dashboard</li>
+              </ul>
+
+              <h4><i class="fas fa-wind"></i> Gunakan Tailwind CSS jika:</h4>
+              <ul>
+                <li>Menginginkan desain kustom yang unik</li>
+                <li>Performa tinggi adalah prioritas</li>
+                <li>Bersedia mempelajari sintaks utilitas baru</li>
+                <li>Memiliki akses ke build tools (npm, webpack, vite)</li>
+              </ul>
+            </div>
+
+            <div
+              class="highlight-box"
+              style="background: #fff3cd; border-left: 4px solid #ffc107"
+            >
+              <h4>
+                <i class="fas fa-exclamation-triangle"></i> Catatan Penting:
+              </h4>
+              <p>
+                <strong>Pemahaman mendalam tentang dasar-dasar CSS</strong>
+                (seperti Box Model, Flexbox, Grid, dan Position) tetap menjadi
+                <strong>prasyarat mutlak</strong> sebelum menggunakan framework
+                apa pun, karena framework hanyalah alat bantu untuk menulis CSS
+                standar dengan lebih efisien.
+              </p>
+              <p>
+                Jangan terjebak dalam mindset "framework-first" tanpa memahami
+                CSS fundamental. Framework datang dan pergi, tetapi pengetahuan
+                CSS inti akan selalu relevan!
+              </p>
+            </div>
           </section>
 
           <!-- Navigation Buttons -->
