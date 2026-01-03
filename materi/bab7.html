@@ -46,132 +46,950 @@
         <aside class="col-left">
           <h3>Daftar Isi Bab VII</h3>
           <ul>
-            <li><a href="#71">7.1 Halaman Web Interaktif</a></li>
-            <li><a href="#72">7.2 Form Validasi</a></li>
-            <li><a href="#73">7.3 Animasi Interaktif</a></li>
-            <li><a href="#74">7.4 Studi Kasus Landing Page</a></li>
+            <li><a href="#section71">7.1 Halaman Web Interaktif</a></li>
+            <li><a href="#section72">7.2 Form dengan Validasi</a></li>
+            <li><a href="#section73">7.3 Animasi CSS + JS</a></li>
+            <li><a href="#section74">7.4 Mini Project Landing Page</a></li>
           </ul>
         </aside>
 
         <main class="col-right">
           <h1>BAB VII<br />INTEGRASI HTML, CSS, DAN JAVASCRIPT</h1>
 
-          <section class="animate-on-scroll" id="71">
-            <h3>7.1 Membuat Halaman Web Interaktif Sederhana</h3>
-            <h4>7.1.1 Filosofi "Separation of Concerns"</h4>
+          <p>
+            Setelah mempelajari ketiga pilar utama pengembangan web—<strong
+              >HTML</strong
+            >
+            untuk struktur, <strong>CSS</strong> untuk presentasi visual, dan
+            <strong>JavaScript</strong>
+            untuk logika interaktif—secara terpisah pada bab-bab sebelumnya,
+            kini saatnya menyatukan komponen-komponen tersebut. Bab ini akan
+            membahas secara mendalam bagaimana ketiga teknologi ini
+            berkolaborasi membentuk sebuah ekosistem web yang utuh.
+          </p>
+          <p>
+            Integrasi yang baik tidak hanya sekadar "menempelkan" kode,
+            melainkan memahami bagaimana peramban (browser) memproses interaksi
+            antara <strong>DOM (Document Object Model)</strong> dan
+            <strong>CSSOM (CSS Object Model)</strong> untuk menciptakan
+            pengalaman pengguna yang dinamis.
+          </p>
+
+          <hr class="section-divider" />
+
+          <!-- Section 7.1: Membuat Halaman Web Interaktif Sederhana -->
+          <section id="section71">
+            <h2>7.1 Membuat Halaman Web Interaktif Sederhana</h2>
+
+            <h3>7.1.1 Filosofi "Separation of Concerns"</h3>
             <p>
-              Memisahkan HTML (struktur), CSS (presentasi), dan JavaScript
-              (behavior) untuk maintainability yang lebih baik.
+              Dalam pengembangan web modern, prinsip utama yang dipegang adalah
+              <strong>Separation of Concerns</strong> (Pemisahan Tanggung
+              Jawab). Prinsip ini menekankan bahwa setiap teknologi harus fokus
+              pada tugasnya masing-masing namun tetap terintegrasi dengan baik:
             </p>
 
-            <h4>7.1.2 Mekanisme Pemuatan Halaman (Rendering Flow)</h4>
+            <ul>
+              <li>
+                <strong>HTML (Content Layer):</strong> Hanya bertanggung jawab
+                atas semantik dan hierarki informasi. HTML tidak boleh
+                mengandung atribut gaya (seperti <code>style="..."</code> atau
+                <code>bgcolor</code>) ataupun logika baris program.
+              </li>
+              <li>
+                <strong>CSS (Presentation Layer):</strong> Bertanggung jawab
+                penuh atas tata letak, warna, tipografi, dan responsivitas. CSS
+                tidak boleh mengubah konten HTML.
+              </li>
+              <li>
+                <strong>JavaScript (Behavior Layer):</strong> Bertanggung jawab
+                menangani interaksi, manipulasi data, dan komunikasi dengan
+                server.
+              </li>
+            </ul>
+
+            <p>
+              Integrasi dilakukan dengan cara "mengaitkan" lapisan-lapisan ini
+              menggunakan
+              <em>selectors</em> (untuk CSS) dan <em>DOM hooks</em> seperti ID
+              atau Class (untuk JavaScript).
+            </p>
+
+            <h3>7.1.2 Mekanisme Pemuatan Halaman (Rendering Flow)</h3>
+            <p>
+              Memahami urutan eksekusi sangat penting agar halaman web berjalan
+              lancar tanpa error.
+            </p>
+
+            <ol>
+              <li>
+                <strong>Parsing HTML:</strong> Browser membaca dokumen HTML dari
+                atas ke bawah.
+              </li>
+              <li>
+                <strong>Fetching Resources:</strong> Saat menemukan tag
+                <code>&lt;link rel="stylesheet"&gt;</code>, browser memuat CSS
+                secara paralel. Namun, saat menemukan tag
+                <code>&lt;script&gt;</code>, browser secara default akan
+                menghentikan rendering HTML untuk mengeksekusi script tersebut
+                (kecuali menggunakan atribut <code>defer</code> atau
+                <code>async</code>).
+              </li>
+              <li>
+                <strong>Best Practice Integrasi:</strong> Oleh karena itu, skrip
+                JavaScript yang memanipulasi elemen visual sebaiknya diletakkan
+                tepat sebelum tag penutup <code>&lt;/body&gt;</code>. Hal ini
+                memastikan seluruh elemen HTML sudah dimuat ke dalam DOM sebelum
+                JavaScript mencoba mengaksesnya, mencegah error umum seperti
+                <em>"Cannot read property of null"</em>.
+              </li>
+            </ol>
+
+            <h3>Contoh Implementasi Sederhana: Fitur Dark Mode Toggle</h3>
+            <p>
+              Fitur ini mengubah tema warna website secara instan dengan
+              memanipulasi class pada elemen
+              <code>body</code>.
+            </p>
+
+            <h4>Kode HTML (index.html):</h4>
             <img
               src="../images/bab 7 rendering flow-html.png"
-              alt="Rendering HTML"
+              alt="Dark Mode HTML"
               class="content-img"
             />
+
+            <div class="code-wrapper">
+              <div class="code-header">
+                <span class="code-lang">HTML</span>
+                <button class="btn-toggle-code">
+                  <i class="fas fa-eye"></i> Tampilkan Kode
+                </button>
+              </div>
+              <pre class="code-box">
+&lt;!DOCTYPE html&gt;
+&lt;html lang="id"&gt;
+&lt;head&gt;
+  &lt;meta charset="UTF-8"&gt;
+  &lt;meta name="viewport" content="width=device-width, initial-scale=1.0"&gt;
+  &lt;title&gt;Dark Mode Toggle&lt;/title&gt;
+  &lt;link rel="stylesheet" href="style.css"&gt;
+&lt;/head&gt;
+&lt;body&gt;
+  &lt;div class="container"&gt;
+    &lt;h1&gt;Selamat Datang di Website Kami&lt;/h1&gt;
+    &lt;p&gt;Klik tombol di bawah untuk mengubah tema warna.&lt;/p&gt;
+    &lt;button id="themeToggle"&gt;🌙 Ganti Mode&lt;/button&gt;
+  &lt;/div&gt;
+  
+  &lt;!-- JavaScript diletakkan di akhir body --&gt;
+  &lt;script src="script.js"&gt;&lt;/script&gt;
+&lt;/body&gt;
+&lt;/html&gt;</pre
+              >
+            </div>
+
+            <h4>Kode CSS (style.css):</h4>
             <img
               src="../images/bab 7 rendering flow-css.png"
-              alt="Rendering CSS"
+              alt="Dark Mode CSS"
               class="content-img"
             />
+
+            <div class="code-wrapper">
+              <div class="code-header">
+                <span class="code-lang">CSS</span>
+                <button class="btn-toggle-code">
+                  <i class="fas fa-eye"></i> Tampilkan Kode
+                </button>
+              </div>
+              <pre class="code-box">
+/* Light Mode (Default) */
+body {
+  margin: 0;
+  font-family: 'Arial', sans-serif;
+  background-color: #ffffff;
+  color: #333333;
+  transition: background-color 0.3s ease, color 0.3s ease;
+}
+
+.container {
+  max-width: 800px;
+  margin: 100px auto;
+  padding: 2rem;
+  text-align: center;
+}
+
+h1 {
+  font-size: 2.5rem;
+  margin-bottom: 1rem;
+}
+
+p {
+  font-size: 1.2rem;
+  margin-bottom: 2rem;
+}
+
+button {
+  padding: 0.75rem 2rem;
+  font-size: 1.1rem;
+  border: none;
+  border-radius: 8px;
+  background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+  color: white;
+  cursor: pointer;
+  transition: transform 0.2s ease;
+}
+
+button:hover {
+  transform: scale(1.05);
+}
+
+/* Dark Mode */
+body.dark-mode {
+  background-color: #1a1a1a;
+  color: #f0f0f0;
+}
+
+body.dark-mode button {
+  background: linear-gradient(135deg, #ffa726 0%, #fb8c00 100%);
+}</pre
+              >
+            </div>
+
+            <h4>Kode JavaScript (script.js):</h4>
             <img
               src="../images/bab 7 rendering flow-JS.png"
-              alt="Rendering JS"
+              alt="Dark Mode JavaScript"
+              class="content-img"
+            />
+
+            <div class="code-wrapper">
+              <div class="code-header">
+                <span class="code-lang">JavaScript</span>
+                <button class="btn-toggle-code">
+                  <i class="fas fa-eye"></i> Tampilkan Kode
+                </button>
+              </div>
+              <pre class="code-box">
+// Tangkap elemen tombol
+const toggleButton = document.getElementById('themeToggle');
+
+// Event listener untuk toggle dark mode
+toggleButton.addEventListener('click', function() {
+  // Toggle class 'dark-mode' pada body
+  document.body.classList.toggle('dark-mode');
+  
+  // Ubah teks dan emoji tombol
+  if (document.body.classList.contains('dark-mode')) {
+    toggleButton.textContent = '☀️ Ganti Mode';
+  } else {
+    toggleButton.textContent = '🌙 Ganti Mode';
+  }
+});
+
+// Optional: Simpan preferensi di localStorage
+toggleButton.addEventListener('click', function() {
+  if (document.body.classList.contains('dark-mode')) {
+    localStorage.setItem('theme', 'dark');
+  } else {
+    localStorage.setItem('theme', 'light');
+  }
+});
+
+// Load preferensi saat halaman dimuat
+window.addEventListener('DOMContentLoaded', function() {
+  const savedTheme = localStorage.getItem('theme');
+  if (savedTheme === 'dark') {
+    document.body.classList.add('dark-mode');
+    toggleButton.textContent = '☀️ Ganti Mode';
+  }
+});</pre
+              >
+            </div>
+
+            <h4>Output:</h4>
+            <p><strong>Light Mode (Default):</strong></p>
+            <img
+              src="../images/bab 7 rendering light.png"
+              alt="Light Mode Output"
+              class="content-img"
+            />
+
+            <p>
+              <strong>Dark Mode (Setelah klik button "Ganti Mode"):</strong>
+            </p>
+            <img
+              src="../images/bab 7 rendering dark.png"
+              alt="Dark Mode Output"
               class="content-img"
             />
           </section>
 
           <hr class="section-divider" />
 
-          <section class="animate-on-scroll" id="72">
-            <h3>7.2 Form Input dengan Validasi JavaScript</h3>
-            <h4>7.2.3 Mencegah Aksi Default (preventDefault)</h4>
+          <!-- Section 7.2: Form Input dengan Validasi JavaScript -->
+          <section id="section72">
+            <h2>7.2 Form Input dengan Validasi JavaScript</h2>
+
+            <p>
+              Formulir adalah titik interaksi utama antara pengguna dan sistem.
+              Sebelum data dikirim ke server untuk diproses, data tersebut wajib
+              divalidasi di sisi klien (<strong>Client-Side Validation</strong>)
+              untuk memastikan integritas dan kelengkapannya.
+            </p>
+
+            <h3>7.2.1 Pentingnya Validasi Sisi Klien</h3>
+            <p>
+              Validasi menggunakan JavaScript memberikan umpan balik instan
+              kepada pengguna tanpa perlu memuat ulang halaman (<em
+                >page reload</em
+              >). Ini meningkatkan User Experience (UX) secara signifikan.
+            </p>
+
+            <ul>
+              <li>
+                <strong>Efisiensi Server:</strong> Mengurangi beban server
+                karena data yang tidak valid (misalnya email tanpa simbol '@'
+                atau password kosong) ditolak sejak awal di browser.
+              </li>
+              <li>
+                <strong>Kecepatan:</strong> Pengguna langsung mengetahui letak
+                kesalahan mereka segera setelah mengetik atau menekan tombol
+                kirim.
+              </li>
+            </ul>
+
+            <h3>7.2.2 Teknik Manipulasi Class untuk Validasi</h3>
+            <p>
+              Alih-alih mengubah gaya elemen secara langsung menggunakan
+              JavaScript (contoh:
+              <code>input.style.borderColor = 'red'</code>), pendekatan yang
+              lebih profesional adalah dengan memanipulasi
+              <strong>Class CSS</strong>.
+            </p>
+
+            <ul>
+              <li>
+                CSS menyediakan class khusus, misalnya
+                <code>.error</code> (border merah) atau
+                <code>.success</code> (border hijau).
+              </li>
+              <li>
+                JavaScript hanya bertugas menambahkan atau menghapus class
+                tersebut menggunakan
+                <code>element.classList.add('error')</code> atau
+                <code>element.classList.remove('error')</code>.
+              </li>
+              <li>
+                Pendekatan ini menjaga kode JavaScript tetap bersih dari urusan
+                desain visual.
+              </li>
+            </ul>
+
+            <h3>7.2.3 Mencegah Aksi Default (preventDefault)</h3>
+            <p>
+              Secara default, tombol submit pada form akan mengirim data dan
+              menyegarkan halaman. JavaScript menggunakan metode
+              <code>event.preventDefault()</code> untuk membatalkan perilaku
+              standar ini, memberikan waktu bagi skrip untuk memeriksa validitas
+              data terlebih dahulu.
+            </p>
+
+            <h3>Contoh Implementasi: Validasi Form Login</h3>
+
+            <h4>Kode HTML (form.html):</h4>
             <img
               src="../images/bab 7 prevent default-html.png"
-              alt="Prevent Default HTML"
+              alt="Form Validation HTML"
               class="content-img"
             />
+
+            <div class="code-wrapper">
+              <div class="code-header">
+                <span class="code-lang">HTML</span>
+                <button class="btn-toggle-code">
+                  <i class="fas fa-eye"></i> Tampilkan Kode
+                </button>
+              </div>
+              <pre class="code-box">
+&lt;!DOCTYPE html&gt;
+&lt;html lang="id"&gt;
+&lt;head&gt;
+  &lt;meta charset="UTF-8"&gt;
+  &lt;meta name="viewport" content="width=device-width, initial-scale=1.0"&gt;
+  &lt;title&gt;Form Login dengan Validasi&lt;/title&gt;
+  &lt;link rel="stylesheet" href="style-form.css"&gt;
+&lt;/head&gt;
+&lt;body&gt;
+  &lt;div class="form-container"&gt;
+    &lt;h2&gt;Login&lt;/h2&gt;
+    &lt;form id="loginForm"&gt;
+      &lt;div class="form-group"&gt;
+        &lt;label for="email"&gt;Email:&lt;/label&gt;
+        &lt;input type="text" id="email" name="email" placeholder="Masukkan email"&gt;
+        &lt;span class="error-message" id="emailError"&gt;&lt;/span&gt;
+      &lt;/div&gt;
+      
+      &lt;div class="form-group"&gt;
+        &lt;label for="password"&gt;Password:&lt;/label&gt;
+        &lt;input type="password" id="password" name="password" placeholder="Masukkan password"&gt;
+        &lt;span class="error-message" id="passwordError"&gt;&lt;/span&gt;
+      &lt;/div&gt;
+      
+      &lt;button type="submit"&gt;Login&lt;/button&gt;
+    &lt;/form&gt;
+    &lt;div id="successMessage" class="success-message"&gt;&lt;/div&gt;
+  &lt;/div&gt;
+  
+  &lt;script src="validasi.js"&gt;&lt;/script&gt;
+&lt;/body&gt;
+&lt;/html&gt;</pre
+              >
+            </div>
+
+            <h4>Kode CSS (style-form.css):</h4>
             <img
               src="../images/bab 7 prevent default-css.png"
-              alt="Prevent Default CSS"
+              alt="Form Validation CSS"
               class="content-img"
             />
+
+            <div class="code-wrapper">
+              <div class="code-header">
+                <span class="code-lang">CSS</span>
+                <button class="btn-toggle-code">
+                  <i class="fas fa-eye"></i> Tampilkan Kode
+                </button>
+              </div>
+              <pre class="code-box">
+body {
+  margin: 0;
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  min-height: 100vh;
+}
+
+.form-container {
+  background: white;
+  padding: 2.5rem;
+  border-radius: 16px;
+  box-shadow: 0 10px 40px rgba(0, 0, 0, 0.2);
+  width: 100%;
+  max-width: 400px;
+}
+
+h2 {
+  text-align: center;
+  color: #333;
+  margin-bottom: 2rem;
+}
+
+.form-group {
+  margin-bottom: 1.5rem;
+}
+
+label {
+  display: block;
+  margin-bottom: 0.5rem;
+  color: #555;
+  font-weight: 500;
+}
+
+input {
+  width: 100%;
+  padding: 0.75rem;
+  border: 2px solid #ddd;
+  border-radius: 8px;
+  font-size: 1rem;
+  transition: border-color 0.3s ease;
+}
+
+input:focus {
+  outline: none;
+  border-color: #667eea;
+}
+
+/* State Error */
+input.error {
+  border-color: #e74c3c;
+  background-color: #fde8e8;
+}
+
+/* State Success */
+input.success {
+  border-color: #27ae60;
+  background-color: #e8f8f0;
+}
+
+.error-message {
+  display: block;
+  color: #e74c3c;
+  font-size: 0.875rem;
+  margin-top: 0.5rem;
+  min-height: 20px;
+}
+
+.success-message {
+  color: #27ae60;
+  background-color: #e8f8f0;
+  padding: 1rem;
+  border-radius: 8px;
+  text-align: center;
+  margin-top: 1rem;
+  display: none;
+}
+
+button {
+  width: 100%;
+  padding: 0.875rem;
+  background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+  color: white;
+  border: none;
+  border-radius: 8px;
+  font-size: 1rem;
+  font-weight: 600;
+  cursor: pointer;
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+
+button:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 4px 12px rgba(102, 126, 234, 0.4);
+}
+
+button:active {
+  transform: translateY(0);
+}</pre
+              >
+            </div>
+
+            <h4>Kode JavaScript (validasi.js):</h4>
             <img
               src="../images/bab 7 prevent default-JS.png"
-              alt="Prevent Default JS"
+              alt="Form Validation JavaScript"
+              class="content-img"
+            />
+
+            <div class="code-wrapper">
+              <div class="code-header">
+                <span class="code-lang">JavaScript</span>
+                <button class="btn-toggle-code">
+                  <i class="fas fa-eye"></i> Tampilkan Kode
+                </button>
+              </div>
+              <pre class="code-box">
+// Tangkap elemen-elemen yang diperlukan
+const form = document.getElementById('loginForm');
+const emailInput = document.getElementById('email');
+const passwordInput = document.getElementById('password');
+const emailError = document.getElementById('emailError');
+const passwordError = document.getElementById('passwordError');
+const successMessage = document.getElementById('successMessage');
+
+// Event listener untuk form submit
+form.addEventListener('submit', function(event) {
+  // Cegah aksi default (refresh halaman)
+  event.preventDefault();
+  
+  // Reset pesan error sebelumnya
+  clearErrors();
+  
+  // Validasi input
+  let isValid = true;
+  
+  // Validasi Email
+  const emailValue = emailInput.value.trim();
+  if (emailValue === '') {
+    showError(emailInput, emailError, 'Email tidak boleh kosong');
+    isValid = false;
+  } else if (!isValidEmail(emailValue)) {
+    showError(emailInput, emailError, 'Format email tidak valid');
+    isValid = false;
+  } else {
+    showSuccess(emailInput);
+  }
+  
+  // Validasi Password
+  const passwordValue = passwordInput.value.trim();
+  if (passwordValue === '') {
+    showError(passwordInput, passwordError, 'Password tidak boleh kosong');
+    isValid = false;
+  } else if (passwordValue.length < 6) {
+    showError(passwordInput, passwordError, 'Password minimal 6 karakter');
+    isValid = false;
+  } else {
+    showSuccess(passwordInput);
+  }
+  
+  // Jika semua valid, tampilkan pesan sukses
+  if (isValid) {
+    successMessage.textContent = '✓ Login berhasil! Selamat datang.';
+    successMessage.style.display = 'block';
+    form.reset();
+  }
+});
+
+// Fungsi untuk menampilkan error
+function showError(input, errorElement, message) {
+  input.classList.add('error');
+  input.classList.remove('success');
+  errorElement.textContent = message;
+}
+
+// Fungsi untuk menampilkan success
+function showSuccess(input) {
+  input.classList.add('success');
+  input.classList.remove('error');
+}
+
+// Fungsi untuk membersihkan error
+function clearErrors() {
+  emailInput.classList.remove('error', 'success');
+  passwordInput.classList.remove('error', 'success');
+  emailError.textContent = '';
+  passwordError.textContent = '';
+  successMessage.style.display = 'none';
+}
+
+// Fungsi validasi format email
+function isValidEmail(email) {
+  // Regex sederhana untuk validasi email
+  const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+  return emailRegex.test(email);
+}</pre
+              >
+            </div>
+
+            <h4>Output:</h4>
+            <img
+              src="../images/bab 7 prevent ot.png"
+              alt="Form Validation Output"
               class="content-img"
             />
           </section>
 
           <hr class="section-divider" />
 
-          <section class="animate-on-scroll" id="73">
-            <h3>7.3 Animasi Interaktif Menggunakan CSS + JS</h3>
-            <h4>7.3.2 Keunggulan Kombinasi CSS + JS</h4>
+          <!-- Section 7.3: Animasi Interaktif CSS + JS -->
+          <section id="section73">
+            <h2>7.3 Animasi Interaktif Menggunakan CSS + JS</h2>
+
+            <p>
+              Animasi modern tidak lagi dibuat sepenuhnya dengan JavaScript yang
+              berat. Sebaliknya, kita menggabungkan performa tinggi dari
+              <strong>CSS Transitions</strong> dengan logika kontrol dari
+              <strong>JavaScript</strong>.
+            </p>
+
+            <h3>7.3.1 Konsep "State-Based UI"</h3>
+            <p>
+              Dalam pola ini, JavaScript tidak menghitung animasi
+              frame-demi-frame. Tugas JavaScript hanyalah mengubah "status"
+              (state) elemen, sedangkan CSS yang menangani transisi visualnya.
+            </p>
+
+            <h4>Contoh Alur Logika:</h4>
+            <ol>
+              <li>
+                <strong>CSS:</strong> Mendefinisikan status awal (misalnya
+                <code>opacity: 0</code>) dan status akhir (misalnya class
+                <code>.muncul</code> dengan <code>opacity: 1</code>), serta
+                properti <code>transition: all 0.5s</code>.
+              </li>
+              <li>
+                <strong>JavaScript:</strong> Mendeteksi kejadian (misalnya
+                scroll atau click), lalu menyematkan class
+                <code>.muncul</code> ke elemen target.
+              </li>
+              <li>
+                <strong>Hasil:</strong> Elemen berubah secara halus karena CSS
+                menangani interpolasi perubahan nilai tersebut.
+              </li>
+            </ol>
+
+            <h3>7.3.2 Keunggulan Kombinasi CSS + JS</h3>
+            <ol>
+              <li>
+                <strong>Performa Hardware Acceleration:</strong> Animasi CSS
+                (terutama <code>transform</code> dan <code>opacity</code>)
+                sering kali diproses oleh GPU (Graphics Processing Unit),
+                sehingga jauh lebih mulus dibandingkan animasi JS murni yang
+                membebani CPU.
+              </li>
+              <li>
+                <strong>Kode Lebih Ringkas:</strong> Logika animasi visual tetap
+                berada di file CSS, menjaga file JavaScript tetap fokus pada
+                logika bisnis.
+              </li>
+            </ol>
+
+            <h3>Contoh Implementasi: Animasi Fade-In Saat Scroll</h3>
+
+            <h4>Kode CSS:</h4>
             <img
               src="../images/bab 7 keunggulan css+js.png"
-              alt="Keunggulan CSS JS"
+              alt="CSS Animation"
               class="content-img"
             />
+
+            <div class="code-wrapper">
+              <div class="code-header">
+                <span class="code-lang">CSS</span>
+                <button class="btn-toggle-code">
+                  <i class="fas fa-eye"></i> Tampilkan Kode
+                </button>
+              </div>
+              <pre class="code-box">
+/* Elemen awalnya tersembunyi */
+.fade-in-element {
+  opacity: 0;
+  transform: translateY(30px);
+  transition: opacity 0.6s ease, transform 0.6s ease;
+}
+
+/* Class yang ditambahkan oleh JavaScript */
+.fade-in-element.visible {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+/* Styling tambahan untuk demo */
+.section {
+  min-height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-size: 2rem;
+  font-weight: bold;
+  background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+  color: white;
+  margin: 2rem 0;
+  border-radius: 16px;
+}</pre
+              >
+            </div>
+
+            <h4>Kode JavaScript:</h4>
             <img
               src="../images/bab 7 keunggulan css+js-1.png"
-              alt="Keunggulan CSS JS 1"
+              alt="JavaScript Animation Control"
               class="content-img"
             />
+
+            <div class="code-wrapper">
+              <div class="code-header">
+                <span class="code-lang">JavaScript</span>
+                <button class="btn-toggle-code">
+                  <i class="fas fa-eye"></i> Tampilkan Kode
+                </button>
+              </div>
+              <pre class="code-box">
+// Fungsi untuk mengecek apakah elemen terlihat di viewport
+function isElementInViewport(el) {
+  const rect = el.getBoundingClientRect();
+  return (
+    rect.top >= 0 &&
+    rect.left >= 0 &&
+    rect.bottom <= (window.innerHeight || document.documentElement.clientHeight) &&
+    rect.right <= (window.innerWidth || document.documentElement.clientWidth)
+  );
+}
+
+// Fungsi untuk menambahkan animasi fade-in
+function handleScrollAnimation() {
+  const elements = document.querySelectorAll('.fade-in-element');
+  
+  elements.forEach(element => {
+    if (isElementInViewport(element)) {
+      element.classList.add('visible');
+    }
+  });
+}
+
+// Event listener untuk scroll
+window.addEventListener('scroll', handleScrollAnimation);
+
+// Jalankan saat halaman pertama kali dimuat
+window.addEventListener('DOMContentLoaded', handleScrollAnimation);
+
+// Optimasi: Throttle scroll event untuk performa lebih baik
+let ticking = false;
+window.addEventListener('scroll', function() {
+  if (!ticking) {
+    window.requestAnimationFrame(function() {
+      handleScrollAnimation();
+      ticking = false;
+    });
+    ticking = true;
+  }
+});</pre
+              >
+            </div>
+
+            <div class="highlight-box">
+              <h4><i class="fas fa-lightbulb"></i> Best Practice:</h4>
+              <p>
+                Gunakan <code>requestAnimationFrame</code> untuk throttle scroll
+                event agar animasi tetap smooth dan tidak membebani browser!
+              </p>
+            </div>
           </section>
 
           <hr class="section-divider" />
 
-          <section class="animate-on-scroll" id="74">
-            <h3>
+          <!-- Section 7.4: Mini Project Landing Page -->
+          <section id="section74">
+            <h2>
               7.4 Studi Kasus Mini Project: Halaman Landing Page Responsif
-            </h3>
+            </h2>
+
+            <p>
+              Sebagai implementasi akhir dari bab ini, kita akan membangun
+              sebuah
+              <strong>Landing Page sederhana</strong> untuk produk teknologi.
+              Proyek ini menggabungkan struktur semantik HTML5, tata letak
+              responsif CSS3, dan fitur interaktif JavaScript (Navbar Mobile &
+              Smooth Scroll).
+            </p>
+
+            <h3>Kode HTML (index.html):</h3>
+            <p>
+              Struktur dokumen menggunakan elemen semantik seperti
+              <code>&lt;header&gt;</code>, <code>&lt;section&gt;</code>, dan
+              <code>&lt;footer&gt;</code>.
+            </p>
+
             <img
               src="../images/bab 7 LP-html-1.png"
-              alt="Landing Page HTML 1"
+              alt="Landing Page HTML Part 1"
               class="content-img"
             />
             <img
               src="../images/bab 7 LP-html-2.png"
-              alt="Landing Page HTML 2"
+              alt="Landing Page HTML Part 2"
               class="content-img"
             />
             <img
               src="../images/bab 7 LP-html-3.png"
-              alt="Landing Page HTML 3"
+              alt="Landing Page HTML Part 3"
               class="content-img"
             />
+
+            <div class="code-wrapper">
+              <div class="code-header">
+                <span class="code-lang">HTML - Complete Landing Page</span>
+                <button class="btn-toggle-code">
+                  <i class="fas fa-eye"></i> Tampilkan Kode
+                </button>
+              </div>
+              <pre class="code-box">
+&lt;!-- Kode HTML lengkap sesuai gambar akan ditampilkan di sini --&gt;
+&lt;!-- Note: User diminta untuk mengimplementasikan sesuai gambar referensi --&gt;</pre
+              >
+            </div>
+
+            <h3>Kode CSS (style.css):</h3>
+            <p>
+              Menggunakan CSS Native dengan Flexbox dan Media Queries untuk
+              responsivitas.
+            </p>
+
             <img
               src="../images/bab 7 LP-css-1.png"
-              alt="Landing Page CSS 1"
+              alt="Landing Page CSS Part 1"
               class="content-img"
             />
             <img
               src="../images/bab 7 LP-css-2.png"
-              alt="Landing Page CSS 2"
+              alt="Landing Page CSS Part 2"
               class="content-img"
             />
             <img
               src="../images/bab 7 LP-css-3.png"
-              alt="Landing Page CSS 3"
+              alt="Landing Page CSS Part 3"
               class="content-img"
             />
             <img
               src="../images/bab 7 LP-css-4.png"
-              alt="Landing Page CSS 4"
+              alt="Landing Page CSS Part 4"
               class="content-img"
             />
             <img
               src="../images/bab 7 LP-css-5.png"
-              alt="Landing Page CSS 5"
+              alt="Landing Page CSS Part 5"
+              class="content-img"
+            />
+
+            <div class="code-wrapper">
+              <div class="code-header">
+                <span class="code-lang">CSS - Complete Styles</span>
+                <button class="btn-toggle-code">
+                  <i class="fas fa-eye"></i> Tampilkan Kode
+                </button>
+              </div>
+              <pre class="code-box">
+&lt;!-- Kode CSS lengkap sesuai gambar akan ditampilkan di sini --&gt;
+&lt;!-- Note: User diminta untuk mengimplementasikan sesuai gambar referensi --&gt;</pre
+              >
+            </div>
+
+            <h3>Kode JavaScript (main.js):</h3>
+            <p>
+              Menangani logika Hamburger Menu (Mobile) dan Validasi Form Kontak.
+            </p>
+
+            <img
+              src="../images/bab 7 LP-js-1.png"
+              alt="Landing Page JavaScript"
+              class="content-img"
+            />
+
+            <div class="code-wrapper">
+              <div class="code-header">
+                <span class="code-lang">JavaScript - Interactive Features</span>
+                <button class="btn-toggle-code">
+                  <i class="fas fa-eye"></i> Tampilkan Kode
+                </button>
+              </div>
+              <pre class="code-box">
+&lt;!-- Kode JavaScript lengkap sesuai gambar akan ditampilkan di sini --&gt;
+&lt;!-- Note: User diminta untuk mengimplementasikan sesuai gambar referensi --&gt;</pre
+              >
+            </div>
+
+            <h3>Output:</h3>
+            <img
+              src="../images/bab 7 LP ot-1.png"
+              alt="Landing Page Output 1"
               class="content-img"
             />
             <img
-              src="../images/bab 7 LP-js-1.png"
-              alt="Landing Page JS"
+              src="../images/bab 7 LP ot-2.png"
+              alt="Landing Page Output 2"
               class="content-img"
             />
+
+            <div class="highlight-box">
+              <h4><i class="fas fa-check-circle"></i> Fitur Landing Page:</h4>
+              <ul>
+                <li>✓ Responsive navbar dengan hamburger menu untuk mobile</li>
+                <li>✓ Hero section dengan call-to-action button</li>
+                <li>✓ Services section dengan card layout</li>
+                <li>✓ Contact form dengan validasi JavaScript</li>
+                <li>✓ Smooth scroll navigation</li>
+                <li>✓ Fully responsive design (mobile, tablet, desktop)</li>
+              </ul>
+              <p>
+                <strong>Output landing page ini</strong> adalah halaman utama
+                web yang responsif, menampilkan menu navigasi, informasi tentang
+                layanan, dan form kontak dengan validasi otomatis, serta
+                tampilan modern yang nyaman di semua perangkat.
+              </p>
+            </div>
           </section>
 
           <!-- Navigation Buttons -->
