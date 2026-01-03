@@ -1,3 +1,14 @@
+<!--
+Nama File    : contact.html
+Tanggal      : 3 Januari 2026
+Kelas        : 05TPLP017
+Kelompok     : 6
+Anggota      : - Aufa Wafi Dhaifullah (231011401814)
+               - Fadlan Lesmana (231011400735)
+               - Ivandhika Satria Putra Ferdianto (231011401818)
+Deskripsi    : Halaman kontak dengan form pesan dan video perkenalan
+               tim kelompok 6 beserta informasi kontak
+-->
 <!DOCTYPE html>
 <html lang="id">
   <head>
@@ -36,6 +47,7 @@
             <li><a href="materi/bab7.html">Bab 7: Integrasi</a></li>
             <li><a href="materi/bab8.html">Bab 8: Proyek</a></li>
             <li><a href="materi/bab9.html">Bab 9: Tren Web</a></li>
+            <li><a href="materi/pustaka.html">Daftar Pustaka</a></li>
           </ul>
         </li>
         <li>
@@ -51,161 +63,109 @@
       </div>
     </nav>
 
-    <div class="container container-narrow py-2">
-      <h1 class="text-center mb-2 fade-in">Hubungi Kami</h1>
+    <div class="container py-2">
+      <h1 class="text-center mb-2 fade-in">Hubungi & Kenali Kami</h1>
+      <p class="text-center text-muted mb-3 fade-in">
+        Punya pertanyaan atau ingin melihat profil tim kami? Silakan isi form di
+        bawah atau tonton video perkenalan kami.
+      </p>
 
-      <div class="card fade-in-delay-1">
-        <p class="text-center mb-2 text-muted">
-          Ada pertanyaan atau feedback? Silakan isi form di bawah ini!
-        </p>
+      <!-- 2-Column Contact Layout -->
+      <div class="contact-container fade-in-delay-1">
+        <!-- Left Column: Contact Form -->
+        <div class="contact-form-section">
+          <div class="card">
+            <h2 class="mb-2"><i class="fas fa-paper-plane"></i> Kirim Pesan</h2>
 
-        <form id="contactForm">
-          <div class="mb-1">
-            <label for="nama" class="form-label">
-              Nama Lengkap <span class="text-danger">*</span>
-            </label>
-            <input
-              type="text"
-              id="nama"
-              name="nama"
-              required
-              class="form-input"
-              placeholder="Masukkan nama Anda"
-            />
+            <form id="contactForm">
+              <div class="mb-1">
+                <label for="nama" class="form-label">
+                  Nama Lengkap <span class="text-danger">*</span>
+                </label>
+                <input
+                  type="text"
+                  id="nama"
+                  name="nama"
+                  required
+                  class="form-input"
+                  placeholder="Contoh: Budi Santoso"
+                />
+              </div>
+
+              <div class="mb-1">
+                <label for="email" class="form-label">
+                  Email <span class="text-danger">*</span>
+                </label>
+                <input
+                  type="email"
+                  id="email"
+                  name="email"
+                  required
+                  class="form-input"
+                  placeholder="email@contoh.com"
+                />
+              </div>
+
+              <div class="mb-2">
+                <label for="pesan" class="form-label">
+                  Pesan <span class="text-danger">*</span>
+                </label>
+                <textarea
+                  id="pesan"
+                  name="pesan"
+                  rows="6"
+                  required
+                  class="form-input"
+                  placeholder="Tuliskan pertanyaan atau saran Anda..."
+                ></textarea>
+              </div>
+
+              <button type="submit" class="btn-primary w-full text-lg">
+                <i class="fas fa-paper-plane"></i> Kirim Pesan
+              </button>
+            </form>
           </div>
+        </div>
 
-          <div class="mb-1">
-            <label for="email" class="form-label">
-              Email <span class="text-danger">*</span>
-            </label>
-            <input
-              type="email"
-              id="email"
-              name="email"
-              required
-              class="form-input"
-              placeholder="contoh@email.com"
-            />
-          </div>
+        <!-- Right Column: Video & Contact Info -->
+        <div class="contact-video-section">
+          <div class="card">
+            <h2 class="mb-2"><i class="fas fa-video"></i> Video Perkenalan</h2>
+            <p class="text-muted mb-2">
+              Anggota kelompok memperkenalkan diri dan menjelaskan pembagian
+              tugas.
+            </p>
 
-          <div class="mb-1">
-            <label for="subjek" class="form-label"> Subjek </label>
-            <input
-              type="text"
-              id="subjek"
-              name="subjek"
-              class="form-input"
-              placeholder="Topik pesan Anda"
-            />
-          </div>
-
-          <div class="mb-2">
-            <label for="pesan" class="form-label">
-              Pesan <span class="text-danger">*</span>
-            </label>
-            <textarea
-              id="pesan"
-              name="pesan"
-              rows="5"
-              required
-              class="form-input"
-              placeholder="Tulis pesan Anda di sini..."
-            ></textarea>
-          </div>
-
-          <button type="submit" class="btn-primary w-full text-lg">
-            <i class="fas fa-paper-plane"></i> Kirim Pesan
-          </button>
-        </form>
-      </div>
-      <br />
-
-      <!-- Team Member Introduction Videos -->
-      <div class="card mt-2 animate-on-scroll">
-        <h2 class="text-center mb-2">Perkenalan Anggota Kelompok 6</h2>
-        <p class="text-center text-muted mb-2">
-          Kenalan dengan tim kami! Setiap anggota menjelaskan pembagian tugas
-          dalam pembuatan website ini.
-        </p>
-
-        <div class="team-videos-grid">
-          <!-- Member 1: Aufa Wafi Dhaifullah -->
-          <div class="team-video-card">
             <div class="video-wrapper">
               <iframe
                 src="https://www.youtube.com/embed/dQw4w9WgXcQ"
-                title="Perkenalan Aufa Wafi Dhaifullah"
+                title="Perkenalan Kelompok 6 - Pemrograman Web 1"
                 frameborder="0"
                 allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
                 allowfullscreen
                 loading="lazy"
               ></iframe>
             </div>
-            <div class="team-member-info">
-              <h3>Aufa Wafi Dhaifullah</h3>
-              <p class="nim">NIM: 231011401814</p>
-              <p class="role">Project Lead & Frontend Developer</p>
+
+            <!-- Contact Info -->
+            <div class="contact-info-box">
+              <h3 class="mb-1">
+                <i class="fas fa-address-card"></i> Kontak Cepat
+              </h3>
+              <div class="contact-info-item">
+                <i class="fas fa-envelope"></i>
+                <span>uas_kelompok6@unpam.ac.id</span>
+              </div>
+              <div class="contact-info-item">
+                <i class="fas fa-university"></i>
+                <span>Universitas Pamulang</span>
+              </div>
+              <div class="contact-info-item">
+                <i class="fas fa-phone"></i>
+                <span>+62 812-3456-7890</span>
+              </div>
             </div>
           </div>
-
-          <!-- Member 2: Ivandhika Satria Putra Ferdianto -->
-          <div class="team-video-card">
-            <div class="video-wrapper">
-              <iframe
-                src="https://www.youtube.com/embed/dQw4w9WgXcQ"
-                title="Perkenalan Ivandhika Satria Putra Ferdianto"
-                frameborder="0"
-                allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
-                allowfullscreen
-                loading="lazy"
-              ></iframe>
-            </div>
-            <div class="team-member-info">
-              <h3>Ivandhika Satria Putra Ferdianto</h3>
-              <p class="nim">NIM: 231011401818</p>
-              <p class="role">Content Writer & UI Designer</p>
-            </div>
-          </div>
-
-          <!-- Member 3: Fadlan Lesmana -->
-          <div class="team-video-card">
-            <div class="video-wrapper">
-              <iframe
-                src="https://www.youtube.com/embed/dQw4w9WgXcQ"
-                title="Perkenalan Fadlan Lesmana"
-                frameborder="0"
-                allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
-                allowfullscreen
-                loading="lazy"
-              ></iframe>
-            </div>
-            <div class="team-member-info">
-              <h3>Fadlan Lesmana</h3>
-              <p class="nim">NIM: 231011400735</p>
-              <p class="role">JavaScript Developer & Tester</p>
-            </div>
-          </div>
-        </div>
-      </div>
-      <br />
-
-      <div class="grid-3 mt-2 animate-on-scroll">
-        <div class="card text-center hover-scale">
-          <div class="info-icon"><i class="fas fa-university"></i></div>
-          <h3>Universitas</h3>
-          <p class="text-muted">Universitas Pamulang</p>
-        </div>
-
-        <div class="card text-center hover-scale">
-          <div class="info-icon"><i class="fas fa-book"></i></div>
-          <h3>Mata Kuliah</h3>
-          <p class="text-muted">Pemrograman Web 1</p>
-        </div>
-
-        <div class="card text-center hover-scale">
-          <div class="info-icon"><i class="fas fa-users"></i></div>
-          <h3>Kelompok</h3>
-          <p class="text-muted">Kelompok 6</p>
         </div>
       </div>
     </div>

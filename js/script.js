@@ -1,12 +1,16 @@
-/**
- * Website Tutorial Pemrograman Web 1
- * Kelompok 6 - Universitas Pamulang
- * UAS Pemrograman Web 1
- */
+/*
+Nama File    : script.js
+Tanggal      : 3 Januari 2026
+Kelas        : 05TPLP017
+Kelompok     : 6
+Anggota      : - Aufa Wafi Dhaifullah (231011401814)
+               - Fadlan Lesmana (231011400735)
+               - Ivandhika Satria Putra Ferdianto (231011401818)
+Deskripsi    : JavaScript untuk interaktivitas website
+               Navbar, dark mode, scroll animations, dan code toggles
+*/
 
-// ============================================
 // DARK MODE / THEME MANAGER
-// ============================================
 const toggleBtn = document.createElement("button");
 toggleBtn.id = "theme-toggle";
 toggleBtn.className = "theme-toggle";
